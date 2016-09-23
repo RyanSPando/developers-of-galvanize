@@ -1,0 +1,59 @@
+{% extends "_base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+<h2 class="register">{{ title }}</h2>
+<div class="form-group row">
+  <label for="text-input" class="col-xs-2 col-form-label">Username</label>
+  <div class="col-xs-10">
+    <input class="form-control" type="text" id="text-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="email-input" class="col-xs-2 col-form-label">Email</label>
+  <div class="col-xs-10">
+    <input class="form-control" type="email" id="email-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="email-conf" class="col-xs-2 col-form-label">Confirm Email</label>
+  <div class="col-xs-10">
+    <input class="form-control" type="email" id="email-conf">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="url-input" class="col-xs-2 col-form-label">URL</label>
+  <div class="col-xs-10">
+    <input class="form-control" type="url" id="url-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="password-input" class="col-xs-2 col-form-label">Password</label>
+  <div class="col-xs-10">
+    <input class="form-control" type="password" id="password-input">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="password-conf" class="col-xs-2 col-form-label">Confirm Password</label>
+  <div class="col-xs-10">
+    <input class="form-control" type="password" id="password-conf">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="color-input" class="col-xs-2 col-form-label">Color</label>
+  <div class="col-xs-10">
+    <input class="form-control" type="color" id="color-input">
+  </div>
+</div>
+
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/register.css" />
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="/js/register.js"></script>
+{% endblock %}s

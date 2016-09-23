@@ -1,6 +1,6 @@
-function func(){
-
-};
+function func() {
+  console.log('boop');
+}
 
 module.exports = {
   func

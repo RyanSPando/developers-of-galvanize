@@ -4,7 +4,7 @@
 
 {% block content %}
 
-<h2>{{ title }}</h2>
+<h2 class="register">{{ title }}</h2>
 <div class="form-group row">
   <label for="text-input" class="col-xs-2 col-form-label">Username</label>
   <div class="col-xs-10">
@@ -51,5 +51,9 @@
 {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="/css/highscores.css" />
+<link rel="stylesheet" href="/css/register.css" />
 {% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="/js/register.js"></script>
+{% endblock %}s

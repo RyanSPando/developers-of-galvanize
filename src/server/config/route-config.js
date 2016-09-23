@@ -19,7 +19,6 @@
     // // *** forgot-password *** //
     const forgot_password = require('../routes/forgot-password');
 
-
     // *** register index *** //
     app.use('/', index);
     // *** register highscores *** //

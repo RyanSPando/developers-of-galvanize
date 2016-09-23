@@ -1,0 +1,7 @@
+.canvas {
+  border-style: groove;
+  border-color: black;
+  box-shadow:
+   5px 5px 10px lightgrey,
+   -5px -5px 10px orange;
+}

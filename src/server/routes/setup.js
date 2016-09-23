@@ -5,7 +5,7 @@ const indexController = require('../controllers/index');
 
 router.get('/', function (req, res, next) {
   const renderObject = {};
-  renderObject.title = 'Home!';
+  renderObject.title = 'Setup!';
   res.render('index', renderObject);
 });
 

@@ -6,7 +6,7 @@ const indexController = require('../controllers/index');
 router.get('/', function (req, res, next) {
   const renderObject = {};
   renderObject.title = 'Play!';
-  res.render('index', renderObject);
+  res.render('./pages/play', renderObject);
 });
 
 module.exports = router;

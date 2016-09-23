@@ -5,7 +5,7 @@
   const app = require('./app');
   const debug = require('debug')('herman-express:server');
   const http = require('http');
-  var io = require('../lib/io');
+  var io = require('./config/io');
 
   const port = normalizePort(process.env.PORT || '3000');
   app.set('port', port);

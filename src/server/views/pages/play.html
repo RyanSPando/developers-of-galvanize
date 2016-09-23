@@ -6,7 +6,10 @@
 
 <h2>{{ title }}</h2>
 <canvas id="canvas" class="canvas" width="900" height="550"></canvas>
-
+<ul id="messages"></ul>
+  <form action="" id='chatInput'>
+    <input id="m" autocomplete="off" /><button>Send</button>
+</form>
 
 {% endblock %}
 
@@ -15,5 +18,7 @@
 {% endblock %}
 
 {% block scripts %}
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.js" charset="utf-8"></script>
+<!-- <script src="/socket.io/socket.io.js"></script> -->
 <script type="text/javascript" src="/js/play.js"></script>
 {% endblock %}

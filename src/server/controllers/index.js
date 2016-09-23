@@ -1,6 +1,6 @@
-function func(){
+function func() {
 
-};
+}
 
 module.exports = {
   func

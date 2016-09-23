@@ -6,7 +6,7 @@ const indexController = require('../controllers/index');
 router.get('/', function (req, res, next) {
   const renderObject = {};
   renderObject.title = 'OOPS! This page does not exist.';
-  res.render('index', renderObject);
+  res.render('./pages/other-pages', renderObject);
 });
 
 module.exports = router;

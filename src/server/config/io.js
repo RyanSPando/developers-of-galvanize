@@ -66,7 +66,7 @@ io.on('connection', function (socket) {
 
     // io.sockets.in sends a message to all sockets in this room
     // including the current socket
-    io.sockets.in(socket.room).emit('message', 'To everyone in ' + socket.room + '! (' + i + ')' );
+    io.sockets.in(socket.room).emit('message', 'To everyone in ' + socket.room + '! (' + i + ')');
     i++;
   });
 
@@ -76,7 +76,7 @@ io.on('connection', function (socket) {
 
     // socket.broadcast.to sends a message to all sockets _in this room_
     // excluding the current socket
-    socket.broadcast.to(socket.room).emit('message', 'To everyone in ' + socket.room + ' but origin! (' + i + ')' );
+    socket.broadcast.to(socket.room).emit('message', 'To everyone in ' + socket.room + ' but origin! (' + i + ')');
     i++;
   });
 });

@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('game',(table) => {
+  return knex.schema.createTable('games',(table) => {
     table.increments();
     table.integer('wheat_cards').defaultTo(19);
     table.integer('wood_cards').defaultTo(19);
@@ -15,5 +15,5 @@ exports.up = function(knex, Promise) {
   });
 };
 exports.down = function(knex, Promise) {
-
+  return knex.schema.dropTable('games');
 };

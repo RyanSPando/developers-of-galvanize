@@ -5,3 +5,9 @@
    5px 5px 10px lightgrey,
    -5px -5px 10px orange;
 }
+
+#messages{
+border:1px solid #aaa;
+height:100px;
+overflow:auto;
+}

@@ -5,8 +5,7 @@
 {% block content %}
 
 <h2>{{ title }}</h2>
-<canvas id="canvas" class="canvas" width="900" height="550"></canvas>
-
+{# <canvas id="canvas" class="canvas"></canvas> #}
 
 {% endblock %}
 
@@ -15,5 +14,6 @@
 {% endblock %}
 
 {% block scripts %}
+<script type="text/javascript" src="/js/pixi/pixi.min.js"></script>
 <script type="text/javascript" src="/js/play.js"></script>
 {% endblock %}

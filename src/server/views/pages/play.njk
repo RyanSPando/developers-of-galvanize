@@ -6,10 +6,34 @@
 
 <h2>{{ title }}</h2>
 <canvas id="canvas" class="canvas" width="900" height="550"></canvas>
-<ul id="messages"></ul>
-  <form action="" id='chatInput'>
-    <input id="m" autocomplete="off" /><button>Send</button>
-</form>
+<div class="container-fluid">
+   <div class="row">
+     <div class="col-xs-10">
+       <div id="messages"></div>
+     </div>
+     <div class="col-xs-2">
+   </div>
+ </div>
+ <div id="typing"></div>
+ <form action="javascript:void(0)" id="chatForm">
+   <input id="m" autocomplete="off" /><button>Send</button>
+ </form>
+ <!-- Modal -->
+ <div class="modal fade" id="myModal">
+   <div class="modal-dialog">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h4 class="modal-title">Welcome to the chat room! What's your name?</h4>
+       </div>
+       <div class="modal-body">
+         <form action="javascript:void(0)" id="nameForm">
+           <input id="username" class="form-control" autocomplete="off" autofocus>
+           <button type="submit" class="btn btn-primary">Ok!</button>
+         </form>
+       </div>
+     </div>
+   </div>
+ </div>
 
 {% endblock %}
 
@@ -21,4 +45,5 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.js" charset="utf-8"></script>
 <!-- <script src="/socket.io/socket.io.js"></script> -->
 <script type="text/javascript" src="/js/play.js"></script>
+<script type="text/javascript" src="/js/chat.js"></script>
 {% endblock %}

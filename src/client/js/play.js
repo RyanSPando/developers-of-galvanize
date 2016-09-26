@@ -1,100 +1,724 @@
-
-// (function () {
 //
-//   'use strict';
+// var ctx = canvas.getContext("2d");
 //
-//   var canvasElement = document.querySelector('canvas');
-//   var context = canvasElement.getContext('2d');
+// ctx.fillStyle = 'white';
+
+//every hex drawn left to right within row, each row drawn vertically from top to bottom
+
+// Row A
+
+//A1
+
+//create an image
+function drawA1() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/ore.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(250, 175);
+      ctx.lineTo(250, 125);
+      ctx.lineTo(300, 100);
+      ctx.lineTo(350, 125);
+      ctx.lineTo(350, 175);
+      ctx.lineTo(300, 200);
+      ctx.lineTo(250, 175);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 250, 100, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawA1();
+
+//A2
+
+function drawA2() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/sheep.JPG';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(350, 175);
+      ctx.lineTo(350, 125);
+      ctx.lineTo(400, 100);
+      ctx.lineTo(450, 125);
+      ctx.lineTo(450, 175);
+      ctx.lineTo(400, 200);
+      ctx.lineTo(350, 175);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 350, 100, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawA2();
+
+
+// //A3
+
+function drawA3() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/forest.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(450, 125);
+      ctx.lineTo(500, 100);
+      ctx.lineTo(550, 125);
+      ctx.lineTo(550, 175);
+      ctx.lineTo(500, 200);
+      ctx.lineTo(450, 175);
+      ctx.lineTo(450, 125);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 450, 100, 100, 200);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawA3();
+
+
+// //Row B
 //
-//   // the rectangle
-//   context.beginPath();
-//   context.rect(200, 100, 200, 400);
-//   context.closePath();
+// //B1
 //
-//   // the outline
-//   context.lineWidth = 10;
-//   context.strokeStyle = '#666666';
-//   context.stroke();
+
+function drawB1() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/wheat.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(200, 250);
+      ctx.lineTo(200, 200);
+      ctx.lineTo(250, 175);
+      ctx.lineTo(300, 200);
+      ctx.lineTo(300, 250);
+      ctx.lineTo(250, 275);
+      ctx.lineTo(200, 250);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 200, 175, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawB1();
+
+// //B2
+
+function drawB2() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/bricks.jpeg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(300, 250);
+      ctx.lineTo(300, 200);
+      ctx.lineTo(350, 175);
+      ctx.lineTo(400, 200);
+      ctx.lineTo(400, 250);
+      ctx.lineTo(350, 275);
+      ctx.lineTo(300, 250);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 300, 175, 175, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawB2();
+
+// //B3
+
+function drawB3() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/sheep.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(400, 250);
+      ctx.lineTo(400, 200);
+      ctx.lineTo(450, 175);
+      ctx.lineTo(500, 200);
+      ctx.lineTo(500, 250);
+      ctx.lineTo(450, 275);
+      ctx.lineTo(400, 250);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 400, 175, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawB3();
+
+// //B4
+
+function drawB4() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/bricks.jpeg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(550, 175);
+      ctx.lineTo(600, 200);
+      ctx.lineTo(600, 250);
+      ctx.lineTo(550, 275);
+      ctx.lineTo(500, 250);
+      ctx.lineTo(500, 200);
+      ctx.lineTo(550, 175);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 500, 175, 175, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawB4();
+
+// //Row C
 //
-//   // the fill color
-//   context.fillStyle = '#51DCFF';
-//   context.fill();
+// //C1
+
+function drawC1() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/wheat.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(200, 350);
+      ctx.lineTo(150, 325);
+      ctx.lineTo(150, 275);
+      ctx.lineTo(200, 250);
+      ctx.lineTo(250, 275);
+      ctx.lineTo(250, 325);
+      ctx.lineTo(200, 350);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 150, 250, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawC1();
+
 //
-// })();
+// //C2
 
-(function() {
-  var canvas = document.getElementById('canvas');
+function drawC2() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/forest.jpg';
 
-  var hexHeight = Math.sin(hexagonAngle) * sideLength,
-  hexRadius = Math.cos(hexagonAngle) * sideLength,
-  hexRectangleHeight = sideLength + 2 * hexHeight,
-  hexRectangleWidth = 2 * hexRadius,
-  hexagonAngle = 0.523598776, // 30 degrees in radians
-  sideLength = 50,
-  boardWidth = 7,
-  boardHeight = 2;
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
 
-  if (canvas.getContext) {
-    var ctx = canvas.getContext('2d');
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(300, 350);
+      ctx.lineTo(250, 325);
+      ctx.lineTo(250, 275);
+      ctx.lineTo(300, 250);
+      ctx.lineTo(350, 275);
+      ctx.lineTo(350, 325);
+      ctx.lineTo(300, 350);
+      ctx.closePath();
 
-    ctx.fillStyle = '#000000';
-    ctx.strokeStyle = '#CCCCCC';
-    ctx.lineWidth = 1;
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 250, 250, 100, 200);
 
-    drawBoard(ctx, boardWidth, boardHeight);
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
 
-    canvas.addEventListener('mousemove', function(eventInfo) {
-      var x = eventInfo.offsetX || eventInfo.layerX,
-      y = eventInfo.offsetY || eventInfo.layerY,
-      hexY = Math.floor(y / (hexHeight + sideLength)),
-      hexX = Math.floor((x - (hexY % 2) * hexRadius) / hexRectangleWidth),
-      screenX = hexX * hexRectangleWidth + ((hexY % 2) * hexRadius),
-      screenY = hexY * (hexHeight + sideLength);
+      ctx.restore();
+  };
+}
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+drawC2();
+//
+// //C3
 
-      drawBoard(ctx, boardWidth, boardHeight);
+function drawC3() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/desert.jpg';
 
-      // Check if the mouse's coords are on the board
-      if (hexX >= 0 && hexX < boardWidth) {
-        if (hexY >= 0 && hexY < boardHeight) {
-          ctx.fillStyle = '#000000';
-          drawHexagon(ctx, screenX, screenY, true);
-        }
-      }
-    });
-  }
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
 
-  function drawBoard(canvasContext, width, height) {
-    var i,
-    j;
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(400, 250);
+      ctx.lineTo(450, 275);
+      ctx.lineTo(450, 325);
+      ctx.lineTo(400, 350);
+      ctx.lineTo(350, 325);
+      ctx.lineTo(350, 275);
+      ctx.lineTo(400, 250);
+      ctx.closePath();
 
-    for (i = 0; i < height; ++i) {
-      console.log(i, '?height?');
-      for (j = 0; j < width; ++j) {
-        console.log(j, '?width?');
-        drawHexagon(
-          ctx,
-          i * hexRectangleWidth + ((j % 2) * hexRadius),
-          j * (sideLength + hexHeight),
-          false
-        );
-      }
-    }
-  }
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 350, 250, 150, 100);
 
-  function drawHexagon(canvasContext, x, y, fill = false) {
-    canvasContext.beginPath();
-    canvasContext.moveTo(x + hexRadius, y);
-    canvasContext.lineTo(x + hexRectangleWidth, y + hexHeight);
-    canvasContext.lineTo(x + hexRectangleWidth, y + hexHeight + sideLength);
-    canvasContext.lineTo(x + hexRadius, y + hexRectangleHeight);
-    canvasContext.lineTo(x, y + sideLength + hexHeight);
-    canvasContext.lineTo(x, y + hexHeight);
-    canvasContext.closePath();
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
 
-    if (fill) canvasContext.fill();
-    else canvasContext.stroke();
-  }
+      ctx.restore();
+  };
+}
 
-})();
+drawC3();
+
+// //C4
+
+function drawC4() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/forest.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(500, 250);
+      ctx.lineTo(550, 275);
+      ctx.lineTo(550, 325);
+      ctx.lineTo(500, 350);
+      ctx.lineTo(450, 325);
+      ctx.lineTo(450, 275);
+      ctx.lineTo(500, 250);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 450, 250, 100, 200);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawC4();
+
+// //C5
+
+function drawC5() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/ore.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(600, 250);
+      ctx.lineTo(650, 275);
+      ctx.lineTo(650, 325);
+      ctx.lineTo(600, 350);
+      ctx.lineTo(550, 325);
+      ctx.lineTo(550, 275);
+      ctx.lineTo(600, 250);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 550, 250, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawC5();
+
+// //Row D
+//
+// //D1
+
+function drawD1() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/forest.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(250, 425);
+      ctx.lineTo(200, 400);
+      ctx.lineTo(200, 350);
+      ctx.lineTo(250, 325);
+      ctx.lineTo(300, 350);
+      ctx.lineTo(300, 400);
+      ctx.lineTo(250, 425);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 200, 325, 100, 200);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawD1();
+
+// //D2
+
+function drawD2() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/ore.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(400, 400);
+      ctx.lineTo(350, 425);
+      ctx.lineTo(300, 400);
+      ctx.lineTo(300, 350);
+      ctx.lineTo(350, 325);
+      ctx.lineTo(400, 350);
+      ctx.lineTo(400, 400);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 300, 325, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawD2();
+
+// //D3
+
+function drawD3() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/wheat.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(500, 350);
+      ctx.lineTo(500, 400);
+      ctx.lineTo(450, 425);
+      ctx.lineTo(400, 400);
+      ctx.lineTo(400, 350);
+      ctx.lineTo(450, 325);
+      ctx.lineTo(500, 350);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 400, 325, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawD3();
+
+// //D4
+
+function drawD4() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/sheep.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(600, 350);
+      ctx.lineTo(600, 400);
+      ctx.lineTo(550, 425);
+      ctx.lineTo(500, 400);
+      ctx.lineTo(500, 350);
+      ctx.lineTo(550, 325);
+      ctx.lineTo(600, 350);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 500, 325, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawD4();
+
+// //Row E
+//
+// //E1
+
+function drawE1() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/bricks.jpeg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(350, 475);
+      ctx.lineTo(300, 500);
+      ctx.lineTo(250, 475);
+      ctx.lineTo(250, 425);
+      ctx.lineTo(300, 400);
+      ctx.lineTo(350, 425);
+      ctx.lineTo(350, 475);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 250, 400, 175, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawE1();
+
+// //E2
+
+function drawE2() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/wheat.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(450, 475);
+      ctx.lineTo(400, 500);
+      ctx.lineTo(350, 475);
+      ctx.lineTo(350, 425);
+      ctx.lineTo(400, 400);
+      ctx.lineTo(450, 425);
+      ctx.lineTo(450, 475);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 350, 400, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawE2();
+
+// //E3
+
+function drawE3() {
+  var canvas = document.getElementById('hexmap');
+  var img = new Image();
+  img.src = 'images/sheep.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(550, 425);
+      ctx.lineTo(550, 475);
+      ctx.lineTo(500, 500);
+      ctx.lineTo(450, 475);
+      ctx.lineTo(450, 425);
+      ctx.lineTo(500, 400);
+      ctx.lineTo(550, 425);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 450, 400, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.restore();
+  };
+}
+
+drawE3();

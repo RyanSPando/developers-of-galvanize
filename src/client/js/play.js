@@ -1,23 +1,15 @@
-//
-// var ctx = canvas.getContext('2d');
-//
-// ctx.fillStyle = 'white';
-
-//every hex drawn left to right within row, each row drawn vertically from top to bottom
-
+var canvas = document.getElementById('hexmap');
+var ctx = canvas.getContext('2d');
 // Row A
-
 //A1
 
 //create an image
 function drawA1() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/ore.jpg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -48,13 +40,11 @@ drawA1();
 //A2
 
 function drawA2() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/sheep.JPG';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -85,13 +75,11 @@ drawA2();
 // //A3
 
 function drawA3() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
-  img.src = 'images/forest.jpg';
+  img.src = 'images/lumber.jpg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -125,13 +113,11 @@ drawA3();
 //
 
 function drawB1() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/wheat.jpg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -162,13 +148,11 @@ drawB1();
 // //B2
 
 function drawB2() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
-  img.src = 'images/bricks.jpeg';
+  img.src = 'images/brick.jpeg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -199,13 +183,11 @@ drawB2();
 // //B3
 
 function drawB3() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/sheep.jpg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -236,13 +218,11 @@ drawB3();
 // //B4
 
 function drawB4() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
-  img.src = 'images/bricks.jpeg';
+  img.src = 'images/brick.jpeg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -275,13 +255,11 @@ drawB4();
 // //C1
 
 function drawC1() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/wheat.jpg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -313,13 +291,11 @@ drawC1();
 // //C2
 
 function drawC2() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
-  img.src = 'images/forest.jpg';
+  img.src = 'images/lumber.jpg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -350,13 +326,11 @@ drawC2();
 // //C3
 
 function drawC3() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/desert.jpg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -387,13 +361,11 @@ drawC3();
 // //C4
 
 function drawC4() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
-  img.src = 'images/forest.jpg';
+  img.src = 'images/lumber.jpg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -424,13 +396,11 @@ drawC4();
 // //C5
 
 function drawC5() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/ore.jpg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -463,13 +433,11 @@ drawC5();
 // //D1
 
 function drawD1() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
-  img.src = 'images/forest.jpg';
+  img.src = 'images/lumber.jpg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -500,13 +468,11 @@ drawD1();
 // //D2
 
 function drawD2() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/ore.jpg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -537,13 +503,11 @@ drawD2();
 // //D3
 
 function drawD3() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/wheat.jpg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -574,13 +538,11 @@ drawD3();
 // //D4
 
 function drawD4() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/sheep.jpg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -613,13 +575,11 @@ drawD4();
 // //E1
 
 function drawE1() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
-  img.src = 'images/bricks.jpeg';
+  img.src = 'images/brick.jpeg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -650,13 +610,11 @@ drawE1();
 // //E2
 
 function drawE2() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/wheat.jpg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 
@@ -687,13 +645,11 @@ drawE2();
 // //E3
 
 function drawE3() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/sheep.jpg';
 
   //draw the image when loaded
   img.onload = function() {
-    var ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
     ctx.save();
 

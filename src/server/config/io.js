@@ -12,12 +12,6 @@ function init(io) {
       io.emit('chat message', `${name}: ${msg}`);
     });
 
-    socket.on('giphy message', function(src) {
-      var userIdx = findUserIndexBySocket(socket);
-      var name = userIdx > -1 ? users[userIdx].name : 'anonymous';
-      io.emit('giphy message', `${name}: <img src="${src}">`);
-    });
-
     socket.on('join chat', function(msg) {
       users.push({name: msg, socketId: socket.id});
       io.emit('join chat', msg);
@@ -35,29 +29,27 @@ function init(io) {
       }
     });
 
-    socket.on('dice-roll', function() {
-      const userIdx = findUserIndexBySocket(socket);
-      const diceRoll = diceRoll();
-      io.emit('dice-roll', diceRoll, users[userIdx].name);
+    socket.on('dice-roll', function(name) {
+      const diceResult = diceRoll();
+      io.emit('dice-roll', diceResult, name);
     });
   });
 }
-
+//finds index of user in array by their socket
 function findUserIndexBySocket(socket) {
   return users.reduce(function(prev, cur, idx) {
     if (cur.socketId === socket.id) prev = idx;
     return prev;
   }, -1);
 }
-
+//return an array with two six sided dice rolls in position 0 and 1 and their total in position 2.
 function diceRoll() {
-  const dice1 = Math.ceiling(Math.random() * 6);
-  const dice2 = Math.ceiling(Math.random() * 6);
+  const dice1 = Math.ceil(Math.random() * 6);
+  const dice2 = Math.ceil(Math.random() * 6);
   const total = dice1 + dice2;
   return [dice1, dice2, total];
 }
 
 module.exports = {
-  init,
-  findUserIndexBySocket
+  init
 };

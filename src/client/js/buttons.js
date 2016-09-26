@@ -1,9 +1,17 @@
 $(document).ready(function() {
 var socket = io();
 
-  $('#roll-dice').on('click', function(e){
+  //ask for a dice roll
+  $('#roll-dice-form').on('submit', (e) => {
       e.preventDefault();
-      var msg =
-        socket.emit('roll dice');
+      const name = $('#myName').val();
+      socket.emit('dice-roll', name);
+
     });
+
+  //display dice roll in chat with the name of the person who requested it
+  socket.on('dice-roll', (diceArray, name) => {
+    $('#messages').append($('<li>').text(`${name} just rolled a ${diceArray[0]} and ${diceArray[1]} for a total of ${diceArray[2]}`));
+    scrollChat();
+  });
 });

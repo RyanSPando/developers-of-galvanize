@@ -1,11 +1,11 @@
 class Development {
   constructor() {
-    this.knight = 14
-    this.victoryPoints = 5
-    this.roadBuilding = 2
-    this.monopoly = 2
-    this.yearOfPlenty = 2
-    this.total = this.knight + this.victoryPoints + this.roadBuilding + this.monopoly + this.yearOfPlenty
+    this.knight = 14;
+    this.victoryPoints = 5;
+    this.roadBuilding = 2;
+    this.monopoly = 2;
+    this.yearOfPlenty = 2;
+    this.total = this.knight + this.victoryPoints + this.roadBuilding + this.monopoly + this.yearOfPlenty;
   }
 
   draw() {

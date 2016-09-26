@@ -1,5 +1,5 @@
 $(document).ready(function() {
-var socket = io();
+  var socket = io();
 
   //ask for a dice roll
   $('#roll-dice-form').on('submit', (e) => {

@@ -1,6 +1,7 @@
 // connected in server/server.js
 // var i = 0;
 
+const resolveDiceRoll = require('../controllers/helpers/diceRoll').resolveDiceRoll;
 var users = [];
 
 function init(io) {
@@ -31,6 +32,7 @@ function init(io) {
 
     socket.on('dice-roll', function(name) {
       const diceResult = diceRoll();
+      resolveDiceRoll(diceResult[2]);
       io.emit('dice-roll', diceResult, name);
     });
   });

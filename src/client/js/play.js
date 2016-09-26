@@ -10,6 +10,9 @@ document.body.appendChild(renderer.view);
 var stage = new PIXI.Container();
 //Tell the `renderer` to `render` the `stage`
 var graphics = new PIXI.Graphics();
+var sprite = new PIXI.Sprite.fromImage('../assets/computerboy.png');
+// PIXI.BaseTexture.fromImage('../assets/computer.jpg');
+
 //----- First Row -----//
 //top left hexagon
 graphics.beginFill(0x277f00);
@@ -20,6 +23,7 @@ graphics.drawPolygon([390, 75,//starting point x,y
                       490, 250,//right bottom line x,y
                       490, 125//right side line x,
                     ]);
+graphics.addChild(sprite);
 graphics.endFill();
 //middle hexagon
 graphics.beginFill(0x277f00);
@@ -216,6 +220,7 @@ graphics.endFill();
 //-----End Fifth Row-----//
 
 //Add the graphics to the stage
+graphics.addChild(sprite);
 stage.addChild(graphics);
 renderer.backgroundColor = 0x6153255;
 renderer.render(stage);

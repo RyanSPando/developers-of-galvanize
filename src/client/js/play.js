@@ -1,5 +1,5 @@
 //
-// var ctx = canvas.getContext("2d");
+// var ctx = canvas.getContext('2d');
 //
 // ctx.fillStyle = 'white';
 
@@ -16,30 +16,30 @@ function drawA1() {
   img.src = 'images/ore.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(250, 175);
-      ctx.lineTo(250, 125);
-      ctx.lineTo(300, 100);
-      ctx.lineTo(350, 125);
-      ctx.lineTo(350, 175);
-      ctx.lineTo(300, 200);
-      ctx.lineTo(250, 175);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(250, 175);
+    ctx.lineTo(250, 125);
+    ctx.lineTo(300, 100);
+    ctx.lineTo(350, 125);
+    ctx.lineTo(350, 175);
+    ctx.lineTo(300, 200);
+    ctx.lineTo(250, 175);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 250, 100, 100, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 250, 100, 100, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -53,35 +53,34 @@ function drawA2() {
   img.src = 'images/sheep.JPG';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(350, 175);
-      ctx.lineTo(350, 125);
-      ctx.lineTo(400, 100);
-      ctx.lineTo(450, 125);
-      ctx.lineTo(450, 175);
-      ctx.lineTo(400, 200);
-      ctx.lineTo(350, 175);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(350, 175);
+    ctx.lineTo(350, 125);
+    ctx.lineTo(400, 100);
+    ctx.lineTo(450, 125);
+    ctx.lineTo(450, 175);
+    ctx.lineTo(400, 200);
+    ctx.lineTo(350, 175);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 350, 100, 100, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 350, 100, 100, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
 drawA2();
-
 
 // //A3
 
@@ -91,35 +90,34 @@ function drawA3() {
   img.src = 'images/forest.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(450, 125);
-      ctx.lineTo(500, 100);
-      ctx.lineTo(550, 125);
-      ctx.lineTo(550, 175);
-      ctx.lineTo(500, 200);
-      ctx.lineTo(450, 175);
-      ctx.lineTo(450, 125);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(450, 125);
+    ctx.lineTo(500, 100);
+    ctx.lineTo(550, 125);
+    ctx.lineTo(550, 175);
+    ctx.lineTo(500, 200);
+    ctx.lineTo(450, 175);
+    ctx.lineTo(450, 125);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 450, 100, 100, 200);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 450, 100, 100, 200);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
 drawA3();
-
 
 // //Row B
 //
@@ -132,30 +130,30 @@ function drawB1() {
   img.src = 'images/wheat.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(200, 250);
-      ctx.lineTo(200, 200);
-      ctx.lineTo(250, 175);
-      ctx.lineTo(300, 200);
-      ctx.lineTo(300, 250);
-      ctx.lineTo(250, 275);
-      ctx.lineTo(200, 250);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(200, 250);
+    ctx.lineTo(200, 200);
+    ctx.lineTo(250, 175);
+    ctx.lineTo(300, 200);
+    ctx.lineTo(300, 250);
+    ctx.lineTo(250, 275);
+    ctx.lineTo(200, 250);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 200, 175, 100, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 200, 175, 100, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -169,30 +167,30 @@ function drawB2() {
   img.src = 'images/bricks.jpeg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(300, 250);
-      ctx.lineTo(300, 200);
-      ctx.lineTo(350, 175);
-      ctx.lineTo(400, 200);
-      ctx.lineTo(400, 250);
-      ctx.lineTo(350, 275);
-      ctx.lineTo(300, 250);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(300, 250);
+    ctx.lineTo(300, 200);
+    ctx.lineTo(350, 175);
+    ctx.lineTo(400, 200);
+    ctx.lineTo(400, 250);
+    ctx.lineTo(350, 275);
+    ctx.lineTo(300, 250);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 300, 175, 175, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 300, 175, 175, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -206,30 +204,30 @@ function drawB3() {
   img.src = 'images/sheep.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(400, 250);
-      ctx.lineTo(400, 200);
-      ctx.lineTo(450, 175);
-      ctx.lineTo(500, 200);
-      ctx.lineTo(500, 250);
-      ctx.lineTo(450, 275);
-      ctx.lineTo(400, 250);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(400, 250);
+    ctx.lineTo(400, 200);
+    ctx.lineTo(450, 175);
+    ctx.lineTo(500, 200);
+    ctx.lineTo(500, 250);
+    ctx.lineTo(450, 275);
+    ctx.lineTo(400, 250);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 400, 175, 100, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 400, 175, 100, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -243,30 +241,30 @@ function drawB4() {
   img.src = 'images/bricks.jpeg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(550, 175);
-      ctx.lineTo(600, 200);
-      ctx.lineTo(600, 250);
-      ctx.lineTo(550, 275);
-      ctx.lineTo(500, 250);
-      ctx.lineTo(500, 200);
-      ctx.lineTo(550, 175);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(550, 175);
+    ctx.lineTo(600, 200);
+    ctx.lineTo(600, 250);
+    ctx.lineTo(550, 275);
+    ctx.lineTo(500, 250);
+    ctx.lineTo(500, 200);
+    ctx.lineTo(550, 175);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 500, 175, 175, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 500, 175, 175, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -282,30 +280,30 @@ function drawC1() {
   img.src = 'images/wheat.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(200, 350);
-      ctx.lineTo(150, 325);
-      ctx.lineTo(150, 275);
-      ctx.lineTo(200, 250);
-      ctx.lineTo(250, 275);
-      ctx.lineTo(250, 325);
-      ctx.lineTo(200, 350);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(200, 350);
+    ctx.lineTo(150, 325);
+    ctx.lineTo(150, 275);
+    ctx.lineTo(200, 250);
+    ctx.lineTo(250, 275);
+    ctx.lineTo(250, 325);
+    ctx.lineTo(200, 350);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 150, 250, 100, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 150, 250, 100, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -320,30 +318,30 @@ function drawC2() {
   img.src = 'images/forest.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(300, 350);
-      ctx.lineTo(250, 325);
-      ctx.lineTo(250, 275);
-      ctx.lineTo(300, 250);
-      ctx.lineTo(350, 275);
-      ctx.lineTo(350, 325);
-      ctx.lineTo(300, 350);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(300, 350);
+    ctx.lineTo(250, 325);
+    ctx.lineTo(250, 275);
+    ctx.lineTo(300, 250);
+    ctx.lineTo(350, 275);
+    ctx.lineTo(350, 325);
+    ctx.lineTo(300, 350);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 250, 250, 100, 200);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 250, 250, 100, 200);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -357,30 +355,30 @@ function drawC3() {
   img.src = 'images/desert.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(400, 250);
-      ctx.lineTo(450, 275);
-      ctx.lineTo(450, 325);
-      ctx.lineTo(400, 350);
-      ctx.lineTo(350, 325);
-      ctx.lineTo(350, 275);
-      ctx.lineTo(400, 250);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(400, 250);
+    ctx.lineTo(450, 275);
+    ctx.lineTo(450, 325);
+    ctx.lineTo(400, 350);
+    ctx.lineTo(350, 325);
+    ctx.lineTo(350, 275);
+    ctx.lineTo(400, 250);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 350, 250, 150, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 350, 250, 150, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -394,30 +392,30 @@ function drawC4() {
   img.src = 'images/forest.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(500, 250);
-      ctx.lineTo(550, 275);
-      ctx.lineTo(550, 325);
-      ctx.lineTo(500, 350);
-      ctx.lineTo(450, 325);
-      ctx.lineTo(450, 275);
-      ctx.lineTo(500, 250);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(500, 250);
+    ctx.lineTo(550, 275);
+    ctx.lineTo(550, 325);
+    ctx.lineTo(500, 350);
+    ctx.lineTo(450, 325);
+    ctx.lineTo(450, 275);
+    ctx.lineTo(500, 250);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 450, 250, 100, 200);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 450, 250, 100, 200);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -431,30 +429,30 @@ function drawC5() {
   img.src = 'images/ore.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(600, 250);
-      ctx.lineTo(650, 275);
-      ctx.lineTo(650, 325);
-      ctx.lineTo(600, 350);
-      ctx.lineTo(550, 325);
-      ctx.lineTo(550, 275);
-      ctx.lineTo(600, 250);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(600, 250);
+    ctx.lineTo(650, 275);
+    ctx.lineTo(650, 325);
+    ctx.lineTo(600, 350);
+    ctx.lineTo(550, 325);
+    ctx.lineTo(550, 275);
+    ctx.lineTo(600, 250);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 550, 250, 100, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 550, 250, 100, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -470,30 +468,30 @@ function drawD1() {
   img.src = 'images/forest.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(250, 425);
-      ctx.lineTo(200, 400);
-      ctx.lineTo(200, 350);
-      ctx.lineTo(250, 325);
-      ctx.lineTo(300, 350);
-      ctx.lineTo(300, 400);
-      ctx.lineTo(250, 425);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(250, 425);
+    ctx.lineTo(200, 400);
+    ctx.lineTo(200, 350);
+    ctx.lineTo(250, 325);
+    ctx.lineTo(300, 350);
+    ctx.lineTo(300, 400);
+    ctx.lineTo(250, 425);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 200, 325, 100, 200);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 200, 325, 100, 200);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -507,30 +505,30 @@ function drawD2() {
   img.src = 'images/ore.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(400, 400);
-      ctx.lineTo(350, 425);
-      ctx.lineTo(300, 400);
-      ctx.lineTo(300, 350);
-      ctx.lineTo(350, 325);
-      ctx.lineTo(400, 350);
-      ctx.lineTo(400, 400);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(400, 400);
+    ctx.lineTo(350, 425);
+    ctx.lineTo(300, 400);
+    ctx.lineTo(300, 350);
+    ctx.lineTo(350, 325);
+    ctx.lineTo(400, 350);
+    ctx.lineTo(400, 400);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 300, 325, 100, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 300, 325, 100, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -544,30 +542,30 @@ function drawD3() {
   img.src = 'images/wheat.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(500, 350);
-      ctx.lineTo(500, 400);
-      ctx.lineTo(450, 425);
-      ctx.lineTo(400, 400);
-      ctx.lineTo(400, 350);
-      ctx.lineTo(450, 325);
-      ctx.lineTo(500, 350);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(500, 350);
+    ctx.lineTo(500, 400);
+    ctx.lineTo(450, 425);
+    ctx.lineTo(400, 400);
+    ctx.lineTo(400, 350);
+    ctx.lineTo(450, 325);
+    ctx.lineTo(500, 350);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 400, 325, 100, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 400, 325, 100, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -581,30 +579,30 @@ function drawD4() {
   img.src = 'images/sheep.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(600, 350);
-      ctx.lineTo(600, 400);
-      ctx.lineTo(550, 425);
-      ctx.lineTo(500, 400);
-      ctx.lineTo(500, 350);
-      ctx.lineTo(550, 325);
-      ctx.lineTo(600, 350);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(600, 350);
+    ctx.lineTo(600, 400);
+    ctx.lineTo(550, 425);
+    ctx.lineTo(500, 400);
+    ctx.lineTo(500, 350);
+    ctx.lineTo(550, 325);
+    ctx.lineTo(600, 350);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 500, 325, 100, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 500, 325, 100, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -620,30 +618,30 @@ function drawE1() {
   img.src = 'images/bricks.jpeg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(350, 475);
-      ctx.lineTo(300, 500);
-      ctx.lineTo(250, 475);
-      ctx.lineTo(250, 425);
-      ctx.lineTo(300, 400);
-      ctx.lineTo(350, 425);
-      ctx.lineTo(350, 475);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(350, 475);
+    ctx.lineTo(300, 500);
+    ctx.lineTo(250, 475);
+    ctx.lineTo(250, 425);
+    ctx.lineTo(300, 400);
+    ctx.lineTo(350, 425);
+    ctx.lineTo(350, 475);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 250, 400, 175, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 250, 400, 175, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -657,30 +655,30 @@ function drawE2() {
   img.src = 'images/wheat.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(450, 475);
-      ctx.lineTo(400, 500);
-      ctx.lineTo(350, 475);
-      ctx.lineTo(350, 425);
-      ctx.lineTo(400, 400);
-      ctx.lineTo(450, 425);
-      ctx.lineTo(450, 475);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(450, 475);
+    ctx.lineTo(400, 500);
+    ctx.lineTo(350, 475);
+    ctx.lineTo(350, 425);
+    ctx.lineTo(400, 400);
+    ctx.lineTo(450, 425);
+    ctx.lineTo(450, 475);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 350, 400, 100, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 350, 400, 100, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -694,30 +692,30 @@ function drawE3() {
   img.src = 'images/sheep.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(550, 425);
-      ctx.lineTo(550, 475);
-      ctx.lineTo(500, 500);
-      ctx.lineTo(450, 475);
-      ctx.lineTo(450, 425);
-      ctx.lineTo(500, 400);
-      ctx.lineTo(550, 425);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(550, 425);
+    ctx.lineTo(550, 475);
+    ctx.lineTo(500, 500);
+    ctx.lineTo(450, 475);
+    ctx.lineTo(450, 425);
+    ctx.lineTo(500, 400);
+    ctx.lineTo(550, 425);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 450, 400, 100, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 450, 400, 100, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 

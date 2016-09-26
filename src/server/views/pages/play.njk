@@ -12,12 +12,13 @@
        <div id="messages"></div>
      </div>
      <div class="col-xs-2">
+       <button class="btn" type="button" name="roll-dice" id="roll-dice"></button>
+     </div>
    </div>
- </div>
- <div id="typing"></div>
- <form action="javascript:void(0)" id="chatForm">
-   <input id="m" autocomplete="off" /><button>Send</button>
- </form>
+   <div id="typing"></div>
+   <form action="javascript:void(0)" id="chatForm">
+     <input id="m" autocomplete="off" /><button>Send</button>
+   </form>
  <!-- Modal -->
  <div class="modal fade" id="myModal">
    <div class="modal-dialog">
@@ -46,4 +47,5 @@
 <!-- <script src="/socket.io/socket.io.js"></script> -->
 <script type="text/javascript" src="/js/play.js"></script>
 <script type="text/javascript" src="/js/chat.js"></script>
+<script type="text/javascript" src="/js/buttons.js"></script>
 {% endblock %}

@@ -34,12 +34,14 @@ function init(io) {
         io.emit('leave chat', disconnectedUser.name);
       }
     });
+
+    socket.on('dice-roll', function() {
+      const userIdx = findUserIndexBySocket(socket);
+      const diceRoll = diceRoll();
+      io.emit('dice-roll', diceRoll, users[userIdx].name);
+    });
   });
 }
-
-module.exports = {
-  init
-};
 
 function findUserIndexBySocket(socket) {
   return users.reduce(function(prev, cur, idx) {
@@ -47,3 +49,15 @@ function findUserIndexBySocket(socket) {
     return prev;
   }, -1);
 }
+
+function diceRoll() {
+  const dice1 = Math.ceiling(Math.random() * 6);
+  const dice2 = Math.ceiling(Math.random() * 6);
+  const total = dice1 + dice2;
+  return [dice1, dice2, total];
+}
+
+module.exports = {
+  init,
+  findUserIndexBySocket
+};

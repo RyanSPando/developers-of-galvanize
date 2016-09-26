@@ -98,10 +98,10 @@ $('#chatForm').submit(function(e){
   // display name of user when their socket closes
   socket.on('leave chat', function(name) {
     $('#users li').each(function() {
-      var el = $(this);
-      if (el.text() === name) {
+      var $el = $(this);
+      if ($el.text() === name) {
         $('#messages').append($('<li class="room-change">').text(name + ' has just left the chat. :('));
-        el.remove();
+        $el.remove();
         $("#typing").text('');
         return;
       }

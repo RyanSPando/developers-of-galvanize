@@ -8,27 +8,32 @@ class Development {
     this.total = this.knight + this.victoryPoints + this.roadBuilding + this.monopoly + this.yearOfPlenty
   }
 
-  get size() {return this.total;}
-
   draw() {
-    let number = (Math.ceil(Math.random() * this.size()));
-    switch (number) {
-      case (number <= this.knight):
-        this.knight--;
-        return 'knight';
-      case (number <= (this.victoryPoints + this.knight)):
-        this.victoryPoints--;
-        return 'victoryPoints';
-      case (number <= (this.victoryPoints + this.knight + this.roadBuilding)):
-        this.roadBuilding--;
-        return 'roadBuilding';
-      case (number <= (this.victoryPoints + this.knight + this.roadBuilding + this.monopoly)):
-        this.monopoly--;
-        return 'monopoly';
-      default:
-        this.yearOfPlenty--;
-        return 'yearOfPlenty';
-    }
+    if (this.total) {
+      let number = (Math.ceil(Math.random() * this.total()));
+      switch (number) {
+        case (number <= this.knight):
+          this.knight--;
+          this.total--;
+          return 'knight';
+        case (number <= (this.victoryPoints + this.knight)):
+          this.victoryPoints--;
+          this.total--;
+          return 'victoryPoints';
+        case (number <= (this.victoryPoints + this.knight + this.roadBuilding)):
+          this.roadBuilding--;
+          this.total--;
+          return 'roadBuilding';
+        case (number <= (this.victoryPoints + this.knight + this.roadBuilding + this.monopoly)):
+          this.monopoly--;
+          this.total--;
+          return 'monopoly';
+        default:
+          this.yearOfPlenty--;
+          this.total--;
+          return 'yearOfPlenty';
+      }
+    } else return 'deckEmpty';
   }
 }
 

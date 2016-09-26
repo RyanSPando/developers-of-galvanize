@@ -1,5 +1,6 @@
-var canvas = document.getElementById('hexmap');
-var ctx = canvas.getContext('2d');
+const canvas = document.getElementById('hexmap');
+const ctx = canvas.getContext('2d');
+
 // Row A
 //A1
 
@@ -10,7 +11,6 @@ function drawA1() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -45,7 +45,6 @@ function drawA2() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -80,7 +79,6 @@ function drawA3() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -118,7 +116,6 @@ function drawB1() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -153,7 +150,6 @@ function drawB2() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -188,7 +184,6 @@ function drawB3() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -223,7 +218,6 @@ function drawB4() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -260,7 +254,6 @@ function drawC1() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -296,7 +289,6 @@ function drawC2() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -331,7 +323,6 @@ function drawC3() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -366,7 +357,6 @@ function drawC4() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -401,7 +391,6 @@ function drawC5() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -438,7 +427,6 @@ function drawD1() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -473,7 +461,6 @@ function drawD2() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -508,7 +495,6 @@ function drawD3() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -543,7 +529,6 @@ function drawD4() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -580,7 +565,6 @@ function drawE1() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -615,7 +599,6 @@ function drawE2() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon
@@ -650,7 +633,6 @@ function drawE3() {
 
   //draw the image when loaded
   img.onload = function() {
-    ctx.fillStyle = 'white';
     ctx.save();
 
     //define the polygon

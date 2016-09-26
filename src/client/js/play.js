@@ -18,7 +18,6 @@ function drawA1() {
   //draw the image when loaded
   img.onload = function(){
       var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
       ctx.save();
 
       //define the polygon
@@ -38,6 +37,17 @@ function drawA1() {
 
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
+      //draw circle inside hexagon;
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(300, 150, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(10, 289, 157);
+      ctx.fill();
 
       ctx.restore();
   };
@@ -75,6 +85,17 @@ function drawA2() {
 
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
+      //draw circle inside hexagon;
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(400, 150, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(2, 393, 157);
+      ctx.fill();
 
       ctx.restore();
   };
@@ -114,12 +135,22 @@ function drawA3() {
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
 
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(500, 150, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(9, 495, 157);
+      ctx.fill();
+
       ctx.restore();
   };
 }
 
 drawA3();
-
 
 // //Row B
 //
@@ -154,6 +185,17 @@ function drawB1() {
 
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(250, 225, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(12, 238, 232);
+      ctx.fill();
 
       ctx.restore();
   };
@@ -192,6 +234,17 @@ function drawB2() {
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
 
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(350, 225, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(6, 345, 232);
+      ctx.fill();
+
       ctx.restore();
   };
 }
@@ -229,6 +282,17 @@ function drawB3() {
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
 
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(450, 225, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(4, 445, 232);
+      ctx.fill();
+
       ctx.restore();
   };
 }
@@ -265,6 +329,17 @@ function drawB4() {
 
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(550, 225, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(10, 539, 232);
+      ctx.fill();
 
       ctx.restore();
   };
@@ -305,6 +380,17 @@ function drawC1() {
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
 
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(200, 300, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(9, 195, 308);
+      ctx.fill();
+
       ctx.restore();
   };
 }
@@ -342,6 +428,17 @@ function drawC2() {
 
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(300, 300, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(11, 290, 308);
+      ctx.fill();
 
       ctx.restore();
   };
@@ -417,6 +514,17 @@ function drawC4() {
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
 
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(500, 300, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(3, 494, 308);
+      ctx.fill();
+
       ctx.restore();
   };
 }
@@ -453,6 +561,17 @@ function drawC5() {
 
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(600, 300, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(8, 594, 308);
+      ctx.fill();
 
       ctx.restore();
   };
@@ -493,6 +612,17 @@ function drawD1() {
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
 
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(250, 375, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(8, 244, 382);
+      ctx.fill();
+
       ctx.restore();
   };
 }
@@ -529,6 +659,17 @@ function drawD2() {
 
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(350, 375, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(3, 344, 382);
+      ctx.fill();
 
       ctx.restore();
   };
@@ -567,6 +708,17 @@ function drawD3() {
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
 
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(450, 375, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(4, 444, 382);
+      ctx.fill();
+
       ctx.restore();
   };
 }
@@ -603,6 +755,17 @@ function drawD4() {
 
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(550, 375, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(5, 544, 382);
+      ctx.fill();
 
       ctx.restore();
   };
@@ -643,6 +806,17 @@ function drawE1() {
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
 
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(300, 450, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(5, 295, 458);
+      ctx.fill();
+
       ctx.restore();
   };
 }
@@ -680,6 +854,17 @@ function drawE2() {
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
 
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(400, 450, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(6, 395, 458);
+      ctx.fill();
+
       ctx.restore();
   };
 }
@@ -716,6 +901,17 @@ function drawE3() {
 
       //fill and stroke are still available for overlays and borders
       ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(500, 450, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(11, 490, 457);
+      ctx.fill();
 
       ctx.restore();
   };

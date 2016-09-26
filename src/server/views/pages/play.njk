@@ -12,12 +12,16 @@
        <div id="messages"></div>
      </div>
      <div class="col-xs-2">
+       <form class="" action="javascript:void(0)" id="roll-dice-form">
+         <button class="btn" type="send" name="roll-dice" id="roll-dice">Roll</button>
+       </form>
+       <data value="" id="myName"></data>
+     </div>
    </div>
- </div>
- <div id="typing"></div>
- <form action="javascript:void(0)" id="chatForm">
-   <input id="m" autocomplete="off" /><button>Send</button>
- </form>
+   <div id="typing"></div>
+   <form action="javascript:void(0)" id="chatForm">
+     <input id="m" autocomplete="off" /><button>Send</button>
+   </form>
  <!-- Modal -->
  <div class="modal fade" id="myModal">
    <div class="modal-dialog">
@@ -45,5 +49,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.js" charset="utf-8"></script>
 <!-- <script src="/socket.io/socket.io.js"></script> -->
 <script type="text/javascript" src="/js/play.js"></script>
+<script type="text/javascript" src="/js/utility.js"></script>
 <script type="text/javascript" src="/js/chat.js"></script>
+<script type="text/javascript" src="/js/buttons.js"></script>
 {% endblock %}

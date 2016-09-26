@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
- var socket = io();
+ var socket = io(); // jshint ignore:line
  // show modal for new user name input
 $('#myModal').modal('show');
 
@@ -29,14 +29,14 @@ $('#chatForm').submit(function(e){
     $('#username').val(name);
     socket.emit('join chat', name);
     $('#myModal').modal('hide');
-    $('#myName').val(name); 
+    $('#myName').val(name);
   });
 
   // add message to chat window
   socket.on('chat message', function(msg){
     $('#messages').append($('<li>').text(msg));
     $("#typing").text('');
-    scrollChat();
+    scrollChat(); // jshint ignore:line
   });
 
   // display name of current typing user

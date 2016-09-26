@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
- var socket = io();
- // show modal for new user name input
-$('#myModal').modal('show');
+  var socket = io(); // jshint ignore:line
+  // show modal for new user name input
+  $('#myModal').modal('show');
 
-$('#chatForm').submit(function(e){
+  $('#chatForm').submit(function(e) {
     e.preventDefault();
     var msg = $('#m').val();
     socket.emit('chat message', msg);
@@ -12,7 +12,7 @@ $('#chatForm').submit(function(e){
     // reset form value to nothing
     $('#m').val('');
     // reset 'typing' to nothing
-    $("#typing").text('');
+    $('#typing').text('');
   });
 
   // set listener for chat form when enter/return key released
@@ -29,19 +29,19 @@ $('#chatForm').submit(function(e){
     $('#username').val(name);
     socket.emit('join chat', name);
     $('#myModal').modal('hide');
-    $('#myName').val(name); 
+    $('#myName').val(name);
   });
 
   // add message to chat window
-  socket.on('chat message', function(msg){
+  socket.on('chat message', function(msg) {
     $('#messages').append($('<li>').text(msg));
-    $("#typing").text('');
-    scrollChat();
+    $('#typing').text('');
+    scrollChat(); // jshint ignore:line
   });
 
   // display name of current typing user
   socket.on('typing', function(msg) {
-    $('#typing').text(msg + " is typing...");
+    $('#typing').text(msg + ' is typing...');
   });
 
   // display name of user that has joined room
@@ -56,7 +56,7 @@ $('#chatForm').submit(function(e){
       if ($el.text() === name) {
         $('#messages').append($('<li class="room-change">').text(name + ' has just left the chat. :('));
         $el.remove();
-        $("#typing").text('');
+        $('#typing').text('');
         return;
       }
     });

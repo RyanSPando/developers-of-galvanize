@@ -1,17 +1,11 @@
-//
-// var ctx = canvas.getContext("2d");
-//
-// ctx.fillStyle = 'white';
-
-//every hex drawn left to right within row, each row drawn vertically from top to bottom
+const canvas = document.getElementById('hexmap');
+const ctx = canvas.getContext('2d');
 
 // Row A
-
 //A1
 
 //create an image
 function drawA1() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/ore.jpg';
 
@@ -58,7 +52,6 @@ drawA1();
 //A2
 
 function drawA2() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/sheep.JPG';
 
@@ -103,13 +96,11 @@ function drawA2() {
 
 drawA2();
 
-
 // //A3
 
 function drawA3() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
-  img.src = 'images/forest.jpg';
+  img.src = 'images/lumber.jpg';
 
   //draw the image when loaded
   img.onload = function(){
@@ -158,7 +149,6 @@ drawA3();
 //
 
 function drawB1() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/wheat.jpg';
 
@@ -206,9 +196,8 @@ drawB1();
 // //B2
 
 function drawB2() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
-  img.src = 'images/bricks.jpeg';
+  img.src = 'images/brick.jpeg';
 
   //draw the image when loaded
   img.onload = function(){
@@ -254,7 +243,6 @@ drawB2();
 // //B3
 
 function drawB3() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/sheep.jpg';
 
@@ -302,9 +290,8 @@ drawB3();
 // //B4
 
 function drawB4() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
-  img.src = 'images/bricks.jpeg';
+  img.src = 'images/brick.jpeg';
 
   //draw the image when loaded
   img.onload = function(){
@@ -352,7 +339,6 @@ drawB4();
 // //C1
 
 function drawC1() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/wheat.jpg';
 
@@ -401,9 +387,8 @@ drawC1();
 // //C2
 
 function drawC2() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
-  img.src = 'images/forest.jpg';
+  img.src = 'images/lumber.jpg';
 
   //draw the image when loaded
   img.onload = function(){
@@ -449,35 +434,32 @@ drawC2();
 // //C3
 
 function drawC3() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/desert.jpg';
 
   //draw the image when loaded
-  img.onload = function(){
-      var ctx = canvas.getContext("2d");
-      ctx.fillStyle = 'white';
-      ctx.save();
+  img.onload = function() {
+    ctx.save();
 
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(400, 250);
-      ctx.lineTo(450, 275);
-      ctx.lineTo(450, 325);
-      ctx.lineTo(400, 350);
-      ctx.lineTo(350, 325);
-      ctx.lineTo(350, 275);
-      ctx.lineTo(400, 250);
-      ctx.closePath();
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(400, 250);
+    ctx.lineTo(450, 275);
+    ctx.lineTo(450, 325);
+    ctx.lineTo(400, 350);
+    ctx.lineTo(350, 325);
+    ctx.lineTo(350, 275);
+    ctx.lineTo(400, 250);
+    ctx.closePath();
 
-      //draw the image
-      ctx.clip();
-      ctx.drawImage(img, 350, 250, 150, 100);
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 350, 250, 150, 100);
 
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
 
-      ctx.restore();
+    ctx.restore();
   };
 }
 
@@ -486,9 +468,8 @@ drawC3();
 // //C4
 
 function drawC4() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
-  img.src = 'images/forest.jpg';
+  img.src = 'images/lumber.jpg';
 
   //draw the image when loaded
   img.onload = function(){
@@ -534,7 +515,6 @@ drawC4();
 // //C5
 
 function drawC5() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/ore.jpg';
 
@@ -584,9 +564,8 @@ drawC5();
 // //D1
 
 function drawD1() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
-  img.src = 'images/forest.jpg';
+  img.src = 'images/lumber.jpg';
 
   //draw the image when loaded
   img.onload = function(){
@@ -632,7 +611,6 @@ drawD1();
 // //D2
 
 function drawD2() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/ore.jpg';
 
@@ -680,7 +658,6 @@ drawD2();
 // //D3
 
 function drawD3() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/wheat.jpg';
 
@@ -728,7 +705,6 @@ drawD3();
 // //D4
 
 function drawD4() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/sheep.jpg';
 
@@ -778,9 +754,8 @@ drawD4();
 // //E1
 
 function drawE1() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
-  img.src = 'images/bricks.jpeg';
+  img.src = 'images/brick.jpeg';
 
   //draw the image when loaded
   img.onload = function(){
@@ -826,7 +801,6 @@ drawE1();
 // //E2
 
 function drawE2() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/wheat.jpg';
 
@@ -874,7 +848,6 @@ drawE2();
 // //E3
 
 function drawE3() {
-  var canvas = document.getElementById('hexmap');
   var img = new Image();
   img.src = 'images/sheep.jpg';
 

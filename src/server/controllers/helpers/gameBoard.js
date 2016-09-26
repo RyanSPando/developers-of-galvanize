@@ -1,6 +1,8 @@
 const Board = require('./boardMaker');
 
-function setUpBoard() {
-  const gameBoard = new Board();
+function setUpBoard(random) {
+  const gameBoard = new Board(random);
   console.log(gameBoard);
 }
+
+setUpBoard(true);

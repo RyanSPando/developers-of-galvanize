@@ -7,7 +7,7 @@ var users = [];
 function init(io) {
   io.on('connection', function(socket) {
 
-    socket.on('chat message', function(msg){
+    socket.on('chat message', function(msg) {
       var userIdx = findUserIndexBySocket(socket);
       var name = userIdx > -1 ? users[userIdx].name : 'anonymous';
       io.emit('chat message', `${name}: ${msg}`);

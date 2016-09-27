@@ -32,7 +32,7 @@ function init(io) {
     });
 
     socket.on('dice-roll', function(sessionID) {
-      if(checkUser(sessionID, storedID) {
+      if(checkUser(sessionID, storedID)) {
         const userIdx = findUserIndexBySession(sessionID);
         const name = users[userIdx].name;
         const diceResult = diceRoll();

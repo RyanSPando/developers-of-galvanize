@@ -10,13 +10,28 @@ router.get('/', authHelpers.loginRequired, (req, res, next) => {
   renderObject.title = 'Play!';
   renderObject.sessionID = req.sessionID;
   renderObject.name = req.session.user.username;
+  res.render('./pages/findGame', renderObject);
+});
+
+router.post('/gameBoard', authHelpers.loginRequired, (req, res, next) => {
+  gameBoard.setUpBoard(req.query.random).then((result) => {
+    res.json(result[0].board);
+  });
+});
+
+router.get('/:gameID', authHelpers.loginRequired, (req, res, next) => {
+  const renderObject = {};
+  renderObject.title = 'Play!';
+  renderObject.sessionID = req.sessionID;
+  renderObject.name = req.session.user.username;
   res.render('./pages/play', renderObject);
 });
 
-router.get('/gameBoard', authHelpers.loginRequired, (req, res, next) => {
-  var game_board = gameBoard.setUpBoard(req.query.random);
-  res.json(game_board);
+router.get('/:gameID/join', authHelpers.loginRequired, (req, res, next) => {
+  gameBoard.getBoard(req.params.gameID).then((result) => {
+    console.log(result);
+    res.json(result[0].board)
+  })
 });
-
 
 module.exports = router;

@@ -18,7 +18,7 @@ $(document).ready(function() {
   $('#chatForm').on('keyup', function(e) {
     if (e.keyCode !== 13) {
       // display to all users who is currently typing
-      socket.emit('typing', $('#username').val());
+      socket.emit('typing', $('#myData').data('name'));
     }
   });
 
@@ -40,6 +40,9 @@ $(document).ready(function() {
   // display name of current typing user
   socket.on('typing', function(msg) {
     $('#typing').text(msg + ' is typing...');
+    setTimeout(function () {
+      $('#typing').text('');
+    }, 3000);
   });
 
   // display name of user that has joined room

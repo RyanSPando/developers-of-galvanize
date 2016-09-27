@@ -19,6 +19,33 @@
     // // *** forgot-password *** //
     const forgot_password = require('../routes/forgot-password');
 
+    // // *** login *** //
+    const login = require('../routes/login');
+
+    const expressValidator = require('express-validator');
+    const flash = require('connect-flash');
+
+    // Express Validator
+    app.use(expressValidator({
+      errorFormatter: function(param, msg, value) {
+        var namespace = param.split('.'),
+        root    = namespace.shift(),
+        formParam = root;
+
+        while(namespace.length) {
+          formParam += '[' + namespace.shift() + ']';
+        }
+        return {
+          param : formParam,
+          msg   : msg,
+          value : value
+        };
+      }
+    }));
+
+    // Connect Flash
+    app.use(flash());
+
     // *** register index *** //
     app.use('/', index);
     // *** register highscores *** //
@@ -31,6 +58,8 @@
     app.use('/register', register);
     // *** register forgot-password *** //
     app.use('/forgot-password', forgot_password);
+    // *** register login *** //
+    app.use('/login', login);
 
     // *** ALL ROUTES GO ABOVE THIS! *** //
     // *** register other pages.  *** //

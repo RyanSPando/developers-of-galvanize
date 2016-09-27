@@ -1,7 +1,7 @@
 // connected in server/server.js
 // var i = 0;
 
-const resolveDiceRoll = require('../controllers/helpers/diceRoll').resolveDiceRoll;
+// const resolveDiceRoll = require('../controllers/helpers/diceRoll').resolveDiceRoll;
 var users = [];
 
 function init(io) {
@@ -13,8 +13,8 @@ function init(io) {
       io.emit('chat message', `${name}: ${msg}`);
     });
 
-    socket.on('join chat', function(msg) {
-      users.push({name: msg, socketId: socket.id});
+    socket.on('join chat', function(msg, sessionID) {
+      users.push({name: msg, socketId: socket.id, sessionID: sessionID});
       io.emit('join chat', msg);
     });
 
@@ -30,9 +30,11 @@ function init(io) {
       }
     });
 
-    socket.on('dice-roll', function(name) {
+    socket.on('dice-roll', function(sessionID) {
+      const userIdx = findUserIndexBySession(sessionID);
+      const name = users[userIdx].name;
       const diceResult = diceRoll();
-      resolveDiceRoll(diceResult[2]);
+      resolveDiceRoll(diceResult, io, socket, users);
       io.emit('dice-roll', diceResult, name);
     });
   });
@@ -44,12 +46,28 @@ function findUserIndexBySocket(socket) {
     return prev;
   }, -1);
 }
+
+function findUserIndexBySession(sessionID) {
+  return users.reduce((prev, cur, idx) => {
+    if (cur.sessionID === sessionID) prev = idx;
+    return prev;
+  }, -1);
+}
 //return an array with two six sided dice rolls in position 0 and 1 and their total in position 2.
 function diceRoll() {
   const dice1 = Math.ceil(Math.random() * 6);
   const dice2 = Math.ceil(Math.random() * 6);
   const total = dice1 + dice2;
   return [dice1, dice2, total];
+}
+
+function resolveDiceRoll(diceResult, io, socket, users) {
+
+  if (diceRoll){
+    users.forEach((user) => {
+      io.sockets.connected[user.socketId].emit('chat message',`${user.name} only received this message`);
+    });
+  }
 }
 
 module.exports = {

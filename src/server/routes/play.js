@@ -14,7 +14,7 @@ router.get('/', authHelpers.loginRequired, (req, res, next) => {
 });
 
 router.post('/gameBoard', authHelpers.loginRequired, (req, res, next) => {
-  gameBoard.setUpBoard(req.query.random).then((result) => {
+  gameBoard.setUpBoard(req.body.random).then((result) => {
     res.json(result[0].board);
   });
 });

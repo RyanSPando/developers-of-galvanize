@@ -26,9 +26,11 @@ router.post('/', function (req, res, next) {
     res.render('./pages/register', renderObject );
   } else {
     signup.createUser(req, res)
-    .then ((user) => { signIn.handleLogin(req, user[0]); })
+    .then ((user) => {
+      signIn.handleLogin(req, user[0]); })
     .then(() => { signIn.handleResponse(res, 200, 'success'); })
-    .catch((err) => { signIn.handleResponse(res, 500, 'error'); });
+    .catch((err) => {
+      signIn.handleResponse(res, 500, 'error'); });
   }
 });
 

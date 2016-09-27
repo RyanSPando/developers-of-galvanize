@@ -64,7 +64,7 @@ function drawBoard(tile) {
       ctx.closePath();
 
       ctx.beginPath();
-      ctx.fillStyle = 'black'
+      ctx.fillStyle = 'black';
       ctx.font = '20px Helvetica';
       ctx.fillText(tile.roll, tile.x - 11, tile.y + 57);
       ctx.fill();
@@ -72,11 +72,12 @@ function drawBoard(tile) {
     } else {
       var robber = new Image();
       robber.onload = function(){
+
         ctx2.drawImage(robber, tile.x - 25, tile.y + 25, 50, 50);
-      }
+      };
       robber.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/robber.jpg`;
     }
     ctx.restore();
   };
   img.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/${tile.type}.jpg`;
-};
+}

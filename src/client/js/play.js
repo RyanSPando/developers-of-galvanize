@@ -71,7 +71,7 @@ function drawBoard(tile) {
       ctx.fill();
       ctx.closePath();
     } else {
-      var robber - new Image();
+      var robber = new Image();
       img.onload = function(){
         ctx.drawImage(robber, tile.x - 25, tile.y + 25, 50, 50);
       }

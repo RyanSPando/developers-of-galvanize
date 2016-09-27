@@ -1,6 +1,18 @@
 const canvas = document.getElementById('hexmap');
 const ctx = canvas.getContext('2d');
 
+$('.findGame').on('click', function(e) {
+  e.preventDefault();
+  $(this).css('display', 'none');
+  $('.canvas').css('display', 'block');
+  $.ajax({
+    url: '/play/gameBoard',
+    data: {random: false}
+  }).done((data) => {
+    console.log(data);
+  });
+});
+
 // Row A
 //A1
 
@@ -11,7 +23,6 @@ function drawA1() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.save();
 
       //define the polygon
@@ -57,7 +68,6 @@ function drawA2() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -104,7 +114,6 @@ function drawA3() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -154,7 +163,6 @@ function drawB1() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -201,7 +209,6 @@ function drawB2() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -248,7 +255,6 @@ function drawB3() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -295,7 +301,6 @@ function drawB4() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -344,7 +349,6 @@ function drawC1() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -392,7 +396,6 @@ function drawC2() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -473,7 +476,6 @@ function drawC4() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -520,7 +522,6 @@ function drawC5() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -569,7 +570,6 @@ function drawD1() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -616,7 +616,6 @@ function drawD2() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -663,7 +662,6 @@ function drawD3() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -710,7 +708,6 @@ function drawD4() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -759,7 +756,6 @@ function drawE1() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -806,7 +802,6 @@ function drawE2() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 
@@ -853,7 +848,6 @@ function drawE3() {
 
   //draw the image when loaded
   img.onload = function(){
-      var ctx = canvas.getContext("2d");
       ctx.fillStyle = 'white';
       ctx.save();
 

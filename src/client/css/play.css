@@ -1,4 +1,5 @@
 .canvas {
+  display: none;
   border-style: groove;
   border-color: black;
   box-shadow:

@@ -13,4 +13,5 @@ $(document).ready(function() {
     $('#messages').append($('<li>').text(`${name} just rolled a ${diceArray[0]} and ${diceArray[1]} for a total of ${diceArray[2]}`));
     scrollChat(); // jshint ignore:line
   });
+
 });

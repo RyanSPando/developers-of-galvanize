@@ -13,8 +13,8 @@ function init(io) {
       io.emit('chat message', `${name}: ${msg}`);
     });
 
-    socket.on('join chat', function(msg) {
-      users.push({name: msg, socketId: socket.id});
+    socket.on('join chat', function(msg, sessionID) {
+      users.push({name: msg, socketId: socket.id, sessionID: sessionID});
       io.emit('join chat', msg);
     });
 
@@ -30,7 +30,9 @@ function init(io) {
       }
     });
 
-    socket.on('dice-roll', function(name) {
+    socket.on('dice-roll', function(sessionID) {
+      const userIdx = findUserIndexBySession(sessionID);
+      const name = users[userIdx].name;
       const diceResult = diceRoll();
       resolveDiceRoll(diceResult[2]);
       io.emit('dice-roll', diceResult, name);
@@ -41,6 +43,13 @@ function init(io) {
 function findUserIndexBySocket(socket) {
   return users.reduce(function(prev, cur, idx) {
     if (cur.socketId === socket.id) prev = idx;
+    return prev;
+  }, -1);
+}
+
+function findUserIndexBySession(sessionID) {
+  return users.reduce((prev, cur, idx) => {
+    if (cur.sessionID === sessionID) prev = idx;
     return prev;
   }, -1);
 }

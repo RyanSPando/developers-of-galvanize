@@ -34,7 +34,6 @@ router.post('/', (req, res, next) => {
           email: results[0].email,
           user_id: results[0].id,
         };
-        console.log('user', req.session.user);
         res.redirect('/');
         break;
     }

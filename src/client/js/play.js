@@ -72,10 +72,10 @@ function drawBoard(tile) {
       ctx.closePath();
     } else {
       var robber = new Image();
-      img.onload = function(){
+      robber.onload = function(){
         ctx.drawImage(robber, tile.x - 25, tile.y + 25, 50, 50);
       }
-      img.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/robber.jpg`;
+      robber.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/robber.jpg`;
     }
     ctx.restore();
   };

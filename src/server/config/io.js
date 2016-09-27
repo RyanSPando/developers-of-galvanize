@@ -3,6 +3,7 @@
 
 // const resolveDiceRoll = require('../controllers/helpers/diceRoll').resolveDiceRoll;
 var users = [];
+var storedID;
 
 function init(io) {
   io.on('connection', function(socket) {
@@ -31,11 +32,17 @@ function init(io) {
     });
 
     socket.on('dice-roll', function(sessionID) {
-      const userIdx = findUserIndexBySession(sessionID);
-      const name = users[userIdx].name;
-      const diceResult = diceRoll();
-      resolveDiceRoll(diceResult, io, socket, users);
-      io.emit('dice-roll', diceResult, name);
+      if(checkUser(sessionID, storedID)) {
+        const userIdx = findUserIndexBySession(sessionID);
+        const name = users[userIdx].name;
+        const diceResult = diceRoll();
+        resolveDiceRoll(diceResult, io, socket, users);
+        io.emit('dice-roll', diceResult, name);
+      }
+    });
+
+    socket.on('next-turn', function(sessionID) {
+
     });
   });
 }
@@ -68,6 +75,11 @@ function resolveDiceRoll(diceResult, io, socket, users) {
       io.sockets.connected[user.socketId].emit('chat message',`${user.name} only received this message`);
     });
   }
+}
+
+function checkUser(sessionID, storedID) {
+  if (sessionID === storedID) return true;
+  return false;
 }
 
 module.exports = {

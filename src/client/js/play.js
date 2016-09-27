@@ -10,7 +10,7 @@ $('.findGame').on('click', function(e) {
     url: '/play/gameBoard',
     data: {random: false}
   }).done((data) => {
-    console.log(data);
+    // console.log(data);
   });
 });
 

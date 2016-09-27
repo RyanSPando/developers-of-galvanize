@@ -21,7 +21,6 @@ function loginRequired(req, res, next) {
   if (!req.session.user) {
    res.render('error', renderObject);
   } else {
-    console.log('req.user', req.session.user);
     return next();
   }
 };

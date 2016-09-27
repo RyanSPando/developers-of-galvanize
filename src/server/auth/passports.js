@@ -1,7 +1,7 @@
 const passport = require('passport');
 const knex = require('../db/knex');
 
-passport.serializeUser((user, dont) => {
+passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 

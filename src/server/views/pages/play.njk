@@ -1,14 +1,16 @@
 {% extends "_base.njk" %}
 
-{% block title %}{% endblock %}
+{% block title %}
+{% endblock %}
 
 {% block content %}
 
 <h2>{{ title }}</h2>
 <div class="canvas-contain">
-<canvas id="hexmap" class="canvas" width="800" height="600"></canvas>
-<canvas id="hexmap2" class="canvas2" width="800" height="600"></canvas>
+  <canvas id="hexmap" class="canvas" width="800" height="600"></canvas>
+  <canvas id="hexmap2" class="canvas2" width="800" height="600"></canvas>
 </div>
+<button class="findGame" type="button" name="findGame">Find A Game!</button>
 <div class="chat container-fluid">
    <div class="row">
      <div class="col-xs-10">
@@ -18,7 +20,7 @@
        <form class="chat-box" action="javascript:void(0)" id="roll-dice-form">
          <button class="btn" type="send" name="roll-dice" id="roll-dice">Roll</button>
        </form>
-       <data value="" id="myName"></data>
+       <data value="" data-id="{{sessionID}}" data-name="{{name}}" id="myData"></data>
      </div>
    </div>
    <div id="typing"></div>
@@ -26,22 +28,6 @@
     <input id="m" autocomplete="off" /><button>Send</button>
   </form>
 </div>
- <!-- Modal -->
- <div class="modal fade" id="myModal">
-   <div class="modal-dialog">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h4 class="modal-title">Welcome to the chat room! What's your name?</h4>
-       </div>
-       <div class="modal-body">
-         <form action="javascript:void(0)" id="nameForm">
-           <input id="username" class="form-control" autocomplete="off" autofocus>
-           <button type="submit" class="btn btn-primary">Ok!</button>
-         </form>
-       </div>
-     </div>
-   </div>
- </div>
 
 {% endblock %}
 
@@ -58,4 +44,5 @@
 <script type="text/javascript" src="/js/utility.js"></script>
 <script type="text/javascript" src="/js/chat.js"></script>
 <script type="text/javascript" src="/js/buttons.js"></script>
+<script type="text/javascript" src="/js/roads.js"></script>
 {% endblock %}

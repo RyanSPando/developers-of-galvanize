@@ -3,7 +3,7 @@ $('.createGame').on('click', function(e) {
   $.ajax({
     method: 'POST',
     url: '/play/gameBoard',
-    data: {random: false}
+    data: {random: true}
   }).done((data) => {
     window.location.replace(`/play/${data.id}`);
   });

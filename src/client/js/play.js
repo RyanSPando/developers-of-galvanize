@@ -10,10 +10,8 @@ $('.findGame').on('click', function(e) {
     url: '/play/gameBoard',
     data: {random: false}
   }).done((data) => {
-    console.log(data);
     Object.keys(data).forEach((tile) => {
       if (tile !== 'id') {
-        console.log(data[tile]);
         drawBoard(data[tile]);
       }
     });
@@ -65,7 +63,7 @@ function drawBoard(tile) {
       ctx.closePath();
 
       ctx.beginPath();
-      ctx.fillStyle = 'black'
+      ctx.fillStyle = 'black';
       ctx.font = '20px Helvetica';
       ctx.fillText(tile.roll, tile.x - 11, tile.y + 57);
       ctx.fill();
@@ -74,13 +72,13 @@ function drawBoard(tile) {
       var robber = new Image();
       robber.onload = function(){
         ctx.drawImage(robber, tile.x - 25, tile.y + 25, 50, 50);
-      }
+      };
       robber.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/robber.jpg`;
     }
     ctx.restore();
   };
   img.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/${tile.type}.jpg`;
-};
+}
 //
 // // Row A
 // //A1

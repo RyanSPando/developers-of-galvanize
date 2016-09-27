@@ -2,7 +2,7 @@
 // var i = 0;
 
 // const resolveDiceRoll = require('../controllers/helpers/diceRoll').resolveDiceRoll;
-var users = [];
+const users = [];
 var masterIDx = masterIDx || 0;
 
 function init(io) {
@@ -43,10 +43,12 @@ function init(io) {
 
     socket.on('next-turn', function(sessionID) {
       if(checkUser(sessionID, masterIDx)) {
-        const nextMasterIndex = (findUserIndexBySession(sessionID) + 1) % (users.length - 1);
-        masterIDx = users[nextMasterIndex].sessionID;
+        const nextMasterIndex = (findUserIndexBySession(sessionID) + 1) % (users.length);
+        masterIDx = nextMasterIndex;
         const name = users[nextMasterIndex].name;
-        io.sockets.connected[users[nextMasterIndex].socketId].emit('your-turn', name);
+        const socketId = users[nextMasterIndex].socketId;
+        io.emit('next-turn', name);
+        io.sockets.connected[socketId].emit('your-turn');
       }
     });
   });
@@ -82,8 +84,11 @@ function resolveDiceRoll(diceResult, io, socket, users) {
   }
 }
 
-function checkUser(sessionID, storedIdx) {
-  if (sessionID === users[storedIdx].sessionID) return true;
+function checkUser(sessID, storedIdx) {
+  if (storedIdx === undefined) {
+    return false;
+  }
+  if (sessID === users[storedIdx].sessionID) return true;
   return false;
 }
 

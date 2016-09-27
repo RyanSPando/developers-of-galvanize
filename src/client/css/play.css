@@ -9,8 +9,6 @@
   border-color: black;
   box-shadow: 5px 5px 10px lightgrey,
               -5px -5px 10px orange;
-  height: 600px;
-  width: 800px;
   position: absolute;
   left: 0;
   top: 0;
@@ -22,8 +20,6 @@
   border-color: black;
   box-shadow: 5px 5px 10px lightgrey,
               -5px -5px 10px orange;
-  height: 600px;
-  width: 800px;
   position: absolute;
   left: 0;
   top: 0;

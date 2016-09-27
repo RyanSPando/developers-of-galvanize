@@ -101,7 +101,6 @@ if (canvas.getContext) {
         let newSquare = squares[i];
         context.fillStyle = newSquare.fill;
         context.fillRect(newSquare.x, newSquare.y, newSquare.w, newSquare.h);
-
     }
 }
 

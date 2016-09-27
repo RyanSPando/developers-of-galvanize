@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const authHelpers = require('../controllers/signin');
 const gameBoard = require('../controllers/gameBoard.js');
-
 const indexController = require('../controllers/index');
 
 router.get('/', authHelpers.loginRequired, (req, res, next) => {
@@ -10,6 +9,7 @@ router.get('/', authHelpers.loginRequired, (req, res, next) => {
   renderObject.title = 'Play!';
   renderObject.sessionID = req.sessionID;
   renderObject.name = req.session.user.username;
+  renderObject.first = true;
   res.render('./pages/play', renderObject);
 });
 

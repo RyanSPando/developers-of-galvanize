@@ -3,7 +3,6 @@ const ctx = canvas.getContext('2d');
 
 // Row A
 //A1
-
 //create an image
 function drawA1() {
   var img = new Image();

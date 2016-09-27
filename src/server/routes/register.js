@@ -11,8 +11,8 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-  const renderObject = {}
-  renderObject.title = 'Register!'
+  const renderObject = {};
+  renderObject.title = 'Register!';
   // Validation
   req.checkBody('email', 'Email is required').notEmpty();
   req.checkBody('email', 'Email is not valid').isEmail();

@@ -2,7 +2,6 @@ $(document).ready(function() {
 
   var socket = io(); // jshint ignore:line
   // show modal for new user name input
-  $('#myModal').modal('show');
 
   $('#chatForm').submit(function(e) {
     e.preventDefault();
@@ -23,13 +22,12 @@ $(document).ready(function() {
     }
   });
 
-  // send new user's name to server side and hide modal
-  $('#nameForm').submit(function() {
-    var name = $('#username').val() || 'anonymous';
+  // send new user's name and sessionID
+  $(document).ready(function() {
+    var name = $('#myData').data('name');
+    var sessionID = $('#myData').data('id');
     $('#username').val(name);
-    socket.emit('join chat', name);
-    $('#myModal').modal('hide');
-    $('#myName').val(name);
+    socket.emit('join chat', name, sessionID);
   });
 
   // add message to chat window

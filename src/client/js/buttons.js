@@ -4,9 +4,8 @@ $(document).ready(function() {
   //ask for a dice roll
   $('#roll-dice-form').on('submit', (e) => {
       e.preventDefault();
-      const name = $('#myName').val();
-      socket.emit('dice-roll', name);
-
+      const socketId = $('#myData').data('id');
+      socket.emit('dice-roll', socketId);
     });
 
   //display dice roll in chat with the name of the person who requested it

@@ -42,7 +42,7 @@ const nodemonConfig = {
 gulp.task('default', () => {
   runSequence(
     //['jshint'],
-    // ['jscs'],
+    //['jscs'],
     ['lr'],
     ['nodemon'],
     ['watch']
@@ -94,5 +94,5 @@ gulp.task('nodemon', () => {
 gulp.task('watch', () => {
   gulp.watch(paths.html, ['html']);
   //gulp.watch(paths.scripts, ['jshint', 'jscs']);
-  //gulp.watch(paths.styles, ['styles']);
+  gulp.watch(paths.styles, ['styles']);
 });

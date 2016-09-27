@@ -1,119 +1,893 @@
+const canvas = document.getElementById('hexmap');
+const ctx = canvas.getContext('2d');
 
-// (function () {
+// Row A
+//A1
+
+//create an image
+function drawA1() {
+  var img = new Image();
+  img.src = 'images/ore.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(250, 175);
+      ctx.lineTo(250, 125);
+      ctx.lineTo(300, 100);
+      ctx.lineTo(350, 125);
+      ctx.lineTo(350, 175);
+      ctx.lineTo(300, 200);
+      ctx.lineTo(250, 175);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 250, 100, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+      //draw circle inside hexagon;
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(300, 150, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(10, 289, 157);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawA1();
+
+//A2
+
+function drawA2() {
+  var img = new Image();
+  img.src = 'images/sheep.JPG';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(350, 175);
+      ctx.lineTo(350, 125);
+      ctx.lineTo(400, 100);
+      ctx.lineTo(450, 125);
+      ctx.lineTo(450, 175);
+      ctx.lineTo(400, 200);
+      ctx.lineTo(350, 175);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 350, 100, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+      //draw circle inside hexagon;
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(400, 150, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(2, 393, 157);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawA2();
+
+// //A3
+
+function drawA3() {
+  var img = new Image();
+  img.src = 'images/lumber.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(450, 125);
+      ctx.lineTo(500, 100);
+      ctx.lineTo(550, 125);
+      ctx.lineTo(550, 175);
+      ctx.lineTo(500, 200);
+      ctx.lineTo(450, 175);
+      ctx.lineTo(450, 125);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 450, 100, 100, 200);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(500, 150, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(9, 495, 157);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawA3();
+
+// //Row B
 //
-//   'use strict';
+// //B1
 //
-//   var canvasElement = document.querySelector("canvas");
-//   var context = canvasElement.getContext("2d");
+
+function drawB1() {
+  var img = new Image();
+  img.src = 'images/wheat.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(200, 250);
+      ctx.lineTo(200, 200);
+      ctx.lineTo(250, 175);
+      ctx.lineTo(300, 200);
+      ctx.lineTo(300, 250);
+      ctx.lineTo(250, 275);
+      ctx.lineTo(200, 250);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 200, 175, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(250, 225, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(12, 238, 232);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawB1();
+
+// //B2
+
+function drawB2() {
+  var img = new Image();
+  img.src = 'images/brick.jpeg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(300, 250);
+      ctx.lineTo(300, 200);
+      ctx.lineTo(350, 175);
+      ctx.lineTo(400, 200);
+      ctx.lineTo(400, 250);
+      ctx.lineTo(350, 275);
+      ctx.lineTo(300, 250);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 300, 175, 175, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(350, 225, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(6, 345, 232);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawB2();
+
+// //B3
+
+function drawB3() {
+  var img = new Image();
+  img.src = 'images/sheep.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(400, 250);
+      ctx.lineTo(400, 200);
+      ctx.lineTo(450, 175);
+      ctx.lineTo(500, 200);
+      ctx.lineTo(500, 250);
+      ctx.lineTo(450, 275);
+      ctx.lineTo(400, 250);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 400, 175, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(450, 225, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(4, 445, 232);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawB3();
+
+// //B4
+
+function drawB4() {
+  var img = new Image();
+  img.src = 'images/brick.jpeg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(550, 175);
+      ctx.lineTo(600, 200);
+      ctx.lineTo(600, 250);
+      ctx.lineTo(550, 275);
+      ctx.lineTo(500, 250);
+      ctx.lineTo(500, 200);
+      ctx.lineTo(550, 175);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 500, 175, 175, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(550, 225, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(10, 539, 232);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawB4();
+
+// //Row C
 //
-//   // the rectangle
-//   context.beginPath();
-//   context.rect(200, 100, 200, 400);
-//   context.closePath();
+// //C1
+
+function drawC1() {
+  var img = new Image();
+  img.src = 'images/wheat.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(200, 350);
+      ctx.lineTo(150, 325);
+      ctx.lineTo(150, 275);
+      ctx.lineTo(200, 250);
+      ctx.lineTo(250, 275);
+      ctx.lineTo(250, 325);
+      ctx.lineTo(200, 350);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 150, 250, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(200, 300, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(9, 195, 308);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawC1();
+
 //
-//   // the outline
-//   context.lineWidth = 10;
-//   context.strokeStyle = '#666666';
-//   context.stroke();
+// //C2
+
+function drawC2() {
+  var img = new Image();
+  img.src = 'images/lumber.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(300, 350);
+      ctx.lineTo(250, 325);
+      ctx.lineTo(250, 275);
+      ctx.lineTo(300, 250);
+      ctx.lineTo(350, 275);
+      ctx.lineTo(350, 325);
+      ctx.lineTo(300, 350);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 250, 250, 100, 200);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(300, 300, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(11, 290, 308);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawC2();
 //
-//   // the fill color
-//   context.fillStyle = "#51DCFF";
-//   context.fill();
+// //C3
+
+function drawC3() {
+  var img = new Image();
+  img.src = 'images/desert.jpg';
+
+  //draw the image when loaded
+  img.onload = function() {
+    ctx.save();
+
+    //define the polygon
+    ctx.beginPath();
+    ctx.moveTo(400, 250);
+    ctx.lineTo(450, 275);
+    ctx.lineTo(450, 325);
+    ctx.lineTo(400, 350);
+    ctx.lineTo(350, 325);
+    ctx.lineTo(350, 275);
+    ctx.lineTo(400, 250);
+    ctx.closePath();
+
+    //draw the image
+    ctx.clip();
+    ctx.drawImage(img, 350, 250, 150, 100);
+
+    //fill and stroke are still available for overlays and borders
+    ctx.stroke();
+
+    ctx.restore();
+  };
+}
+
+drawC3();
+
+// //C4
+
+function drawC4() {
+  var img = new Image();
+  img.src = 'images/lumber.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(500, 250);
+      ctx.lineTo(550, 275);
+      ctx.lineTo(550, 325);
+      ctx.lineTo(500, 350);
+      ctx.lineTo(450, 325);
+      ctx.lineTo(450, 275);
+      ctx.lineTo(500, 250);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 450, 250, 100, 200);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(500, 300, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(3, 494, 308);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawC4();
+
+// //C5
+
+function drawC5() {
+  var img = new Image();
+  img.src = 'images/ore.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(600, 250);
+      ctx.lineTo(650, 275);
+      ctx.lineTo(650, 325);
+      ctx.lineTo(600, 350);
+      ctx.lineTo(550, 325);
+      ctx.lineTo(550, 275);
+      ctx.lineTo(600, 250);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 550, 250, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(600, 300, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(8, 594, 308);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawC5();
+
+// //Row D
 //
-// })();
+// //D1
 
-(function(){
-    var canvas = document.getElementById('canvas');
+function drawD1() {
+  var img = new Image();
+  img.src = 'images/lumber.jpg';
 
-    var hexHeight,
-        hexRadius,
-        hexRectangleHeight,
-        hexRectangleWidth,
-        hexagonAngle = 0.523598776, // 30 degrees in radians
-        sideLength = 50,
-        boardWidth = 7,
-        boardHeight = 2;
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
 
-    hexHeight = Math.sin(hexagonAngle) * sideLength;
-    hexRadius = Math.cos(hexagonAngle) * sideLength;
-    hexRectangleHeight = sideLength + 2 * hexHeight;
-    hexRectangleWidth = 2 * hexRadius;
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(250, 425);
+      ctx.lineTo(200, 400);
+      ctx.lineTo(200, 350);
+      ctx.lineTo(250, 325);
+      ctx.lineTo(300, 350);
+      ctx.lineTo(300, 400);
+      ctx.lineTo(250, 425);
+      ctx.closePath();
 
-    if (canvas.getContext){
-        var ctx = canvas.getContext('2d');
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 200, 325, 100, 200);
 
-        ctx.fillStyle = "#000000";
-        ctx.strokeStyle = "#CCCCCC";
-        ctx.lineWidth = 1;
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
 
-        drawBoard(ctx, boardWidth, boardHeight);
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(250, 375, 20, 0, 2 * Math.PI);
+      ctx.fill();
 
-        canvas.addEventListener("mousemove", function(eventInfo) {
-            var x,
-                y,
-                hexX,
-                hexY,
-                screenX,
-                screenY;
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(8, 244, 382);
+      ctx.fill();
 
-            x = eventInfo.offsetX || eventInfo.layerX;
-            y = eventInfo.offsetY || eventInfo.layerY;
+      ctx.restore();
+  };
+}
 
+drawD1();
 
-            hexY = Math.floor(y / (hexHeight + sideLength));
-            hexX = Math.floor((x - (hexY % 2) * hexRadius) / hexRectangleWidth);
+// //D2
 
-            screenX = hexX * hexRectangleWidth + ((hexY % 2) * hexRadius);
-            screenY = hexY * (hexHeight + sideLength);
+function drawD2() {
+  var img = new Image();
+  img.src = 'images/ore.jpg';
 
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
 
-            drawBoard(ctx, boardWidth, boardHeight);
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(400, 400);
+      ctx.lineTo(350, 425);
+      ctx.lineTo(300, 400);
+      ctx.lineTo(300, 350);
+      ctx.lineTo(350, 325);
+      ctx.lineTo(400, 350);
+      ctx.lineTo(400, 400);
+      ctx.closePath();
 
-            // Check if the mouse's coords are on the board
-            if(hexX >= 0 && hexX < boardWidth) {
-                if(hexY >= 0 && hexY < boardHeight) {
-                    ctx.fillStyle = "#000000";
-                    drawHexagon(ctx, screenX, screenY, true);
-                }
-            }
-        });
-    }
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 300, 325, 100, 100);
 
-    function drawBoard(canvasContext, width, height) {
-        var i,
-            j;
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
 
-        for(i = 0; i < height; ++i) {
-          console.log(i, '?height?');
-            for(j = 0; j < width; ++j) {
-              console.log(j, '?width?');
-                drawHexagon(
-                    ctx,
-                    i * hexRectangleWidth + ((j % 2) * hexRadius),
-                    j * (sideLength + hexHeight),
-                    false
-                );
-            }
-        }
-    }
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(350, 375, 20, 0, 2 * Math.PI);
+      ctx.fill();
 
-    function drawHexagon(canvasContext, x, y, fill) {
-        var fill = fill || false;
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(3, 344, 382);
+      ctx.fill();
 
-        canvasContext.beginPath();
-        canvasContext.moveTo(x + hexRadius, y);
-        canvasContext.lineTo(x + hexRectangleWidth, y + hexHeight);
-        canvasContext.lineTo(x + hexRectangleWidth, y + hexHeight + sideLength);
-        canvasContext.lineTo(x + hexRadius, y + hexRectangleHeight);
-        canvasContext.lineTo(x, y + sideLength + hexHeight);
-        canvasContext.lineTo(x, y + hexHeight);
-        canvasContext.closePath();
+      ctx.restore();
+  };
+}
 
-        if(fill) {
-            canvasContext.fill();
-        } else {
-            canvasContext.stroke();
-        }
-      }
-})();
+drawD2();
+
+// //D3
+
+function drawD3() {
+  var img = new Image();
+  img.src = 'images/wheat.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(500, 350);
+      ctx.lineTo(500, 400);
+      ctx.lineTo(450, 425);
+      ctx.lineTo(400, 400);
+      ctx.lineTo(400, 350);
+      ctx.lineTo(450, 325);
+      ctx.lineTo(500, 350);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 400, 325, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(450, 375, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(4, 444, 382);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawD3();
+
+// //D4
+
+function drawD4() {
+  var img = new Image();
+  img.src = 'images/sheep.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(600, 350);
+      ctx.lineTo(600, 400);
+      ctx.lineTo(550, 425);
+      ctx.lineTo(500, 400);
+      ctx.lineTo(500, 350);
+      ctx.lineTo(550, 325);
+      ctx.lineTo(600, 350);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 500, 325, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(550, 375, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(5, 544, 382);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawD4();
+
+// //Row E
+//
+// //E1
+
+function drawE1() {
+  var img = new Image();
+  img.src = 'images/brick.jpeg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(350, 475);
+      ctx.lineTo(300, 500);
+      ctx.lineTo(250, 475);
+      ctx.lineTo(250, 425);
+      ctx.lineTo(300, 400);
+      ctx.lineTo(350, 425);
+      ctx.lineTo(350, 475);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 250, 400, 175, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(300, 450, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(5, 295, 458);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawE1();
+
+// //E2
+
+function drawE2() {
+  var img = new Image();
+  img.src = 'images/wheat.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(450, 475);
+      ctx.lineTo(400, 500);
+      ctx.lineTo(350, 475);
+      ctx.lineTo(350, 425);
+      ctx.lineTo(400, 400);
+      ctx.lineTo(450, 425);
+      ctx.lineTo(450, 475);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 350, 400, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(400, 450, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(6, 395, 458);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawE2();
+
+// //E3
+
+function drawE3() {
+  var img = new Image();
+  img.src = 'images/sheep.jpg';
+
+  //draw the image when loaded
+  img.onload = function(){
+      var ctx = canvas.getContext("2d");
+      ctx.fillStyle = 'white';
+      ctx.save();
+
+      //define the polygon
+      ctx.beginPath();
+      ctx.moveTo(550, 425);
+      ctx.lineTo(550, 475);
+      ctx.lineTo(500, 500);
+      ctx.lineTo(450, 475);
+      ctx.lineTo(450, 425);
+      ctx.lineTo(500, 400);
+      ctx.lineTo(550, 425);
+      ctx.closePath();
+
+      //draw the image
+      ctx.clip();
+      ctx.drawImage(img, 450, 400, 100, 100);
+
+      //fill and stroke are still available for overlays and borders
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(500, 450, 20, 0, 2 * Math.PI);
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(11, 490, 457);
+      ctx.fill();
+
+      ctx.restore();
+  };
+}
+
+drawE3();

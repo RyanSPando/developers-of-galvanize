@@ -6,6 +6,7 @@
 
 .canvas {
   display: none;
+  background: url('../images/canvas-background.jpg');
   border-style: groove;
   border-color: black;
   box-shadow: 5px 5px 10px lightgrey,

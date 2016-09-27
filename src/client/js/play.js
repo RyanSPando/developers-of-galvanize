@@ -12,66 +12,18 @@ $('.findGame').on('click', function(e) {
   }).done((data) => {
     console.log(data);
     Object.keys(data).forEach((tile) => {
-      console.log(data[tile]);
-      drawBoard(data[tile]);
+      if (tile !== 'id') {
+        console.log(data[tile]);
+        drawBoard(data[tile]);
+      }
     });
   });
 });
 
 function drawBoard(tile) {
   var img = new Image();
-  img.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/${tile.type}.jpg`;
   //draw the image when loaded
-  if (!img.complete) {
-    img.onload = function(){
-      ctx.save();
-
-      //define the polygon
-      ctx.beginPath();
-      ctx.moveTo(tile.x, tile.y);
-      ctx.lineTo(tile.x + 50, tile.y + 25);
-      ctx.lineTo(tile.x + 50, tile.y + 75);
-      ctx.lineTo(tile.x, tile.y + 100);
-      ctx.lineTo(tile.x - 50, tile.y + 75);
-      ctx.lineTo(tile.x - 50, tile.y + 25);
-      ctx.lineTo(tile.x, tile.y);
-      ctx.closePath();
-
-      //draw the image
-      ctx.clip();
-
-      switch (tile.type) {
-        case 'lumber':
-          ctx.drawImage(img, 250, 100, 100, 200);
-          break;
-        case 'brick':
-          ctx.drawImage(img, 250, 100, 175, 100);
-          break;
-        case 'desert':
-          ctx.drawImage(img, 250, 100, 150, 100);
-          break;
-        default:
-          ctx.drawImage(img, 250, 100, 100, 100);
-          break;
-      }
-
-      //fill and stroke are still available for overlays and borders
-      ctx.stroke();
-      //draw circle inside hexagon;
-      ctx.beginPath();
-      ctx.fillStyle = 'burlywood';
-      ctx.arc(300, 150, 20, 0, 2 * Math.PI);
-      ctx.fill();
-
-      ctx.beginPath();
-      ctx.fillStyle = 'black'
-      ctx.font = '20px Helvetica';
-      ctx.fillText(tile.roll, 289, 157);
-      ctx.fill();
-
-      ctx.restore();
-    };
-  } else {
+  img.onload = function(){
     ctx.save();
 
     //define the polygon
@@ -90,35 +42,44 @@ function drawBoard(tile) {
 
     switch (tile.type) {
       case 'lumber':
-        ctx.drawImage(img, 250, 100, 100, 200);
+        ctx.drawImage(img, tile.x - 50, tile.y, 100, 200);
         break;
       case 'brick':
-        ctx.drawImage(img, 250, 100, 175, 100);
+        ctx.drawImage(img, tile.x - 50, tile.y, 175, 100);
         break;
       case 'desert':
-        ctx.drawImage(img, 250, 100, 150, 100);
+        ctx.drawImage(img, tile.x - 50, tile.y, 150, 100);
         break;
       default:
-        ctx.drawImage(img, 250, 100, 100, 100);
-        break;
+        ctx.drawImage(img, tile.x - 50, tile.y, 100, 100);
     }
 
     //fill and stroke are still available for overlays and borders
     ctx.stroke();
-    //draw circle inside hexagon;
-    ctx.beginPath();
-    ctx.fillStyle = 'burlywood';
-    ctx.arc(300, 150, 20, 0, 2 * Math.PI);
-    ctx.fill();
+    if (tile.roll !== null) {
+      //draw circle inside hexagon;
+      ctx.beginPath();
+      ctx.fillStyle = 'burlywood';
+      ctx.arc(tile.x, tile.y + 50, 20, 0, 2 * Math.PI);
+      ctx.fill();
+      ctx.closePath();
 
-    ctx.beginPath();
-    ctx.fillStyle = 'black'
-    ctx.font = '20px Helvetica';
-    ctx.fillText(tile.roll, 289, 157);
-    ctx.fill();
-
+      ctx.beginPath();
+      ctx.fillStyle = 'black'
+      ctx.font = '20px Helvetica';
+      ctx.fillText(tile.roll, tile.x - 11, tile.y + 57);
+      ctx.fill();
+      ctx.closePath();
+    } else {
+      var robber = new Image();
+      robber.onload = function(){
+        ctx.drawImage(robber, tile.x - 25, tile.y + 25, 50, 50);
+      }
+      robber.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/robber.jpg`;
+    }
     ctx.restore();
-  }
+  };
+  img.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/${tile.type}.jpg`;
 };
 //
 // // Row A

@@ -1,7 +1,7 @@
 // connected in server/server.js
 // var i = 0;
 
-const resolveDiceRoll = require('../controllers/helpers/diceRoll').resolveDiceRoll;
+// const resolveDiceRoll = require('../controllers/helpers/diceRoll').resolveDiceRoll;
 var users = [];
 
 function init(io) {
@@ -34,7 +34,7 @@ function init(io) {
       const userIdx = findUserIndexBySession(sessionID);
       const name = users[userIdx].name;
       const diceResult = diceRoll();
-      resolveDiceRoll(diceResult[2]);
+      resolveDiceRoll(diceResult, io, socket, users);
       io.emit('dice-roll', diceResult, name);
     });
   });
@@ -59,6 +59,15 @@ function diceRoll() {
   const dice2 = Math.ceil(Math.random() * 6);
   const total = dice1 + dice2;
   return [dice1, dice2, total];
+}
+
+function resolveDiceRoll(diceResult, io, socket, users) {
+
+  if (diceRoll){
+    users.forEach((user) => {
+      io.sockets.connected[user.socketId].emit('chat message',`${user.name} only received this message`);
+    });
+  }
 }
 
 module.exports = {

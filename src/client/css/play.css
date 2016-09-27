@@ -1,10 +1,35 @@
+.canvas-contain {
+  height: 600px;
+  width: 800px;
+  position: relative;
+}
+
 .canvas {
   display: none;
   border-style: groove;
   border-color: black;
-  box-shadow:
-   5px 5px 10px lightgrey,
-   -5px -5px 10px orange;
+  box-shadow: 5px 5px 10px lightgrey,
+              -5px -5px 10px orange;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.canvas2 {
+  display: none;
+  border-style: groove;
+  border-color: black;
+  box-shadow: 5px 5px 10px lightgrey,
+              -5px -5px 10px orange;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.chat {
+  padding: 5%;
 }
 
 #messages{

@@ -5,6 +5,7 @@ $('.findGame').on('click', function(e) {
   e.preventDefault();
   $(this).css('display', 'none');
   $('.canvas').css('display', 'block');
+  $('.canvas2').css('display', 'block');
   $.ajax({
     url: '/play/gameBoard',
     data: {random: false}

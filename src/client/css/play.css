@@ -5,6 +5,7 @@
 }
 
 .canvas {
+  display: none;
   border-style: groove;
   border-color: black;
   box-shadow: 5px 5px 10px lightgrey,
@@ -16,6 +17,7 @@
 }
 
 .canvas2 {
+  display: none;
   border-style: groove;
   border-color: black;
   box-shadow: 5px 5px 10px lightgrey,

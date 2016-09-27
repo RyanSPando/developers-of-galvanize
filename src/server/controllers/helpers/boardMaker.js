@@ -1,13 +1,19 @@
-const randomTile = ['lumber', 'lumber', 'lumber', 'lumber', 'wheat', 'wheat', 'wheat', 'wheat', 'sheep', 'sheep', 'sheep', 'sheep', 'brick', 'brick', 'brick', 'ore', 'ore', 'ore', 'desert'];
-const randomRoll = [2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12];
+const __randomTile = ['lumber', 'lumber', 'lumber', 'lumber', 'wheat', 'wheat', 'wheat', 'wheat', 'sheep', 'sheep', 'sheep', 'sheep', 'brick', 'brick', 'brick', 'ore', 'ore', 'ore', 'desert'];
+const __rollArr = [5, 10, 8, 2, 9, 3, 4, 6, 11, 6, 11, 3, 4, 5, 12, 8, 10, 9];
 const boardSpaces = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
 
 class Board {
-  constructor(random = false) {
+  constructor(id, random = false) {
+    this.id = id;
     if (random) {
+      var newTileArr = Object.assign([], __randomTile);
+      var index = 0;
       boardSpaces.map((space) => {
-        this[space] = {type: __getRandomType()};
-        this[space].roll = __getRandomRoll(this[space].type);
+        this[space] = {type: __getRandomType(newTileArr)};
+        if (this[space].type !== 'desert') {
+          this[space].roll = __getRandomRoll(this[space].type, index);
+          index++;
+        } else this[space].roll = null;
       });
 
     } else {
@@ -72,21 +78,18 @@ class Board {
   }
 }
 
-function __getRandomType() {
-  var randomTileNum = Math.floor(Math.random() * randomTile.length);
-  var type = randomTile[randomTileNum];
-  randomTile.splice(randomTileNum, 1);
+function __getRandomType(newTileArr) {
+  var newTileArrNum = Math.floor(Math.random() * newTileArr.length);
+  var type = newTileArr[newTileArrNum];
+  newTileArr.splice(newTileArrNum, 1);
   return type;
 }
 
-function __getRandomRoll(type) {
-  var roll = null;
-  if (type !== 'desert') {
-    var randomRollNum = Math.floor(Math.random() * randomRoll.length);
-    roll = randomRoll[randomRollNum];
-    randomRoll.splice(randomRollNum, 1);
-  }
+function __getRandomRoll(type, index) {
+  var roll = __rollArr[index];
   return roll;
 }
 
-module.exports = Board;
+module.exports = {
+  Board
+};

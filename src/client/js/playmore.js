@@ -1,5 +1,6 @@
 (function() {
   'use strict';
+
 var canvas = document.getElementById('hexmap2'),
     canvasLeft = canvas.offsetLeft,
     canvasTop = canvas.offsetTop,
@@ -11,6 +12,7 @@ canvas.addEventListener('click', function(event) {
       y = event.pageY - canvasTop;
     console.log(x, y);
   }, false);
+
 function SettlementSquare(x, y, w, h, fill) {
   this.x = x;
   this.y = y;
@@ -18,8 +20,7 @@ function SettlementSquare(x, y, w, h, fill) {
   this.h = h;
   this.fill = fill;
 }
-// get canvas element.
-var canvas = document.getElementById('hexmap2');
+
 // check if context exist
 if (canvas.getContext) {
     var squares = [];
@@ -40,6 +41,7 @@ if (canvas.getContext) {
     squares.push(new SettlementSquare(540, 115, 20, 20, '#333'));
     squares.push(new SettlementSquare(540, 165, 20, 20, '#333'));
     squares.push(new SettlementSquare(490, 190, 20, 20, '#333'));
+
     //second row
     squares.push(new SettlementSquare(190, 240, 20, 20, '#333'));
     squares.push(new SettlementSquare(190, 190, 20, 20, '#333'));
@@ -53,6 +55,7 @@ if (canvas.getContext) {
     squares.push(new SettlementSquare(590, 190, 20, 20, '#333'));
     squares.push(new SettlementSquare(590, 240, 20, 20, '#333'));
     squares.push(new SettlementSquare(540, 265, 20, 20, '#333'));
+
     //third row
     squares.push(new SettlementSquare(140, 315, 20, 20, '#333'));
     squares.push(new SettlementSquare(140, 265, 20, 20, '#333'));
@@ -68,6 +71,7 @@ if (canvas.getContext) {
     squares.push(new SettlementSquare(590, 340, 20, 20, '#333'));
     squares.push(new SettlementSquare(640, 315, 20, 20, '#333'));
     squares.push(new SettlementSquare(640, 265, 20, 20, '#333'));
+
     //fourth row
     squares.push(new SettlementSquare(240, 415, 20, 20, '#333'));
     squares.push(new SettlementSquare(190, 390, 20, 20, '#333'));
@@ -85,6 +89,7 @@ if (canvas.getContext) {
     squares.push(new SettlementSquare(440, 465, 20, 20, '#333'));
     squares.push(new SettlementSquare(490, 490, 20, 20, '#333'));
     squares.push(new SettlementSquare(540, 465, 20, 20, '#333'));
+
     context = canvas.getContext('2d');
     for (var i in squares) {
         let newSquare = squares[i];
@@ -92,4 +97,5 @@ if (canvas.getContext) {
         context.fillRect(newSquare.x, newSquare.y, newSquare.w, newSquare.h);
     }
 }
+
 })();

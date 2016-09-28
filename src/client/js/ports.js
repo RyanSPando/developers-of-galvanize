@@ -104,7 +104,7 @@ const context = canvas.getContext('2d');
   //A1 Port
   buildPortNumber(260, 85, 18, 0, 2*Math.PI);
   //A2 Port
-  buildPortImage(440, 85, 18, 0, 2*Math.PI, '/images/sheep.JPG', 420, 60, 72, 72);
+  buildPortImage(440, 85, 18, 0, 2*Math.PI, '/images/sheep.JPG', 420, 50, 72, 78);
   //B4 Port
   buildPortNumber(590, 160, 18, 0, 2*Math.PI);
   //C5 Port

@@ -2,6 +2,7 @@ const canvas = document.getElementById('hexmap');
 const ctx = canvas.getContext('2d');
 const canvas2 = document.getElementById('hexmap2');
 const ctx2 = canvas2.getContext('2d');
+var board = null;
 
 $('.ready').on('click', function(e) {
   e.preventDefault();
@@ -12,12 +13,40 @@ $('.ready').on('click', function(e) {
   $.ajax({
     url: `/play/${boardID}/join`,
     data: {id: boardID}
-  }).done((board) => {
-    Object.keys(board).forEach((tile) => {
+  }).done((boardInfo) => {
+    board = boardInfo;
+    Object.keys(boardInfo).forEach((tile) => {
       if (tile !== 'id' && tile !== 'allVertices' && tile !== 'allEdges') drawBoard(board[tile]);
     });
   });
 });
+
+$(document).on('click', '#hexmap2', function(e) {
+  const mouseX = e.offsetX;
+  const mouseY = e.offsetY;
+  const settleCoords = board.allVertices.filter((vertex) => {
+    const x = vertex[0];
+    const y = vertex[1];
+    return Math.sqrt((x - mouseX) * (x - mouseX) + (y - mouseY) * (y - mouseY)) < 11;
+  });
+  const roadCoords = board.allEdges.filter((edge) => {
+    const x = edge[0];
+    const y = edge[1];
+    return Math.sqrt((x - mouseX) * (x - mouseX) + (y - mouseY) * (y - mouseY)) < 11;
+  });
+  const robberCoords = Object.keys(board).filter((tile) => {
+    const x = board[tile].x + 50;
+    const y = board[tile].y + 25;
+    var result = false;
+    if (tile !== 'id' && tile !== 'allVertices' && tile !== 'allEdges') {
+      if (Math.sqrt((x - mouseX) * (x - mouseX) + (y - mouseY) * (y - mouseY)) < 11) result = [x, y];
+    }
+    return result;
+  });
+  console.log(roadCoords);
+  console.log(settleCoords);
+  console.log(robberCoords);
+})
 
 function drawBoard(tile) {
   var img = new Image();

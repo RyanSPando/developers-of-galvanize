@@ -12,9 +12,9 @@ $('.ready').on('click', function(e) {
   $.ajax({
     url: `/play/${boardID}/join`,
     data: {id: boardID}
-  }).done((data) => {
-    Object.keys(data).forEach((tile) => {
-      if (tile !== 'id') drawBoard(data[tile]);
+  }).done((board) => {
+    Object.keys(board).forEach((tile) => {
+      if (tile !== 'id' && tile !== 'allVertices' && tile !== 'allEdges') drawBoard(board[tile]);
     });
   });
 });
@@ -68,7 +68,7 @@ function drawBoard(tile) {
     } else {
       var robber = new Image();
       robber.onload = function(){
-        ctx2.drawImage(robber, tile.x - 25, tile.y + 25, 50, 50);
+        ctx2.drawImage(robber, tile.x + 25, tile.y, 50, 50);
       };
       robber.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/robber.jpg`;
     }

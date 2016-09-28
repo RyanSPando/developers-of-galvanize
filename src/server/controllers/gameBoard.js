@@ -4,6 +4,7 @@ const knex = require('../db/knex.js');
 function setUpBoard(random) {
   var id = generateUUID();
   var board = new Board(id, random);
+  console.log(board.allEdges.length);
   return knex('games').insert({board: JSON.stringify(board), gameID: id}).returning('*')
   .then((gameState) => {
     return gameState;

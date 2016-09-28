@@ -6,21 +6,30 @@
 {% block content %}
 
 <h2>{{ title }}</h2>
-<div class="canvas-contain">
-  <canvas id="hexmap" class="canvas" width="800" height="600"></canvas>
-  <canvas id="hexmap2" class="canvas2" width="800" height="600"></canvas>
+<div class="canvas-contain col-xs-8 col-md-8 col-lg-8">
+  <canvas id="hexmap" class="canvas" width="800" height="650"></canvas>
+  <canvas id="hexmap2" class="canvas2" width="800" height="650"></canvas>
 </div>
-<button class="findGame" type="button" name="findGame">Find A Game!</button>
-<div class="chat container-fluid">
+<button class="ready" type="button" name="ready">Ready?</button>
+<div class="chat container-fluid col-xs-4 col-md-4 col-lg-4">
    <div class="row">
-     <div class="col-xs-10">
+     <div class="">
        <div id="messages"></div>
      </div>
      <div class="col-xs-2">
-       <form class="chat-box" action="javascript:void(0)" id="roll-dice-form">
-         <button class="btn" type="send" name="roll-dice" id="roll-dice">Roll</button>
+       <form class="form-group" action="javascript:void(0)" id="roll-dice-form">
+         <button disabled=true class="btn btn-info" type="send" name="roll-dice" id="roll-dice">Roll</button>
        </form>
-       <data value="" data-id="{{sessionID}}" data-name="{{name}}" id="myData"></data>
+       <form class="form-group" action="javascript:void(0)" id="next-turn-form">
+         <button disabled=true class="btn btn-success" type="send" name="next-turn" id="next-turn">Next Turn</button>
+       </form>
+       <form class="form-group" action="javascript:void(0)" id="trade-bank-form">
+         <button disabled=true class="btn btn-danger" type="send" name="trade-bank" id="trade-bank">Trade with Bank</button>
+       </form>
+       <form class="form-group" action="javascript:void(0)" id="trade-players-form">
+         <button disabled=true class="btn btn-warning" type="send" name="trade-players" id="trade-players">Trade with Players</button>
+       </form>
+       <data value="" data-id="{{sessionID}}" data-name="{{name}}" data-first="{{first}}" id="myData"></data>
      </div>
    </div>
    <div id="typing"></div>

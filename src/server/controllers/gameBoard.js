@@ -1,9 +1,17 @@
 const Board = require('./helpers/boardMaker').Board;
+const knex = require('../db/knex.js');
 
 function setUpBoard(random) {
   var id = generateUUID();
   var board = new Board(id, random);
-  return board;
+  return knex('games').insert({board: JSON.stringify(board), gameID: id}).returning('*')
+  .then((gameState) => {
+    return gameState;
+  });
+}
+
+function getBoard(id) {
+  return knex('games').where({gameID: id})
 }
 
 function generateUUID(){
@@ -16,4 +24,7 @@ function generateUUID(){
   return uuid;
 }
 
-module.exports = {setUpBoard};
+module.exports = {
+  setUpBoard,
+  getBoard
+};

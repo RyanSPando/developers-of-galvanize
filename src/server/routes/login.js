@@ -34,7 +34,7 @@ router.post('/', (req, res, next) => {
           email: results[0].email,
           user_id: results[0].id,
         };
-        res.redirect('/');
+        res.redirect('/play');
         break;
     }
   });

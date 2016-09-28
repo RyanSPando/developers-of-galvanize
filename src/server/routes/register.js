@@ -28,7 +28,7 @@ router.post('/', function (req, res, next) {
     signup.createUser(req, res)
     .then ((user) => {
       signIn.handleLogin(req, user[0]); })
-    .then(() => { signIn.handleResponse(res, 200, 'success'); })
+    .then(() => { signIn.handleResponse(res.redirect('/play'), 201, 'success'); })
     .catch((err) => {
       signIn.handleResponse(res, 500, 'error'); });
   }

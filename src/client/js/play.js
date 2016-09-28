@@ -37,7 +37,7 @@ $(document).on('click', '#hexmap2', function(e) {
       roadIndex = index;
     }
   });
-  const robberCoords = Object.keys(board).filter((tile) => {
+  const [robberPlace] = Object.keys(board).filter((tile) => {
     const x = board[tile].x + 50;
     const y = board[tile].y + 25;
     var result = false;
@@ -51,10 +51,10 @@ $(document).on('click', '#hexmap2', function(e) {
     newSettlement.draw();
   } else if (roadIndex !== null) {
     drawRoad(board.allEdgeEndPoints[roadIndex][0], board.allEdgeEndPoints[roadIndex][1], board.allEdgeEndPoints[roadIndex][2], board.allEdgeEndPoints[roadIndex][3], 'red');
-  } else if (robberCoords) {
+  } else if (robberPlace !== undefined) {
     var robber = new Image();
     robber.onload = function(){
-      ctx2.drawImage(robber, board[robberCoords].x + 25, board[robberCoords].y, 50, 50);
+      ctx2.drawImage(robber, board[robberPlace].x + 25, board[robberPlace].y, 50, 50);
     };
     robber.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/robber.jpg`;
 

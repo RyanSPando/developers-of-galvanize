@@ -75,7 +75,35 @@ class Board {
     this.eighteen.y = 425;
     this.nineteen.x = 450;
     this.nineteen.y = 425;
-    boardSpaces.forEach((space) => {this[space].vertices = __getVertices(this[space].x, this[space].y);});
+    this.allVertices = [];
+    this.allEdges = [];
+    boardSpaces.forEach((space) => {
+      this[space].vertices = __getVertices(this[space].x, this[space].y);
+      this[space].vertices.forEach((vertex) => {
+        this.allVertices.push(vertex);
+      });
+      this[space].edges = __getEdges(this[space].vertices);
+      this[space].edges.forEach((edge) => {
+        this.allEdges.push(edge);
+      });
+    });
+    this.allVertices = this.allVertices.filter((vertex, index, self) => {
+      var results = null;
+      for (let i = index + 1; i < self.length; i++) {
+        results = vertex.equals(self[i]);
+        if (results) return false;
+      }
+      return true;
+    });
+    this.allEdges = this.allEdges.filter((edge, index, self) => {
+      console.log(edge);
+      var results = null;
+      for (let i = index + 1; i < self.length; i++) {
+        results = edge.equals(self[i]);
+        if (results) return false;
+      }
+      return true;
+    });
   }
 }
 
@@ -94,6 +122,34 @@ function __getRandomRoll(type, index) {
 function __getVertices(x, y) {
   return [[x, y], [x + 50, y - 25], [x + 100, y], [x + 100, y + 50], [x + 50, y + 75], [x, y + 50]];
 }
+
+function __getEdges(vertices) {
+  var edgeArr = [];
+  for (let i = 0; i < vertices.length; i++) {
+    if (i !== vertices.length - 1) edgeArr.push([((vertices[i][0] + vertices[i + 1][0]) / 2), ((vertices[i][1] + vertices[i + 1][1]) / 2)]);
+    else edgeArr.push([((vertices[i][0] + vertices[0][0]) / 2), ((vertices[i][1] + vertices[0][1]) / 2)]);
+  }
+  return edgeArr;
+}
+
+// attach the .equals method to Array's prototype to call it on any array
+Array.prototype.equals = function (array) {
+  // if the other array is a falsy value, return
+  if (!array) return false;
+  // compare lengths - can save a lot of time
+  if (this.length !== array.length) return false;
+  for (let i = 0; i < this.length; i++) {
+    // Check if we have nested arrays
+    if (this[i] instanceof Array && array[i] instanceof Array) {
+      // recurse into the nested arrays
+      if (!this[i].equals(array[i])) return false;
+    } else if (this[i] !== array[i]) {
+      // Warning - two different object instances will never be equal: {x:20} != {x:20}
+      return false;
+    }
+  }
+  return true;
+};
 
 module.exports = {
   Board

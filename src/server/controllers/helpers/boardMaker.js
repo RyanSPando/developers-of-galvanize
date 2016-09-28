@@ -8,7 +8,7 @@ class Board {
     if (random) {
       var newTileArr = Object.assign([], __randomTile);
       var index = 0;
-      boardSpaces.map((space) => {
+      boardSpaces.forEach((space) => {
         this[space] = {type: __getRandomType(newTileArr)};
         if (this[space].type !== 'desert') {
           this[space].roll = __getRandomRoll(this[space].type, index);
@@ -37,44 +37,45 @@ class Board {
       this.eighteen = {type: 'wheat', roll: 6};
       this.nineteen = {type: 'sheep', roll: 11};
     }
-    this.one.x = 300;
-    this.one.y = 100;
-    this.two.x = 400;
-    this.two.y = 100;
-    this.three.x = 500;
-    this.three.y = 100;
-    this.four.x = 250;
-    this.four.y = 175;
-    this.five.x = 350;
-    this.five.y = 175;
-    this.six.x = 450;
-    this.six.y = 175;
-    this.seven.x = 550;
-    this.seven.y = 175;
-    this.eight.x = 200;
-    this.eight.y = 250;
-    this.nine.x = 300;
-    this.nine.y = 250;
-    this.ten.x = 400;
-    this.ten.y = 250;
-    this.eleven.x = 500;
-    this.eleven.y = 250;
-    this.twelve.x = 600;
-    this.twelve.y = 250;
-    this.thirteen.x = 250;
-    this.thirteen.y = 325;
-    this.fourteen.x = 350;
-    this.fourteen.y = 325;
-    this.fifteen.x = 450;
-    this.fifteen.y = 325;
-    this.sixteen.x = 550;
-    this.sixteen.y = 325;
-    this.seventeen.x = 300;
-    this.seventeen.y = 400;
-    this.eighteen.x = 400;
-    this.eighteen.y = 400;
-    this.nineteen.x = 500;
-    this.nineteen.y = 400;
+    this.one.x = 250;
+    this.one.y = 125;
+    this.two.x = 350;
+    this.two.y = 125;
+    this.three.x = 450;
+    this.three.y = 125;
+    this.four.x = 200;
+    this.four.y = 200;
+    this.five.x = 300;
+    this.five.y = 200;
+    this.six.x = 400;
+    this.six.y = 200;
+    this.seven.x = 500;
+    this.seven.y = 200;
+    this.eight.x = 150;
+    this.eight.y = 275;
+    this.nine.x = 250;
+    this.nine.y = 275;
+    this.ten.x = 350;
+    this.ten.y = 275;
+    this.eleven.x = 450;
+    this.eleven.y = 275;
+    this.twelve.x = 550;
+    this.twelve.y = 275;
+    this.thirteen.x = 200;
+    this.thirteen.y = 350;
+    this.fourteen.x = 300;
+    this.fourteen.y = 350;
+    this.fifteen.x = 400;
+    this.fifteen.y = 350;
+    this.sixteen.x = 500;
+    this.sixteen.y = 350;
+    this.seventeen.x = 250;
+    this.seventeen.y = 425;
+    this.eighteen.x = 350;
+    this.eighteen.y = 425;
+    this.nineteen.x = 450;
+    this.nineteen.y = 425;
+    boardSpaces.forEach((space) => {this[space].vertices = __getVertices(this[space].x, this[space].y);});
   }
 }
 
@@ -88,6 +89,10 @@ function __getRandomType(newTileArr) {
 function __getRandomRoll(type, index) {
   var roll = __rollArr[index];
   return roll;
+}
+
+function __getVertices(x, y) {
+  return [[x, y], [x + 50, y - 25], [x + 100, y], [x + 100, y + 50], [x + 50, y + 75], [x, y + 50]];
 }
 
 module.exports = {

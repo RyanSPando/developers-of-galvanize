@@ -2,227 +2,204 @@
 
   const canvas = document.getElementById('hexmap2');
   const ctx = canvas.getContext('2d');
-  ctx.fillStyle = 'red';
 
-  function roadAngleDownLeft(x1, y1, x2, y2) {
+  function drawRoad(x1, y1, x2, y2, color) {
     ctx.save();
     ctx.beginPath();
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = color;
     ctx.moveTo(x1, y1);
-    ctx.lineTo(x1 + 5, y1 + 5);
-    ctx.lineTo(x2 + 5, y2 + 5);
-    ctx.lineTo(x2, y2);
-    // ctx.lineTo(x1, y1);
-    ctx.closePath();
-    ctx.fill();
-    ctx.restore();
-  }
-
-  function roadAngleDownRight(x1, y1, x2, y2) {
-    ctx.save();
-    ctx.beginPath();
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(x1 + 5, y1 - 5);
-    ctx.lineTo(x2 + 5, y2 - 5);
     ctx.lineTo(x2, y2);
     ctx.closePath();
-    ctx.fill();
+    ctx.stroke();
     ctx.restore();
   }
-
-  function roadVertical(x1, y1, x2, y2) {
-    ctx.save();
-    ctx.beginPath();
-    ctx.moveTo(x1, y1);
-    ctx.lineTo(x2, y1);
-    ctx.lineTo(x2, y2);
-    ctx.lineTo(x1, y2);
-    ctx.closePath();
-    ctx.fill();
-    ctx.restore();
-  }
-
   //A1 Roads
 
-  roadAngleDownLeft(285, 103, 260, 118);
+  drawRoad(312, 107, 338, 117, 'red');
 
-  roadAngleDownRight(310, 108, 335, 123);
+  drawRoad(350, 137, 350, 163, 'red');
 
-  roadVertical(247, 137.5, 254, 162.5);
+  drawRoad(338, 182, 312, 192, 'red');
 
-  roadVertical(347, 137.5, 354, 162.5);
+  drawRoad(288, 192, 262, 182, 'red');
 
-  roadAngleDownLeft(335, 178, 310, 193);
+  drawRoad(250, 137, 250, 163, 'red');
 
-  roadAngleDownRight(260, 182.5, 285, 197.5);
+  drawRoad(288, 107, 262, 117, 'red');
 
   //A2 Roads
 
-  roadAngleDownLeft(385, 103, 360, 118);
+  drawRoad(412, 107, 438, 117, 'red');
 
-  roadAngleDownRight(410, 108, 435, 123);
+  drawRoad(450, 137, 450, 163, 'red');
 
-  roadVertical(447, 137.5, 454, 162.5);
+  drawRoad(438, 182, 412, 192, 'red');
 
-  roadAngleDownLeft(435, 178, 410, 193);
+  drawRoad(388, 192, 362, 182, 'red');
 
-  roadAngleDownRight(360, 182.5, 385, 197.5);
+  drawRoad(388, 107, 362, 117, 'red');
 
   //A3 Roads
 
-  roadAngleDownLeft(485, 103, 460, 118);
+  drawRoad(512, 107, 538, 117, 'red');
 
-  roadAngleDownRight(510, 108, 535, 123);
+  drawRoad(550, 137, 550, 163, 'red');
 
-  roadVertical(547, 137.5, 554, 162.5);
+  drawRoad(538, 182, 512, 192, 'red');
 
-  roadAngleDownLeft(535, 178, 510, 193);
+  drawRoad(488, 192, 462, 182, 'red');
 
-  roadAngleDownRight(460, 182.5, 485, 197.5);
+  drawRoad(488, 107, 462, 117, 'red');
 
   //B1 Roads
 
-  roadAngleDownLeft(235, 178, 210, 193);
+  drawRoad(300, 212, 300, 238, 'red');
 
-  roadVertical(297, 212.5, 304, 237.5);
+  drawRoad(288, 257, 262, 267, 'red');
 
-  roadAngleDownLeft(285, 253, 260, 268);
+  drawRoad(238, 267, 212, 257, 'red');
 
-  roadVertical(197, 212.5, 204, 237.5);
+  drawRoad(200, 212, 200, 238, 'red');
 
-  roadAngleDownRight(210, 257.5, 235, 272.5);
+  drawRoad(238, 182, 212, 192, 'red');
 
   //B2 Roads
 
-  roadAngleDownLeft(385, 253, 360, 268);
+  drawRoad(400, 212, 400, 238, 'red');
 
-  roadVertical(397, 212.5, 404, 237.5);
+  drawRoad(388, 257, 362, 267, 'red');
 
-  roadAngleDownRight(310, 257.5, 335, 272.5);
+  drawRoad(338, 267, 312, 257, 'red');
+
 
   //B3 Roads
 
-  roadAngleDownLeft(485, 253, 460, 268);
+  drawRoad(500, 212, 500, 238, 'red');
 
-  roadVertical(497, 212.5, 504, 237.5);
+  drawRoad(488, 257, 462, 267, 'red');
 
-  roadAngleDownRight(410, 257.5, 435, 272.5);
+  drawRoad(438, 267, 412, 257, 'red');
 
   //B4 Roads
 
-  roadAngleDownRight(560, 182.5, 585, 197.5);
+  drawRoad(562, 182, 588, 192, 'red');
 
-  roadAngleDownLeft(585, 253, 560, 268);
+  drawRoad(600, 212, 600, 238, 'red');
 
-  roadVertical(597, 212.5, 604, 237.5);
+  drawRoad(588, 257, 562, 267, 'red');
 
-  roadAngleDownRight(510, 257.5, 535, 272.5);
+  drawRoad(538, 267, 512, 257, 'red');
 
   //C1 Roads
 
-  roadAngleDownLeft(185, 253, 160, 268);
+  drawRoad(250, 287, 250, 313, 'red');
 
-  roadVertical(247, 287.5, 254, 312.5);
+  drawRoad(238, 332, 212, 342, 'red');
 
-  roadAngleDownLeft(235, 328, 210, 343);
+  drawRoad(188, 342, 162, 332, 'red');
 
-  roadVertical(147, 287.5, 154, 312.5);
+  drawRoad(150, 287, 150, 313, 'red');
 
-  roadAngleDownRight(160, 332.5, 185, 347.5);
+  drawRoad(188, 257, 162, 267, 'red');
 
   //C2 Roads
 
-  roadAngleDownLeft(335, 328, 310, 343);
+  drawRoad(350, 287, 350, 313, 'red');
 
-  roadVertical(347, 287.5, 354, 312.5);
+  drawRoad(338, 332, 312, 342, 'red');
 
-  roadAngleDownRight(260, 332.5, 285, 347.5);
+  drawRoad(288, 342, 262, 332, 'red');
 
   //C3 Roads
 
-  roadAngleDownLeft(435, 328, 410, 343);
+  drawRoad(450, 287, 450, 313, 'red');
 
-  roadVertical(447, 287.5, 454, 312.5);
+  drawRoad(438, 332, 412, 342, 'red');
 
-  roadAngleDownRight(360, 332.5, 385, 347.5);
+  drawRoad(388, 342, 362, 332, 'red');
 
-  //C4 Roads
+  //C3 Roads
 
-  roadAngleDownLeft(535, 328, 510, 343);
+  drawRoad(550, 287, 550, 313, 'red');
 
-  roadVertical(547, 287.5, 554, 312.5);
+  drawRoad(538, 332, 512, 342, 'red');
 
-  roadAngleDownRight(460, 332.5, 485, 347.5);
+  drawRoad(488, 342, 462, 332, 'red');
 
   //C5 Roads
 
-  roadAngleDownRight(610, 257.5, 635, 272.5);
+  drawRoad(612, 257, 638, 267, 'red');
 
-  roadAngleDownLeft(635, 328, 610, 343);
+  drawRoad(650, 287, 650, 313, 'red');
 
-  roadVertical(647, 287.5, 654, 312.5);
+  drawRoad(638, 332, 612, 342, 'red');
 
-  roadAngleDownRight(560, 332.5, 585, 347.5);
+  drawRoad(588, 342, 562, 332, 'red');
 
   //D1 Roads
 
-  roadVertical(297, 362.5, 304, 387.5);
+  drawRoad(300, 362, 300, 388, 'red');
 
-  roadAngleDownLeft(285, 403, 260, 418);
+  drawRoad(288, 407, 262, 417, 'red');
 
-  roadVertical(197, 362.5, 204, 387.5);
+  drawRoad(238, 417, 212, 407, 'red');
 
-  roadAngleDownRight(210, 407.5, 235, 422.5);
+  drawRoad(200, 362, 200, 388, 'red');
+
+  drawRoad(238, 332, 212, 342, 'red');
 
   //D2 Roads
 
-  roadAngleDownLeft(385, 403, 360, 418);
+  drawRoad(400, 362, 400, 388, 'red');
 
-  roadVertical(397, 362.5, 404, 387.5);
+  drawRoad(388, 407, 362, 417, 'red');
 
-  roadAngleDownRight(310, 407.5, 335, 422.5);
+  drawRoad(338, 417, 312, 407, 'red');
+
 
   //D3 Roads
 
-  roadAngleDownLeft(485, 403, 460, 418);
+  drawRoad(500, 362, 500, 388, 'red');
 
-  roadVertical(497, 362.5, 504, 387.5);
+  drawRoad(488, 407, 462, 417, 'red');
 
-  roadAngleDownRight(410, 407.5, 435, 422.5);
+  drawRoad(438, 417, 412, 407, 'red');
 
   //D4 Roads
 
-  roadAngleDownRight(560, 182.5, 585, 197.5);
+  drawRoad(562, 332, 588, 342, 'red');
 
-  roadAngleDownLeft(585, 403, 560, 418);
+  drawRoad(600, 362, 600, 388, 'red');
 
-  roadVertical(597, 362.5, 604, 387.5);
+  drawRoad(588, 407, 562, 417, 'red');
 
-  roadAngleDownRight(510, 407.5, 535, 422.5);
+  drawRoad(538, 417, 512, 407, 'red');
 
   //E1 Roads
 
-  roadVertical(247, 437.5, 254, 462.5);
+  drawRoad(350, 437, 350, 463, 'red');
 
-  roadVertical(347, 437.5, 354, 462.5);
+  drawRoad(338, 482, 312, 492, 'red');
 
-  roadAngleDownLeft(335, 478, 310, 493);
+  drawRoad(288, 492, 262, 482, 'red');
 
-  roadAngleDownRight(260, 482.5, 285, 497.5);
+  drawRoad(250, 437, 250, 463, 'red');
 
   //E2 Roads
 
-  roadVertical(447, 437.5, 454, 462.5);
+  drawRoad(450, 437, 450, 463, 'red');
 
-  roadAngleDownLeft(435, 478, 410, 493);
+  drawRoad(438, 482, 412, 492, 'red');
 
-  roadAngleDownRight(360, 482.5, 385, 497.5);
+  drawRoad(388, 492, 362, 482, 'red');
 
   //E3 Roads
 
-  roadVertical(547, 437.5, 554, 462.5);
+  drawRoad(550, 437, 550, 463, 'red');
 
-  roadAngleDownLeft(535, 478, 510, 493);
+  drawRoad(538, 482, 512, 492, 'red');
 
-  roadAngleDownRight(460, 482.5, 485, 497.5);
+  drawRoad(488, 492, 462, 482, 'red');
 
 }());

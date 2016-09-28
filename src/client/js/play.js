@@ -12,9 +12,9 @@ $('.ready').on('click', function(e) {
   $.ajax({
     url: `/play/${boardID}/join`,
     data: {id: boardID}
-  }).done((data) => {
-    Object.keys(data).forEach((tile) => {
-      if (tile !== 'id') drawBoard(data[tile]);
+  }).done((board) => {
+    Object.keys(board).forEach((tile) => {
+      if (tile !== 'id' && tile !== 'allVertices' && tile !== 'allEdges') drawBoard(board[tile]);
     });
   });
 });
@@ -28,11 +28,7 @@ function drawBoard(tile) {
     //define the polygon
     ctx.beginPath();
     ctx.moveTo(tile.x, tile.y);
-    ctx.lineTo(tile.x + 50, tile.y + 25);
-    ctx.lineTo(tile.x + 50, tile.y + 75);
-    ctx.lineTo(tile.x, tile.y + 100);
-    ctx.lineTo(tile.x - 50, tile.y + 75);
-    ctx.lineTo(tile.x - 50, tile.y + 25);
+    for (let i = 1; i < tile.vertices.length; i++) {ctx.lineTo(tile.vertices[i][0], tile.vertices[i][1]);}
     ctx.lineTo(tile.x, tile.y);
     ctx.closePath();
 
@@ -41,16 +37,16 @@ function drawBoard(tile) {
 
     switch (tile.type) {
       case 'lumber':
-        ctx.drawImage(img, tile.x - 50, tile.y, 100, 200);
+        ctx.drawImage(img, tile.x, tile.y - 25, 100, 200);
         break;
       case 'brick':
-        ctx.drawImage(img, tile.x - 50, tile.y, 175, 100);
+        ctx.drawImage(img, tile.x, tile.y - 25, 175, 100);
         break;
       case 'desert':
-        ctx.drawImage(img, tile.x - 50, tile.y, 150, 100);
+        ctx.drawImage(img, tile.x, tile.y - 25, 150, 100);
         break;
       default:
-        ctx.drawImage(img, tile.x - 50, tile.y, 100, 100);
+        ctx.drawImage(img, tile.x, tile.y - 25, 100, 100);
     }
 
     //fill and stroke are still available for overlays and borders
@@ -59,21 +55,20 @@ function drawBoard(tile) {
       //draw circle inside hexagon;
       ctx.beginPath();
       ctx.fillStyle = 'burlywood';
-      ctx.arc(tile.x, tile.y + 50, 20, 0, 2 * Math.PI);
+      ctx.arc(tile.x + 50, tile.y + 25, 20, 0, 2 * Math.PI);
       ctx.fill();
       ctx.closePath();
 
       ctx.beginPath();
       ctx.fillStyle = 'black';
       ctx.font = '20px Helvetica';
-      ctx.fillText(tile.roll, tile.x - 11, tile.y + 57);
+      ctx.fillText(tile.roll, tile.x + 39, tile.y + 32);
       ctx.fill();
       ctx.closePath();
     } else {
       var robber = new Image();
       robber.onload = function(){
-
-        ctx2.drawImage(robber, tile.x - 25, tile.y + 25, 50, 50);
+        ctx2.drawImage(robber, tile.x + 25, tile.y, 50, 50);
       };
       robber.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/robber.jpg`;
     }

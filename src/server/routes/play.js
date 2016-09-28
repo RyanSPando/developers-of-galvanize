@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const authHelpers = require('../controllers/signin');
 const gameBoard = require('../controllers/gameBoard.js');
-
 const indexController = require('../controllers/index');
 
 router.get('/', authHelpers.loginRequired, (req, res, next) => {
@@ -10,6 +9,7 @@ router.get('/', authHelpers.loginRequired, (req, res, next) => {
   renderObject.title = 'Play!';
   renderObject.sessionID = req.sessionID;
   renderObject.name = req.session.user.username;
+  renderObject.first = true;
   res.render('./pages/findGame', renderObject);
 });
 
@@ -29,8 +29,8 @@ router.get('/:gameID', authHelpers.loginRequired, (req, res, next) => {
 
 router.get('/:gameID/join', authHelpers.loginRequired, (req, res, next) => {
   gameBoard.getBoard(req.params.gameID).then((result) => {
-    res.json(result[0].board)
-  })
+    res.json(result[0].board);
+  });
 });
 
 module.exports = router;

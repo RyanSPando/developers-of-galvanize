@@ -2,17 +2,8 @@
 
   'use strict';
 
-var canvas = document.getElementById('hexmap2'),
-    canvasLeft = canvas.offsetLeft,
-    canvasTop = canvas.offsetTop,
-    context = canvas.getContext('2d');
-
-// Add event listener for `click` events.
-canvas.addEventListener('click', function(event) {
-  var x = event.pageX - canvasLeft,
-      y = event.pageY - canvasTop;
-    console.log(x, y);
-  }, false);
+const canvas = document.getElementById('hexmap2');
+const context = canvas.getContext('2d');
 
 function SettlementSquare(x, y, w, h, fill) {
   this.x = x;
@@ -91,8 +82,6 @@ if (canvas.getContext) {
     squares.push(new SettlementSquare(490, 490, 20, 20, '#333'));
     squares.push(new SettlementSquare(540, 465, 20, 20, '#333'));
 
-
-    context = canvas.getContext('2d');
     for (var i in squares) {
         let newSquare = squares[i];
         context.fillStyle = newSquare.fill;

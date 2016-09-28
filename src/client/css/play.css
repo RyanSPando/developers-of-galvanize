@@ -3,6 +3,7 @@
   height: 600px;
   width: 800px;
   position: relative;
+  margin-left: 10%;
 }
 
 .canvas {
@@ -29,12 +30,43 @@
 }
 
 .chat {
-  padding: 5%;
-  margin-left: 10%;
+  margin-left: 2%;
 }
 
-#messages{
-  border:1px solid #aaa;
-  height:100px;
-  overflow:auto;
+.messages{
+  border: 1px solid #aaa;
+  height: 100px;
+  width: 100%;
+  overflow: auto;
+}
+
+.buttons {
+  padding-top: 5%;
+}
+
+.player-action {
+  width: 180px;
+  text-align: center;
+}
+
+.btn {
+  padding: 0;
+}
+
+.player-stuff {
+  border: 2px solid black;
+  height: 390px;
+  width: 100%;
+}
+
+.player-name {
+  background-color: orange;
+  width: 25%;
+  float: left;
+}
+
+.victory-points {
+  background-color: orange;
+  width: 25%;
+  float: right;
 }

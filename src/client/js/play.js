@@ -144,3 +144,4 @@ class SettlementSquare {
     ctx2.fillStyle = this.fill;
     ctx2.fillRect(this.x, this.y, this.w, this.h);
   }
+}

@@ -16,7 +16,7 @@ $('.ready').on('click', function(e) {
   }).done((boardInfo) => {
     board = boardInfo;
     Object.keys(boardInfo).forEach((tile) => {
-      if (tile !== 'id' && tile !== 'allVertices' && tile !== 'allEdges') drawBoard(board[tile]);
+      if (tile !== 'id' && tile !== 'allVertices' && tile !== 'allEdges' && tile !== 'allEdgeEndPoints') drawBoard(board[tile]);
     });
   });
 });
@@ -29,10 +29,13 @@ $(document).on('click', '#hexmap2', function(e) {
     const y = vertex[1];
     return Math.sqrt((x - mouseX) * (x - mouseX) + (y - mouseY) * (y - mouseY)) < 11;
   });
-  const roadCoords = board.allEdges.filter((edge) => {
+  var roadIndex = null;
+  board.allEdges.forEach((edge, index) => {
     const x = edge[0];
     const y = edge[1];
-    return Math.sqrt((x - mouseX) * (x - mouseX) + (y - mouseY) * (y - mouseY)) < 11;
+    if (Math.sqrt((x - mouseX) * (x - mouseX) + (y - mouseY) * (y - mouseY)) < 11) {
+      roadIndex = index;
+    }
   });
   const robberCoords = Object.keys(board).filter((tile) => {
     const x = board[tile].x + 50;
@@ -43,9 +46,19 @@ $(document).on('click', '#hexmap2', function(e) {
     }
     return result;
   });
-  console.log(roadCoords);
-  console.log(settleCoords);
-  console.log(robberCoords);
+  if (settleCoords.length) {
+    var newSettlement = new SettlementSquare(settleCoords[0][0] - 10, settleCoords[0][1] - 10, 20, 20, '#333');
+    newSettlement.draw();
+  } else if (roadIndex !== null) {
+    drawRoad(board.allEdgeEndPoints[roadIndex][0], board.allEdgeEndPoints[roadIndex][1], board.allEdgeEndPoints[roadIndex][2], board.allEdgeEndPoints[roadIndex][3], 'red');
+  } else if (robberCoords) {
+    var robber = new Image();
+    robber.onload = function(){
+      ctx2.drawImage(robber, board[robberCoords].x + 25, board[robberCoords].y, 50, 50);
+    };
+    robber.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/robber.jpg`;
+
+  }
 })
 
 function drawBoard(tile) {
@@ -105,3 +118,29 @@ function drawBoard(tile) {
   };
   img.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/${tile.type}.jpg`;
 }
+
+function drawRoad(x1, y1, x2, y2, color) {
+  ctx2.save();
+  ctx2.beginPath();
+  ctx2.lineWidth = 10;
+  ctx2.strokeStyle = color;
+  ctx2.moveTo(x1, y1);
+  ctx2.lineTo(x2, y2);
+  ctx2.closePath();
+  ctx2.stroke();
+  ctx2.restore();
+}
+
+class SettlementSquare {
+  constructor(x, y, w, h, fill) {
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.fill = fill;
+  }
+
+  draw() {
+    ctx2.fillStyle = this.fill;
+    ctx2.fillRect(this.x, this.y, this.w, this.h);
+  }

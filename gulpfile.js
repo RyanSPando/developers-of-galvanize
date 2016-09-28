@@ -20,8 +20,8 @@ const paths = {
     path.join('src', 'client', 'css', '*.css')
   ],
   views: [
-    path.join('src', 'server', '**', '*.html'),
-    path.join('src', 'server', '*.html')
+    path.join('src', 'server', '**', '*.njk'),
+    path.join('src', 'server', '*.njk')
   ],
   server: path.join('src', 'server', 'server.js')
 };

@@ -77,12 +77,13 @@ class Board {
     this.nineteen.y = 425;
     this.allVertices = [];
     this.allEdges = [];
+    this.allEdgeEndPoints = [];
     boardSpaces.forEach((space) => {
       this[space].vertices = __getVertices(this[space].x, this[space].y);
       this[space].vertices.forEach((vertex) => {
         this.allVertices.push(vertex);
       });
-      this[space].edges = __getEdges(this[space].vertices);
+      this[space].edges = __getEdges(this[space].vertices, this.allEdgeEndPoints);
       this[space].edges.forEach((edge) => {
         this.allEdges.push(edge);
       });
@@ -96,13 +97,18 @@ class Board {
       return true;
     });
     this.allEdges = this.allEdges.filter((edge, index, self) => {
-      console.log(edge);
       var results = null;
       for (let i = index + 1; i < self.length; i++) {
         results = edge.equals(self[i]);
-        if (results) return false;
+        if (results) {
+          this.allEdgeEndPoints[index] = 'match';
+          return false;
+        }
       }
       return true;
+    });
+    this.allEdgeEndPoints = this.allEdgeEndPoints.filter((edge, index, self) => {
+      return edge !== 'match';
     });
   }
 }
@@ -123,11 +129,16 @@ function __getVertices(x, y) {
   return [[x, y], [x + 50, y - 25], [x + 100, y], [x + 100, y + 50], [x + 50, y + 75], [x, y + 50]];
 }
 
-function __getEdges(vertices) {
+function __getEdges(vertices, allEdgeEndPoints) {
   var edgeArr = [];
   for (let i = 0; i < vertices.length; i++) {
-    if (i !== vertices.length - 1) edgeArr.push([((vertices[i][0] + vertices[i + 1][0]) / 2), ((vertices[i][1] + vertices[i + 1][1]) / 2)]);
-    else edgeArr.push([((vertices[i][0] + vertices[0][0]) / 2), ((vertices[i][1] + vertices[0][1]) / 2)]);
+    if (i !== vertices.length - 1) {
+      edgeArr.push([((vertices[i][0] + vertices[i + 1][0]) / 2), ((vertices[i][1] + vertices[i + 1][1]) / 2)]);
+      allEdgeEndPoints.push([vertices[i][0], vertices[i][1], vertices[i + 1][0], vertices[i + 1][1]]);
+    } else {
+      edgeArr.push([((vertices[i][0] + vertices[0][0]) / 2), ((vertices[i][1] + vertices[0][1]) / 2)]);
+      allEdgeEndPoints.push([vertices[i][0], vertices[i][1], vertices[0][0], vertices[0][1]]);
+    }
   }
   return edgeArr;
 }

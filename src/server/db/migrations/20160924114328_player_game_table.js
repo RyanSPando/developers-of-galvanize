@@ -1,8 +1,8 @@
 
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('player_game', (table) => {
+  return knex.schema.createTable('user_game', (table) => {
     table.increments();
-    table.integer('player_id').notNullable();
+    table.integer('user_id').notNullable();
     table.integer('game_id').notNullable();
     table.integer('wheat_cards').defaultTo(0);
     table.integer('wood_cards').defaultTo(0);

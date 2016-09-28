@@ -116,7 +116,7 @@ const context = canvas.getContext('2d');
   //E1 Port
   buildPortNumber(263, 513, 18, 0, 2*Math.PI);
   //D1 Port
-  buildPortImage(170, 370, 18, 0, 2*Math.PI, '/images/wheat.jpg', 150, 350, 44, 36);
+  buildPortImage(170, 370, 18, 0, 2*Math.PI, '/images/wheat.jpg', 150, 350, 44, 38);
   //B1 Port
   buildPortImage(170, 225, 18, 0, 2*Math.PI, '/images/ore.jpg', 140, 169, 77, 108);
 

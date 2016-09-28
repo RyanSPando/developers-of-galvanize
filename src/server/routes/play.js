@@ -29,7 +29,6 @@ router.get('/:gameID', authHelpers.loginRequired, (req, res, next) => {
 
 router.get('/:gameID/join', authHelpers.loginRequired, (req, res, next) => {
   gameBoard.getBoard(req.params.gameID).then((result) => {
-    console.log(result);
     res.json(result[0].board)
   })
 });

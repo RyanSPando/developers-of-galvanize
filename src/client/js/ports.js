@@ -41,18 +41,17 @@ const context = canvas.getContext('2d');
     context.restore();
   }
 
-  function buildPortImage(x, y, radius, startAngle, endAngle, math, url) {
+  function buildPortImage(x, y, radius, startAngle, endAngle, math, url, startX, startY, sideX, sideY) {
     var image = new Image();
     image.src = url;
     image.onload = function() {
       context.save();
       context.beginPath();
-      //context.fillStyle = 'white';
       context.arc(x, y, radius, startAngle, endAngle, math);
       context.closePath();
       context.fill();
       context.clip();
-      context.drawImage(image, 0, 0);
+      context.drawImage(image, startX, startY, sideX, sideY);
       context.restore();
       }
     };
@@ -60,7 +59,7 @@ const context = canvas.getContext('2d');
   function buildPortNumber(x, y, radius, startAngle, endAngle, math) {
     context.save();
     context.beginPath();
-    context.fillStyle = 'white';
+    context.fillStyle = 'sandybrown';
     context.arc(x, y, radius, startAngle, endAngle, math);
     context.closePath();
     context.fill();
@@ -104,20 +103,20 @@ const context = canvas.getContext('2d');
   //A1 Port
   buildPortNumber(260, 90, 18, 1, 2, 2*Math.PI);
   //A2 Port
-  buildPortImage(440, 90, 18, 1, 2, 2*Math.PI, 'images/sheep.JPG');
+  buildPortImage(440, 90, 18, 1, 2, 2*Math.PI, 'images/sheep.JPG', 420, 60, 72, 72);
   //B4 Port
   buildPortNumber(585, 165, 18, 1, 2, 2*Math.PI);
   //C5 Port
   buildPortNumber(675, 300, 18, 1, 2, 2*Math.PI);
   //D4 Port
-  buildPortImage(585, 432, 18, 1, 2, 2*Math.PI, 'images/brick.jpeg');
+  buildPortImage(585, 432, 18, 1, 2, 2*Math.PI, 'images/brickPort.jpeg', 565, 414, 45, 34);
   //E2 Port
-  buildPortImage(438, 506, 18, 1, 2, 2*Math.PI, 'images/lumber.jpg');
+  buildPortImage(438, 506, 18, 1, 2, 2*Math.PI, 'images/lumber.jpg', 418, 486, 72, 144);
   //E1 Port
   buildPortNumber(265, 510, 18, 1, 2, 2*Math.PI);
   //D1 Port
-  buildPortImage(175, 370, 18, 1, 2, 2*Math.PI, 'images/wheat.jpg');
+  buildPortImage(175, 370, 18, 1, 2, 2*Math.PI, 'images/wheat.jpg', 155, 350, 44, 36);
   //B1 Port
-  buildPortImage(175, 225, 18, 1, 2, 2*Math.PI, 'images/ore.jpg');
+  buildPortImage(175, 225, 18, 1, 2, 2*Math.PI, 'images/ore.jpg', 140, 169, 77, 108);
 
 })();

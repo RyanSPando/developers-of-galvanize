@@ -18,7 +18,7 @@ $('.findGame').on('click', function(e) {
     url: '/play/findGame'
   }).done((games) => {
     for (let i = 0; i < games.length; i++) {
-      $('#gameList').append(`<li><a href="/play/${games[i].gameID}/notFirst">Game #${i}</a></li>`);
+      $('#gameList').append(`<li><a href="/play/${games[i].gameID}/notFirst">Game #${i + 1}</a></li>`);
     }
   });
 });

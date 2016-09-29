@@ -2,8 +2,8 @@
 // var i = 0;
 
 // const resolveDiceRoll = require('../controllers/helpers/diceRoll').resolveDiceRoll;
-var users = [];
-var storedID;
+const users = [];
+var masterIDx = masterIDx || 0;
 
 function init(io) {
   io.on('connection', function(socket) {
@@ -32,7 +32,7 @@ function init(io) {
     });
 
     socket.on('dice-roll', function(sessionID) {
-      if(checkUser(sessionID, storedID)) {
+      if (checkUser(sessionID, masterIDx)) {
         const userIdx = findUserIndexBySession(sessionID);
         const name = users[userIdx].name;
         const diceResult = diceRoll();
@@ -42,7 +42,14 @@ function init(io) {
     });
 
     socket.on('next-turn', function(sessionID) {
-
+      if (checkUser(sessionID, masterIDx)) {
+        const nextMasterIndex = (findUserIndexBySession(sessionID) + 1) % (users.length);
+        masterIDx = nextMasterIndex;
+        const name = users[nextMasterIndex].name;
+        const socketId = users[nextMasterIndex].socketId;
+        io.emit('next-turn', name);
+        io.sockets.connected[socketId].emit('your-turn');
+      }
     });
   });
 }
@@ -70,15 +77,18 @@ function diceRoll() {
 
 function resolveDiceRoll(diceResult, io, socket, users) {
 
-  if (diceRoll){
+  if (diceRoll) {
     users.forEach((user) => {
       io.sockets.connected[user.socketId].emit('chat message',`${user.name} only received this message`);
     });
   }
 }
 
-function checkUser(sessionID, storedID) {
-  if (sessionID === storedID) return true;
+function checkUser(sessID, storedIdx) {
+  if (storedIdx === undefined) {
+    return false;
+  }
+  if (sessID === users[storedIdx].sessionID) return true;
   return false;
 }
 

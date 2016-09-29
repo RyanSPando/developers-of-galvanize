@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    {% if title %}
-      <title>{{ title }}</title>
-    {% else %}
-      <title>Something. Something. Something.</title>
-    {% endif %}
-
+      <title>Peddlers Of Crudtan</title>
     {% include "partials/nav.njk"%}
     <!-- stylesheets -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/yeti/bootstrap.min.css">
@@ -23,7 +18,7 @@
       {% block content %}
       {% endblock %}
     <script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/main.js"></script>
     {% block scripts %}{% endblock %}
   </body>

@@ -1,0 +1,20 @@
+{% extends "_base.njk" %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+<button class="createGame" type="button" name="createGame">Create A New Game!</button>
+<button class="findGame" type="button" name="findGame">Find A Game!</button>
+<ul id="gameList">
+</ul>
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="/css/play.css" />
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="/js/findGame.js"></script>
+{% endblock %}

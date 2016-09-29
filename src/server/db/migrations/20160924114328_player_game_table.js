@@ -39,7 +39,7 @@ exports.up = function(knex, Promise) {
     table.integer('road_fourteen_location');
     table.integer('road_fifteen_location');
     table.foreign('user_id').references('id').inTable('users');
-    table.foreign('game_id').references('gameID').inTable('games');
+    table.foreign('game_id').references('id').inTable('games');
   });
 };
 

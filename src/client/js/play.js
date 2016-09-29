@@ -15,7 +15,7 @@
     $(this).css('display', 'none');
     $('.canvas-contain').css('display', 'block');
     var pathname = window.location.pathname.split('/');
-    var boardID = pathname[pathname.length - 1];
+    var boardID = pathname[2];
     $.ajax({
       url: `/play/${boardID}/join`,
       data: {id: boardID}

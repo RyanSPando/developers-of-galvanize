@@ -3,6 +3,7 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('games',(table) => {
     table.text('gameID').unique().notNullable();
     table.jsonb('board').notNullable();
+    table.integer('players').defaultTo(1);
     table.integer('wheat_cards').defaultTo(19);
     table.integer('wood_cards').defaultTo(19);
     table.integer('brick_cards').defaultTo(19);

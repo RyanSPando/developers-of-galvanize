@@ -40,7 +40,7 @@
        <button disabled=true class="player-action btn btn-success" type="send" name="buy-development-card" id="buy-dev-card">Buy Development Card</button>
      </form>
      <form class="form-group" action="javascript:void(0)" id="play-dev-card-form">
-       <button disabled=true class="player-action btn btn-danger" type="send" name="play-development-card" id="play-dev-card">Play Development Card</button>
+       <button disabled=true class="player-action btn btn-danger" type="send" name="play-development-card" id="play-dev-card" data-toggle="modal" data-target="#player-dev-card">Play Development Card</button>
      </form>
      <data value="" data-id="{{sessionID}}" data-name="{{name}}" data-first="{{first}}" id="myData"></data>
   </div>
@@ -60,6 +60,34 @@
   </div>
 </div>
 
+<!-- Modal -->
+<div id="player-dev-card" class="modal fade player-dev-card" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Your Development Cards</h4>
+      </div>
+      <div class="modal-body player-hand">
+        <div class="knight-dev card">Knight</div>
+        <div class="road-building-dev card">Road Building</div>
+        <div class="monopoly-dev card">Monopoly</div>
+        <div class="year-of-plenty-dev card">Year of Plenty</div>
+        <div class="chapel-dev vp-card">Chapel</div>
+        <div class="citadel-dev vp-card">Citadel</div>
+        <div class="library-dev vp-card">Library</div>
+        <div class="university-dev vp-card">University</div>
+        <div class="market-dev vp-card">Market</div>
+      </div>
+      <div class="modal-footer player-hand-close">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 {% endblock %}
 

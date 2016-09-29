@@ -1,10 +1,9 @@
 class MakePlayer {
-  constructor(name, color, avatar_url, user_id, game_id) {
-    this.name = name;
-    this.game_id = game_id;
+  constructor(user_id, game_id, color, avatar_url) {
     this.user_id = user_id;
+    this.game_id = game_id;
     this.color = color;
-    this.avatar = avatar_url;
+    this.avatar_url = avatar_url;
     this.wheat_cards = 0;
     this.wood_cards = 0;
     this.brick_cards = 0;

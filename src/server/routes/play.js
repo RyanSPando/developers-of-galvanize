@@ -34,23 +34,24 @@ router.get('/:gameID/join', authHelpers.loginRequired, (req, res, next) => {
   gameBoard.getBoard(req.params.gameID).then((result) => {
     res.json(result[0].board);
   });
-  //name, color, avatar_url, user_id, game_id
-  router.post('/player/new', authHelpers.loginRequired, (req, res, next) => {
-    const playerObject = {
-      name : req.session.username,
-      color: req.body.color,
-      avatar_url: req.body.avatar_url,
-      user_id: req.session.user_id,
-      game_id: req.body.game_id
-    };
-    players.setUpPlayer(playerObject).then((result) => {
-      console.log(result);
-      res.json(result[0].player);
-    }).catch((err) => {
-      return next();
-    });
-  });
+});
 
+//name, color, avatar_url, user_id, game_id
+router.post('/player/new', authHelpers.loginRequired, (req, res, next) => {
+  const playerObject = {
+    color: req.body.color,
+    avatar_url: req.body.avatar_url,
+    user_id: req.session.user.user_id,
+    game_id: req.body.game_id
+  };
+
+  players.setUpPlayer(playerObject).then((result) => {
+    console.log('result:', result);
+    res.json(result);
+  }).catch((err) => {
+    console.log(err);
+    return next();
+  });
 });
 
 module.exports = router;

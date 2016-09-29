@@ -25,9 +25,10 @@ function grabFromGiphy(string) {
 
     $.ajax({
       url: `player/new`,
-      data: {avatar_url: avatar_url, game_id:game_id, color: color }
+      method: 'POST',
+      data: {avatar_url: avatar_url, game_id: game_id, color: color }
     }).done((playerInfo) => {
-      console.log(playerInfo);
+
     });
 
     if (result.data.length) {

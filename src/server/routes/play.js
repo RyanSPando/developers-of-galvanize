@@ -46,8 +46,7 @@ router.post('/player/new', authHelpers.loginRequired, (req, res, next) => {
   };
 
   players.setUpPlayer(playerObject).then((result) => {
-    console.log('result:', result);
-    res.json(result);
+    res.json(result[0]);
   }).catch((err) => {
     console.log(err);
     return next();

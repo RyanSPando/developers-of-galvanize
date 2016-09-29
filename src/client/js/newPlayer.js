@@ -3,7 +3,7 @@ $(document).ready(function() {
   // show modal for new user color and avatar
   $('#myModal').modal('show');
 
-  $('#new-player-form').submit(function(e){
+  $('#new-player-form').submit(function(e) {
     e.preventDefault();
     const string = $('#avatar_url').val();
     grabFromGiphy(string);
@@ -14,7 +14,7 @@ $(document).ready(function() {
 function grabFromGiphy(string) {
   $.ajax({
     method: 'GET',
-    url: "http://api.giphy.com/v1/gifs/search?q="+encodeURIComponent(string.trim())+"&rating=g&api_key=dc6zaTOxFJmzC"
+    url: 'http://api.giphy.com/v1/gifs/search?q=' + encodeURIComponent(string.trim()) + '&rating=g&api_key=dc6zaTOxFJmzC'
   })
   .done(function(result) {
 
@@ -31,15 +31,12 @@ function grabFromGiphy(string) {
 
     });
 
-    if (result.data.length) {
-
-    }
-    else {
-      $("#messages").append($('<li class="giphy-error">').text("Oops, it looks like Giphy couldn\'t match your search, or is having some other issue."));
+    if (!result.data.length) {
+      $('#messages').append($('<li class="giphy-error">').text('Oops, it looks like Giphy couldn\'t match your search, or is having some other issue.'));
     }
   }).fail('Could not load Avatar');
 }
 
 function getRandomNumber(max) {
-    return Math.floor(Math.random()*max);
-  }
+  return Math.floor(Math.random() * max);
+}

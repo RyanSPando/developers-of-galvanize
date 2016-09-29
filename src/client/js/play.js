@@ -24,6 +24,7 @@ $('.ready').on('click', function(e) {
 });
 
 $(document).on('click', '#hexmap2', function(e) {
+  // find where the mouse is on click
   const mouseX = e.offsetX;
   const mouseY = e.offsetY;
   const settleCoords = board.allVertices.filter((vertex) => {
@@ -61,7 +62,6 @@ $(document).on('click', '#hexmap2', function(e) {
       robberLocation = robberPlace;
     };
     robber.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/robber.jpg`;
-
   }
 })
 

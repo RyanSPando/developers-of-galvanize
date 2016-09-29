@@ -22,8 +22,8 @@ router.post('/', function (req, res, next) {
 
   renderObject.errors = req.validationErrors();
 
-  if(renderObject.errors){
-    res.render('./pages/register', renderObject );
+  if (renderObject.errors) {
+    res.render('./pages/register', renderObject);
   } else {
     signup.createUser(req, res)
     .then ((user) => {

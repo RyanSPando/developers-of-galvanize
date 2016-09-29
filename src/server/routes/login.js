@@ -18,17 +18,12 @@ router.post('/', (req, res, next) => {
         req.session.user = {
           username: results[0].username,
           email: results[0].email,
-          user_id: results[0].id,
+          user_id: results[0].id
         };
         res.redirect('/play');
         break;
     }
   });
 });
-
-// router.get('/logout', signup.loginRequired, (req, res, next) => {
-//   req.logout();
-//   handleResponse(res, 200, 'success');
-// });
 
 module.exports = router;

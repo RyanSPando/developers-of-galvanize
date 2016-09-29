@@ -36,11 +36,8 @@ $(document).ready(function() {
     e.preventDefault();
     var msg = $('#m').val();
     socket.emit('chat message', msg);
-
     // reset form value to nothing
     $('#m').val('');
-    // reset 'typing' to nothing
-    $('#typing').text('');
   });
 
   // set listener for chat form when enter/return key released

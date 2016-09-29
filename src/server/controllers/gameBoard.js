@@ -14,6 +14,11 @@ function getBoard(id) {
   return knex('games').where({gameID: id});
 }
 
+function getPlayerBoard(gameID, user_id) {
+  return knex('games').where({gameID: gameID})
+  .join('user_game', 'games.gameID', 'user_game.gameID');
+}
+
 function generateUUID() {
   var date = new Date().getTime();
   var uuid = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(char) {

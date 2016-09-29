@@ -53,4 +53,11 @@ router.post('/player/new', authHelpers.loginRequired, (req, res, next) => {
   });
 });
 
+router.get('/:gameID/yourPlace', authHelpers.loginRequired, (req, res, next) => {
+  gameBoard.getPlayerBoard(req.params.gameID, req.session.user.user_id).then(result => {
+    console.log(result[0]);
+    res.json(result[0]);
+  });
+});
+
 module.exports = router;

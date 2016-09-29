@@ -6,9 +6,8 @@ function handleLogin(req, user) {
   // req.session.uuid = id
 }
 
-// redirect page to page you were on // <--- change this ---->>>
 function handleResponse(res, code, statusMsg) {
-  res.status(code).json({status: statusMsg});
+  res.status(code).redirect('/play');
 }
 
 function comparePass(userPassword, databasePassword) {
@@ -19,11 +18,11 @@ function loginRequired(req, res, next) {
   const renderObject = {};
   renderObject.message = 'please log in';
   if (!req.session.user) {
-   res.render('error', renderObject);
+    res.render('error', renderObject);
   } else {
     return next();
   }
-};
+}
 
 function logIn(email, password, knex, callBack) {
   knex('users')
@@ -49,4 +48,4 @@ module.exports = {
   comparePass,
   loginRequired,
   logIn
-}
+};

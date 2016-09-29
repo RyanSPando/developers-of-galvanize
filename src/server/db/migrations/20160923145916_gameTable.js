@@ -1,8 +1,7 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('games',(table) => {
-    table.increments();
-    table.text('gameID').notNullable();
+    table.text('gameID').unique().notNullable();
     table.jsonb('board').notNullable();
     table.integer('wheat_cards').defaultTo(19);
     table.integer('wood_cards').defaultTo(19);

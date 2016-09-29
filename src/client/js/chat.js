@@ -1,5 +1,6 @@
 $(document).ready(function() {
   //setup start
+
   var socket = io(); // jshint ignore:line
   const bool = $('#myData').data('first');
 

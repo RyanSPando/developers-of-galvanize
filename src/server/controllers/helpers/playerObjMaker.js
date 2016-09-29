@@ -1,4 +1,4 @@
-class makePlayer {
+class MakePlayer {
   constructor(name, color, avatar_url, user_id, game_id) {
     this.name = name;
     this.game_id = game_id;
@@ -41,3 +41,7 @@ class makePlayer {
     this.road_fifteen_location = null;
   }
 }
+
+module.exports = {
+  MakePlayer
+};

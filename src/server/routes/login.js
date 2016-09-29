@@ -5,20 +5,6 @@ const signin = require('../controllers/signin');
 const validate = require('../controllers/signup');
 const knex = require('../db/knex');
 
-// router.get('/', function (req, res, next) {
-//   const renderObject = {};
-//   var pass = validate.hashSalt(req.body.password);
-//   var user = {
-//     email: req.body.email,
-//     username: req.body.username,
-//     password: pass
-//   };
-//   console.log(user);
-//   renderObject.title = 'Login';
-//   res.render('./pages/other-pages', renderObject);
-// });
-
-
 router.post('/', (req, res, next) => {
   const email = req.body.email_check;
   const password = req.body.password_check;

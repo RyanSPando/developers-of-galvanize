@@ -22,8 +22,11 @@ module.exports = {
     }
   }
   production: {
-      client: 'postgresql',
-      connection: {
-        database: 'postgresql-flexible-16508'
-      }
+    client: 'postgresql',
+    connection: {
+      database: 'postgresql-flexible-16508'
+    },
+    migrations: {
+      directory: __dirname + '/src/server/db/migrations'
+    }
 };

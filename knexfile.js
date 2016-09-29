@@ -21,4 +21,9 @@ module.exports = {
       directory: __dirname + '/src/server/db/seeds'
     }
   }
+  production: {
+      client: 'postgresql',
+      connection: {
+        database: 'postgresql-flexible-16508'
+      }
 };

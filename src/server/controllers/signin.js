@@ -19,11 +19,11 @@ function loginRequired(req, res, next) {
   const renderObject = {};
   renderObject.message = 'please log in';
   if (!req.session.user) {
-   res.render('error', renderObject);
+    res.render('error', renderObject);
   } else {
     return next();
   }
-};
+}
 
 function logIn(email, password, knex, callBack) {
   knex('users')
@@ -49,4 +49,4 @@ module.exports = {
   comparePass,
   loginRequired,
   logIn
-}
+};

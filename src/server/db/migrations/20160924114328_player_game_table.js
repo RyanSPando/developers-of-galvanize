@@ -4,6 +4,8 @@ exports.up = function(knex, Promise) {
     table.increments();
     table.integer('user_id').notNullable();
     table.integer('game_id').notNullable();
+    table.string('color').notNullable();
+    table.text('avatar_url').defaultTo('http://www.fsirbike.com/images/anonymous-user.png');
     table.integer('wheat_cards').defaultTo(0);
     table.integer('wood_cards').defaultTo(0);
     table.integer('brick_cards').defaultTo(0);

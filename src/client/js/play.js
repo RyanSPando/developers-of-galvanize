@@ -45,7 +45,7 @@ $(document).on('click', '#hexmap2', function(e) {
     const y = board[tile].y + 25;
     var result = false;
     if (tile !== 'id' && tile !== 'allVertices' && tile !== 'allEdges') {
-      if (Math.sqrt((x - mouseX) * (x - mouseX) + (y - mouseY) * (y - mouseY)) < 11) result = [x, y];
+      if (Math.sqrt((x - mouseX) * (x - mouseX) + (y - mouseY) * (y - mouseY)) < 20) result = [x, y];
     }
     return result;
   });
@@ -56,19 +56,19 @@ $(document).on('click', '#hexmap2', function(e) {
     drawRoad(board.allEdgeEndPoints[roadIndex][0], board.allEdgeEndPoints[roadIndex][1], board.allEdgeEndPoints[roadIndex][2], board.allEdgeEndPoints[roadIndex][3], 'red');
   } else if (robberPlace !== undefined) {
     var robber = new Image();
-    robber.onload = function(){
+    robber.onload = function() {
       ctx2.drawImage(robber, board[robberPlace].x + 25, board[robberPlace].y, 50, 50);
       ctx2.clearRect(board[robberLocation].x + 25, board[robberLocation].y, 50, 50);
       robberLocation = robberPlace;
     };
     robber.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/robber.jpg`;
   }
-})
+});
 
 function drawBoard(tile) {
   var img = new Image();
   //draw the image when loaded
-  img.onload = function(){
+  img.onload = function() {
     ctx.save();
 
     //define the polygon
@@ -113,7 +113,7 @@ function drawBoard(tile) {
       ctx.closePath();
     } else {
       var robber = new Image();
-      robber.onload = function(){
+      robber.onload = function() {
         ctx2.drawImage(robber, tile.x + 25, tile.y, 50, 50);
       };
       robber.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/robber.jpg`;

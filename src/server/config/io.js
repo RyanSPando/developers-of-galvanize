@@ -32,7 +32,7 @@ function init(io) {
     });
 
     socket.on('dice-roll', function(sessionID) {
-      if(checkUser(sessionID, masterIDx)) {
+      if (checkUser(sessionID, masterIDx)) {
         const userIdx = findUserIndexBySession(sessionID);
         const name = users[userIdx].name;
         const diceResult = diceRoll();
@@ -42,7 +42,7 @@ function init(io) {
     });
 
     socket.on('next-turn', function(sessionID) {
-      if(checkUser(sessionID, masterIDx)) {
+      if (checkUser(sessionID, masterIDx)) {
         const nextMasterIndex = (findUserIndexBySession(sessionID) + 1) % (users.length);
         masterIDx = nextMasterIndex;
         const name = users[nextMasterIndex].name;
@@ -77,7 +77,7 @@ function diceRoll() {
 
 function resolveDiceRoll(diceResult, io, socket, users) {
 
-  if (diceRoll){
+  if (diceRoll) {
     users.forEach((user) => {
       io.sockets.connected[user.socketId].emit('chat message',`${user.name} only received this message`);
     });

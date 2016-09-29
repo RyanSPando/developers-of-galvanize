@@ -1,0 +1,48 @@
+{% extends "_base.njk" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+  {% if user[0].username %}
+    <h2>Hello {{ user[0].username }}</h2>
+  {% else  %}
+    <h2>{{ title }}</h2>
+  {% endif %}
+
+<form class="edit-form" id="profile-update">
+
+  <div class="form-group">
+    <br>
+
+    <div class="form-group">
+      <label for="username" class="control-label user-info"> Username:  </label>
+      <input  type="text" name="username" class="form-control" id="username" placeholder="{{ user[0].username }}"></input>
+    </div>
+    <br>
+
+     <div class="form-group">
+       <label for="email" class="control-label user-info"> Email:  </label>
+       <input  type="text" name="email" class="form-control" id="email" placeholder="{{ user[0].email }}"></input>
+    </div>
+    <br>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block">Update profile!</button>
+        <a href="#" id="delete-profile" data-id={{rest.id}}> Delete</a>
+    </div>
+    <br>
+
+  </div>
+
+</form>
+
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="/css/profile.css" />
+{% endblock %}
+
+{% block scripts %}
+  <script type="text/javascript" src="/js/profile.js"></script>
+{% endblock %}

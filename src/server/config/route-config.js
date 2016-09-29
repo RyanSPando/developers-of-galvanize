@@ -16,8 +16,11 @@
     const register = require('../routes/register');
     // // *** otherPages *** //
     const otherPages = require('../routes/otherPages');
+    // // *** profile *** //
+    const profile = require('../routes/profile');
     // // *** forgot-password *** //
     const forgot_password = require('../routes/forgot-password');
+
 
     // // *** login *** //
     const login = require('../routes/login');
@@ -60,6 +63,8 @@
     app.use('/forgot-password', forgot_password);
     // *** register login *** //
     app.use('/login', login);
+    // *** register index *** //
+    app.use('/profile', profile);
 
     // *** ALL ROUTES GO ABOVE THIS! *** //
     // *** register other pages.  *** //

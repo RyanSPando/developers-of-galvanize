@@ -22,15 +22,17 @@ router.post('/', function (req, res, next) {
 
   renderObject.errors = req.validationErrors();
 
-  if(renderObject.errors){
-    res.render('./pages/register', renderObject );
+  if (renderObject.errors) {
+    res.render('./pages/register', renderObject);
   } else {
     signup.createUser(req, res)
     .then ((user) => {
-      signIn.handleLogin(req, user[0]); })
-    .then(() => { signIn.handleResponse(res.redirect('/play'), 201, 'success'); })
-    .catch((err) => {
-      signIn.handleResponse(res, 500, 'error'); });
+      signIn.handleLogin(req, user[0]);
+    }).then(() => {
+      signIn.handleResponse(res, 201, 'success');
+    }).catch((err) => {
+      signIn.handleResponse(res, 500, 'error');
+    });
   }
 });
 

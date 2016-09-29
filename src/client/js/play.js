@@ -3,6 +3,7 @@ const ctx = canvas.getContext('2d');
 const canvas2 = document.getElementById('hexmap2');
 const ctx2 = canvas2.getContext('2d');
 var board = null;
+var robberLocation = null;
 
 $('.ready').on('click', function(e) {
   e.preventDefault();
@@ -16,12 +17,14 @@ $('.ready').on('click', function(e) {
   }).done((boardInfo) => {
     board = boardInfo;
     Object.keys(boardInfo).forEach((tile) => {
+      if (boardInfo[tile].type === 'desert') robberLocation = tile;
       if (tile !== 'id' && tile !== 'allVertices' && tile !== 'allEdges' && tile !== 'allEdgeEndPoints') drawBoard(board[tile]);
     });
   });
 });
 
 $(document).on('click', '#hexmap2', function(e) {
+  // find where the mouse is on click
   const mouseX = e.offsetX;
   const mouseY = e.offsetY;
   const settleCoords = board.allVertices.filter((vertex) => {
@@ -55,9 +58,10 @@ $(document).on('click', '#hexmap2', function(e) {
     var robber = new Image();
     robber.onload = function(){
       ctx2.drawImage(robber, board[robberPlace].x + 25, board[robberPlace].y, 50, 50);
+      ctx2.clearRect(board[robberLocation].x + 25, board[robberLocation].y, 50, 50);
+      robberLocation = robberPlace;
     };
     robber.src = `https://raw.githubusercontent.com/pittdogg/developers-of-galvanize/master/src/client/images/robber.jpg`;
-
   }
 })
 

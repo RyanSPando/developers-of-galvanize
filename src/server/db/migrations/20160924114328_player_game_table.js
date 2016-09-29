@@ -38,9 +38,11 @@ exports.up = function(knex, Promise) {
     table.integer('road_thirteen_location');
     table.integer('road_fourteen_location');
     table.integer('road_fifteen_location');
+    table.foreign('user_id').references('id').inTable('users');
+    table.foreign('game_id').references('gameID').inTable('games');
   });
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('player_game');
+  return knex.schema.dropTable('user_game');
 };

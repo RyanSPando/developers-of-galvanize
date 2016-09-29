@@ -26,6 +26,7 @@ router.get('/:gameID', authHelpers.loginRequired, (req, res, next) => {
   renderObject.title = 'Play!';
   renderObject.sessionID = req.sessionID;
   renderObject.name = req.session.user.username;
+  renderObject.first = true;
   res.render('./pages/play', renderObject);
 });
 

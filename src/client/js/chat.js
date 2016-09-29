@@ -19,9 +19,9 @@ $(document).ready(function() {
   //ask for a dice roll
   $('#roll-dice-form').on('submit', (e) => {
     e.preventDefault();
-    console.log('roll button on click');
     const socketId = $('#myData').data('id');
     socket.emit('dice-roll', socketId);
+    $('#roll-dice').prop('disabled', true);
   });
 
   //next turn
@@ -105,6 +105,8 @@ function enableButtons() {
   $('#next-turn').prop('disabled', false);
   $('#trade-bank').prop('disabled', false);
   $('#trade-players').prop('disabled', false);
+  $('#play-dev-card-form').prop('disabled', false);
+  $('#buy-developement-card-form').prop('disabled', false);
 }
 
 function disableButtons() {
@@ -112,4 +114,6 @@ function disableButtons() {
   $('#next-turn').prop('disabled', true);
   $('#trade-bank').prop('disabled', true);
   $('#trade-players').prop('disabled', true);
+  $('#play-dev-card-form').prop('disabled', true);
+  $('#buy-developement-card-form').prop('disabled', true);
 }

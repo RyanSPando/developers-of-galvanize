@@ -16,7 +16,7 @@ router.get('/', authHelpers.loginRequired, function (req, res, next) {
       res.render('./profile/profile', renderObject);
     } else {
       console.log('user not found');
-      renderObject.title = 'user not found'
+      renderObject.title = 'user not found';
       res.render('./profile/profile', renderObject);
     }
   });
@@ -36,6 +36,6 @@ router.delete('/:id/delete', function (req, res, next) {
     .catch((err) => {
       return next(err);
     });
-});
+  });
 
 module.exports = router;

@@ -3,7 +3,7 @@
   height: 600px;
   width: 800px;
   position: relative;
-  margin-left: 10%;
+  margin-left: 8%;
 }
 
 .canvas {
@@ -42,6 +42,7 @@
 
 .buttons {
   padding-top: 5%;
+  margin-left: 4%;
 }
 
 .player-action {
@@ -57,16 +58,76 @@
   border: 2px solid black;
   height: 390px;
   width: 100%;
+  padding: 0;
 }
 
 .player-name {
-  background-color: orange;
-  width: 25%;
+  text-align: center;
   float: left;
+  border: 2px solid black;
+  width: 50%;
+  height: 75px;
 }
 
 .victory-points {
-  background-color: orange;
-  width: 25%;
+  text-align: center;
+  width: 50%;
   float: right;
+  border: 2px solid black;
+  height: 75px;
+}
+
+.resources {
+  text-align: center;
+  border: 2px solid black;
+  width: 20%;
+  height: 150px;
+  float: left;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+}
+
+.bonus-div {
+  text-align: center;
+  float: left;
+  width: 50%;
+  height: 165px;
+  border: 2px solid black;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+}
+
+.wheat {
+  background-image: url('../images/wheat.jpg');
+  background-size: cover;
+}
+
+.lumber {
+  background-image: url('../images/lumber.jpg');
+  background-size: cover;
+}
+
+.ore {
+  background-image: url('../images/ore.jpg');
+  background-size: cover;
+}
+
+.sheep {
+  background-image: url('../images/sheep.jpg');
+  background-size: cover;
+}
+
+.brick {
+  background-image: url('../images/brick.jpg');
+  background-size: cover;
+}
+
+.largest-army {
+  background-image: url('../images/knight.png');
+  background-size: cover;
+}
+
+.longest-road {
+  background-image: url('../images/longestroad.jpg');
+  background-size: cover;
 }

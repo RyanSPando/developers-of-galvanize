@@ -1,5 +1,6 @@
 $(document).ready(function() {
   //setup start
+
   var socket = io(); // jshint ignore:line
   const bool = $('#myData').data('first');
 
@@ -19,9 +20,9 @@ $(document).ready(function() {
   //ask for a dice roll
   $('#roll-dice-form').on('submit', (e) => {
     e.preventDefault();
-    console.log('roll button on click');
     const socketId = $('#myData').data('id');
     socket.emit('dice-roll', socketId);
+    $('#roll-dice').prop('disabled', true);
   });
 
   //next turn
@@ -36,11 +37,8 @@ $(document).ready(function() {
     e.preventDefault();
     var msg = $('#m').val();
     socket.emit('chat message', msg);
-
     // reset form value to nothing
     $('#m').val('');
-    // reset 'typing' to nothing
-    $('#typing').text('');
   });
 
   // set listener for chat form when enter/return key released
@@ -105,6 +103,8 @@ function enableButtons() {
   $('#next-turn').prop('disabled', false);
   $('#trade-bank').prop('disabled', false);
   $('#trade-players').prop('disabled', false);
+  $('#play-dev-card-form').prop('disabled', false);
+  $('#buy-developement-card-form').prop('disabled', false);
 }
 
 function disableButtons() {
@@ -112,4 +112,6 @@ function disableButtons() {
   $('#next-turn').prop('disabled', true);
   $('#trade-bank').prop('disabled', true);
   $('#trade-players').prop('disabled', true);
+  $('#play-dev-card-form').prop('disabled', true);
+  $('#buy-developement-card-form').prop('disabled', true);
 }

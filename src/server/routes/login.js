@@ -9,7 +9,6 @@ router.post('/', (req, res, next) => {
   const email = req.body.email_check;
   const password = req.body.password_check;
   signin.logIn(email, password, knex, (err, results) => {
-    // console.log('results', results);
     switch (results) {
       case 'No user':
         res.json({error: 'Incorrect Password/Email'});

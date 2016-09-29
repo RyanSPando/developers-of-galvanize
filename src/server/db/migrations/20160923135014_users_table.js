@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
     table.string('email').notNullable().unique();
     table.string('password').notNullable();
     table.string('username').notNullable().unique();
+    table.text('avatar_url').defaultTo('http://www.fsirbike.com/images/anonymous-user.png');
     table.integer('firsts').defaultTo(0);
     table.integer('seconds').defaultTo(0);
     table.integer('thirds').defaultTo(0);

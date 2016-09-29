@@ -29,6 +29,17 @@
   z-index: 1;
 }
 
+.canvas3 {
+  border-style: groove;
+  border-color: black;
+  box-shadow: 5px 5px 10px lightgrey,
+              -5px -5px 10px orange;
+  position: absolute;
+  left: 5;
+  top: 0;
+  z-index: 2;
+}
+
 .chat {
   margin-left: 2%;
 }

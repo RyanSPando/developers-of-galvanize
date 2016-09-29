@@ -1,7 +1,12 @@
+(function () {
+
 const canvas = document.getElementById('hexmap');
 const ctx = canvas.getContext('2d');
 const canvas2 = document.getElementById('hexmap2');
 const ctx2 = canvas2.getContext('2d');
+const canvas3 = document.getElementById('hexmap3');
+const ctx3 = canvas3.getContext('2d');
+
 var board = null;
 var robberLocation = null;
 
@@ -23,7 +28,7 @@ $('.ready').on('click', function(e) {
   });
 });
 
-$(document).on('click', '#hexmap2', function(e) {
+$(document).on('click', '#hexmap3', function(e) {
   // find where the mouse is on click
   const mouseX = e.offsetX;
   const mouseY = e.offsetY;
@@ -145,7 +150,9 @@ class SettlementSquare {
   }
 
   draw() {
-    ctx2.fillStyle = this.fill;
-    ctx2.fillRect(this.x, this.y, this.w, this.h);
+    ctx3.fillStyle = this.fill;
+    ctx3.fillRect(this.x, this.y, this.w, this.h);
   }
 }
+
+})();

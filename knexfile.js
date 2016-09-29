@@ -29,4 +29,5 @@ module.exports = {
     migrations: {
       directory: __dirname + '/src/server/db/migrations'
     }
+  }
 };

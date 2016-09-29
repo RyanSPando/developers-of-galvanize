@@ -14,6 +14,10 @@ function getBoard(id) {
   return knex('games').where({gameID: id});
 }
 
+function findGame() {
+  return knex('games').where('players', '<', 4);
+}
+
 function generateUUID() {
   var date = new Date().getTime();
   var uuid = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(char) {
@@ -26,5 +30,6 @@ function generateUUID() {
 
 module.exports = {
   setUpBoard,
-  getBoard
+  getBoard,
+  findGame
 };

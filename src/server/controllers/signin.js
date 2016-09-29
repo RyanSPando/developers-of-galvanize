@@ -6,9 +6,8 @@ function handleLogin(req, user) {
   // req.session.uuid = id
 }
 
-// redirect page to page you were on // <--- change this ---->>>
 function handleResponse(res, code, statusMsg) {
-  res.status(code).json({status: statusMsg});
+  res.status(code).redirect('/play');
 }
 
 function comparePass(userPassword, databasePassword) {

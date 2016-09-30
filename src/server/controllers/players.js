@@ -6,11 +6,11 @@ function setUpPlayer(object) {
   var player = new MakePlayer(object.user_id, object.game_id, object.color, object.avatar_url);
   console.log(player);
 
-  return knex('user_game').insert({user_id: player.user_id, gameID: player.game_id, color: player.color, avatar_url: player.avatar_url}).returning('*').then((player) => player);
+  return knex('user_game').insert({user_id: player.user_id, game_id: player.game_id, color: player.color, avatar_url: player.avatar_url}).returning('*').then((player) => console.log(player));
 }
 
 function getPlayer(gameID, user_id) {
-  return knex('user_game').where({gameID: gameID, user_id: user_id});
+  return knex('user_game').where({game_id: gameID, user_id: user_id});
 }
 
 module.exports = {

@@ -15,8 +15,8 @@ function getBoard(id) {
 }
 
 function getPlayerBoard(gameID, user_id) {
-  return knex('games').where({gameID: gameID})
-  .join('user_game', 'games.gameID', 'user_game.gameID');
+  console.log(gameID, user_id);
+  return knex('user_game').where({user_id: user_id, game_id: gameID}).then(playerState => {return playerState;});
 }
 
 function generateUUID() {
@@ -31,5 +31,6 @@ function generateUUID() {
 
 module.exports = {
   setUpBoard,
-  getBoard
+  getBoard,
+  getPlayerBoard
 };

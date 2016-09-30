@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('user_game', (table) => {
     table.increments();
     table.integer('user_id').notNullable();
-    table.text('gameID').notNullable();
+    table.text('game_id').notNullable();
     table.string('color').notNullable();
     table.text('avatar_url').defaultTo('http://www.fsirbike.com/images/anonymous-user.png');
     table.integer('wheat_cards').defaultTo(0);
@@ -41,7 +41,7 @@ exports.up = function(knex, Promise) {
     table.integer('road_fourteen_location').defaultTo(null);
     table.integer('road_fifteen_location').defaultTo(null);
     table.foreign('user_id').references('id').inTable('users');
-    table.foreign('gameID').references('gameID').inTable('games');
+    table.foreign('game_id').references('gameID').inTable('games');
   });
 };
 

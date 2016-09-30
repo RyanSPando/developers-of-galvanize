@@ -29,8 +29,12 @@ function grabFromGiphy(string) {
       method: 'POST',
       data: {avatar_url: avatar_url, game_id: game_id, color: color }
     }).done((playerInfo) => {
-      // callgameBoard();
-      return playerInfo;
+      console.log(playerInfo);
+      $('.wheat').append(`<h1>${playerInfo.wheat_cards}</h1>`);
+      $('.lumber').append(`<h1>${playerInfo.wood_cards}</h1>`);
+      $('.ore').append(`<h1>${playerInfo.ore_cards}</h1`);
+      $('.sheep').append(`<h1>${playerInfo.sheep_cards}</h1>`);
+      $('.brick').append(`<h1>${playerInfo.brick_cards}</h1>`);
     });
 
     if (!result.data.length) {
@@ -43,15 +47,3 @@ function grabFromGiphy(string) {
 function getRandomNumber(max) {
   return Math.floor(Math.random() * max);
 }
-
-// function callgameBoard() {
-//   const pathname = window.location.pathname.split('/');
-//   const game_id = pathname[2];
-//   $.ajax({
-//     url: `/play/${game_id}/player`,
-//     method: 'GET',
-//     data: {game_id: game_id}
-//   }).done((playerInfo) => {
-//     console.log(playerInfo);
-//   });
-// }

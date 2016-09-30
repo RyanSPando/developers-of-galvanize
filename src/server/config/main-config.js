@@ -11,6 +11,7 @@
   const morgan = require('morgan');
   const nunjucks = require('nunjucks');
   const passport = require('passport');
+  const favicon = require('serve-favicon');
 
   // *** view folders *** //
   const viewFolders = [
@@ -46,7 +47,7 @@
     app.use(passport.session());
     app.use(flash());
     app.use(express.static(path.join(__dirname, '..', '..', 'client')));
-
+    app.use(favicon(path.join(__dirname, '..', '..', 'client', 'images', 'favicon.ico')));
   };
 
 })(module.exports);

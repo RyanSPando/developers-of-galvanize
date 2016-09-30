@@ -38,7 +38,7 @@ router.get('/:gameID/join', authHelpers.loginRequired, (req, res, next) => {
 
 router.get('/:gameID/player', authHelpers.loginRequired, (req, res, next) => {
   gameBoard.getPlayerBoard(req.params.gameID, req.session.user.user_id).then((result) => {
-    res.json(result);
+    res.json(result[0]);
   });
 });
 
@@ -52,8 +52,7 @@ router.post('/player/new', authHelpers.loginRequired, (req, res, next) => {
   };
 
   players.setUpPlayer(playerObject).then((result) => {
-    console.log(result);
-    res.json(result);
+    res.json(result[0]);
   }).catch((err) => {
     console.log(err);
     return next();

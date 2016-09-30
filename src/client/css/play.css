@@ -74,6 +74,8 @@
   height: 390px;
   width: 100%;
   padding: 0;
+  color: white;
+  text-shadow: 2px 2px 8px black;
 }
 
 .player-name {
@@ -81,7 +83,7 @@
   float: left;
   border: 2px solid black;
   width: 50%;
-  height: 75px;
+  height: 150px;
 }
 
 .victory-points {
@@ -89,27 +91,23 @@
   width: 50%;
   float: right;
   border: 2px solid black;
-  height: 75px;
+  height: 150px;
 }
 
 .resources {
   text-align: center;
   border: 2px solid black;
   width: 20%;
-  height: 150px;
+  height: 100px;
   float: left;
-  color: white;
-  text-shadow: 2px 2px 8px black;
 }
 
 .bonus-div {
   text-align: center;
   float: left;
   width: 50%;
-  height: 165px;
+  height: 140px;
   border: 2px solid black;
-  color: white;
-  text-shadow: 2px 2px 8px black;
 }
 
 .wheat {

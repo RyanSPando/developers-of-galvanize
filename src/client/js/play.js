@@ -54,11 +54,16 @@
       }
       return result;
     });
+
+    let color = $('.player-info').data('player-color');
+    let avatar = $('.player-info').data('player-avatar');
+
     if (settleCoords.length) {
-      var newSettlement = new SettlementSquare(settleCoords[0][0] - 10, settleCoords[0][1] - 10, 20, 20, '#333');
+
+      var newSettlement = new SettlementSquare(settleCoords[0][0] - 10, settleCoords[0][1] - 10, 20, 20, color);
       newSettlement.draw();
     } else if (roadIndex !== null) {
-      drawRoad(board.allEdgeEndPoints[roadIndex][0][0], board.allEdgeEndPoints[roadIndex][0][1], board.allEdgeEndPoints[roadIndex][1][0], board.allEdgeEndPoints[roadIndex][1][1], 'red');
+      drawRoad(board.allEdgeEndPoints[roadIndex][0][0], board.allEdgeEndPoints[roadIndex][0][1], board.allEdgeEndPoints[roadIndex][1][0], board.allEdgeEndPoints[roadIndex][1][1], color);
     } else if (robberPlace !== undefined) {
       var robber = new Image();
       robber.onload = function() {
@@ -150,8 +155,11 @@
     }
 
     draw() {
+      ctx3.strokeStyle = 'white';
       ctx3.fillStyle = this.fill;
+      ctx3.lineWidth = 3;
       ctx3.fillRect(this.x, this.y, this.w, this.h);
+      ctx3.strokeRect(this.x, this.y, this.w, this.h);
     }
   }
 })();

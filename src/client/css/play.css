@@ -51,6 +51,10 @@
   overflow: auto;
 }
 
+.typing {
+  height: 25px;
+}
+
 .buttons {
   padding-top: 5%;
   margin-left: 4%;

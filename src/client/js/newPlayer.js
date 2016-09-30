@@ -29,15 +29,29 @@ function grabFromGiphy(string) {
       method: 'POST',
       data: {avatar_url: avatar_url, game_id: game_id, color: color }
     }).done((playerInfo) => {
-
+      // callgameBoard();
+      return playerInfo;
     });
 
     if (!result.data.length) {
       $('#messages').append($('<li class="giphy-error">').text('Oops, it looks like Giphy couldn\'t match your search, or is having some other issue.'));
     }
   }).fail('Could not load Avatar');
+
 }
 
 function getRandomNumber(max) {
   return Math.floor(Math.random() * max);
 }
+
+// function callgameBoard() {
+//   const pathname = window.location.pathname.split('/');
+//   const game_id = pathname[2];
+//   $.ajax({
+//     url: `/play/${game_id}/player`,
+//     method: 'GET',
+//     data: {game_id: game_id}
+//   }).done((playerInfo) => {
+//     console.log(playerInfo);
+//   });
+// }

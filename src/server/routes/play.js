@@ -54,6 +54,12 @@ router.get('/:gameID/join', authHelpers.loginRequired, (req, res, next) => {
   });
 });
 
+router.get('/:gameID/player', authHelpers.loginRequired, (req, res, next) => {
+  gameBoard.getPlayerBoard(req.params.gameID, req.session.user.user_id).then((result) => {
+    res.json(result[0]);
+  });
+});
+
 router.post('/player/new', authHelpers.loginRequired, (req, res, next) => {
   const playerObject = {
     color: req.body.color,
@@ -67,6 +73,12 @@ router.post('/player/new', authHelpers.loginRequired, (req, res, next) => {
     console.log(err);
     return next();
   });
+});
+
+router.get('/:gameID/yourPlace', authHelpers.loginRequired, (req, res, next) => {
+  const playerPromise = gameBoard.getPlayerBoard(req.params.gameID, req.session.user.user_id);
+  const boardPromise = gameBoard.getBoard(req.params.gameID);
+
 });
 
 module.exports = router;

@@ -4,12 +4,18 @@
 
 {% block content %}
 
-  <div class="container">
+  <div class="home-page container">
     <h1>{{title}}</h1>
   </div>
 
+  <a href="/play" class="btn play-butt"> PLAY CATAN! </a>
+
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="/css/main.css">
 {% endblock %}
 
 {% block scripts %}
-<script type="text/javascript" src="/js/main.js"></script>
+  <script type="text/javascript" src="/js/main.js"></script>
 {% endblock %}

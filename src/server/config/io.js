@@ -1,7 +1,3 @@
-// connected in server/server.js
-// var i = 0;
-
-// const resolveDiceRoll = require('../controllers/helpers/diceRoll').resolveDiceRoll;
 const users = [];
 var masterIDx = masterIDx || 0;
 
@@ -17,6 +13,11 @@ function init(io) {
     socket.on('join chat', function(msg, sessionID) {
       users.push({name: msg, socketId: socket.id, sessionID: sessionID});
       io.emit('join chat', msg);
+      if (users.length > 1) {
+        const socketId = users[0].socketId;
+        io.emit('start-game');
+        io.sockets.connected[socketId].emit('your-place-phase');
+      }
     });
 
     socket.on('typing', function(msg) {
@@ -50,6 +51,10 @@ function init(io) {
         io.emit('next-turn', name);
         io.sockets.connected[socketId].emit('your-turn');
       }
+    });
+
+    socket.on('your-place-phase', function(sessionID) {
+      console.log('hello it\'s your place phase');
     });
   });
 }

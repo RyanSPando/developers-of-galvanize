@@ -21,7 +21,6 @@
     })
     .fail((err) => {
     });
-
   });
 
   $(document).on('click', '#delete-profile', function(e) {

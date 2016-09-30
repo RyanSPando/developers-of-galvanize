@@ -1,11 +1,12 @@
 $(document).ready(function() {
   //setup start
-
+  disableCanvas();
   var socket = io(); // jshint ignore:line
   const bool = $('#myData').data('first');
 
+  //first player can roll
   if (bool) {
-    enableButtons();
+    $('#roll-dice').prop('disabled', false);
   }
 
   // send new user's name and sessionID
@@ -17,22 +18,26 @@ $(document).ready(function() {
   });
 
   //*** Buttons ***//
-  //ask for a dice roll
+  //ask for a dice roll and then enables the rest of the buttons and the canvas
   $('#roll-dice-form').on('submit', (e) => {
     e.preventDefault();
     const socketId = $('#myData').data('id');
     socket.emit('dice-roll', socketId);
     $('#roll-dice').prop('disabled', true);
+    enableButtons();
+    enableCanvas();
   });
 
-  //next turn
+  //next turn, disable buttons and canvas
   $('#next-turn-form').on('submit', (e) => {
     e.preventDefault();
     const socketId = $('#myData').data('id');
     disableButtons();
+    disableCanvas();
     socket.emit('next-turn', socketId);
   });
 
+  //emit chat message to server
   $('#chatForm').submit(function(e) {
     e.preventDefault();
     var msg = $('#m').val();
@@ -81,11 +86,12 @@ $(document).ready(function() {
       }
     });
   });
-
+  //enable roll on your turn.
   socket.on('your-turn', () => {
-    enableButtons();
+    $('#roll-dice').prop('disabled', false);
   });
 
+  //adds username of persons turn it is to chat
   socket.on('next-turn', (name) => {
     $('#messages').append($('<li class="room-change">').text(`It is now ${name}'s turn.'`));
     scrollChat(); // jshint ignore:line
@@ -96,17 +102,31 @@ $(document).ready(function() {
     $('#messages').append($('<li>').text(`${name} just rolled a ${diceArray[0]} and ${diceArray[1]} for a total of ${diceArray[2]}`));
     scrollChat(); // jshint ignore:line
   });
-});
 
+  //listens for your place phase and asks server for board and game information
+  socket.on('your-place-phase', () => {
+
+    const pathname = window.location.pathname.split('/');
+    const gameID = pathname[pathname.length - 1];
+
+    $.ajax({
+      url: `player/new`,
+      method: 'get',
+      data: {gameID: gameID}
+    }).done((playerInfo) => {
+      console.log(playerInfo);
+    });
+  });
+});
+//enable all buttons
 function enableButtons() {
-  $('#roll-dice').prop('disabled', false);
   $('#next-turn').prop('disabled', false);
   $('#trade-bank').prop('disabled', false);
   $('#trade-players').prop('disabled', false);
   $('#play-dev-card-form').prop('disabled', false);
   $('#buy-developement-card-form').prop('disabled', false);
 }
-
+//disable all buttons
 function disableButtons() {
   $('#roll-dice').prop('disabled', true);
   $('#next-turn').prop('disabled', true);
@@ -114,4 +134,16 @@ function disableButtons() {
   $('#trade-players').prop('disabled', true);
   $('#play-dev-card-form').prop('disabled', true);
   $('#buy-developement-card-form').prop('disabled', true);
+}
+
+function disableCanvas() {
+  $('#hexmap').css('pointer-events', 'none');
+  $('#hexmap2').css('pointer-events', 'none');
+  $('#hexmap3').css('pointer-events', 'none');
+}
+
+function enableCanvas() {
+  $('#hexmap').css('pointer-events', 'auto');
+  $('#hexmap2').css('pointer-events', 'auto');
+  $('#hexmap3').css('pointer-events', 'auto');
 }

@@ -17,14 +17,15 @@ function grabFromGiphy(string) {
     url: 'http://api.giphy.com/v1/gifs/search?q=' + encodeURIComponent(string.trim()) + '&rating=g&api_key=dc6zaTOxFJmzC'
   })
   .done(function(result) {
-
-    const avatar_url = result.data[getRandomNumber(result.data.length)].images.downsized.url;
+    var avatar_url;
+    if (!result.data.length) avatar_url = 'https://media.giphy.com/media/SxthdSyeTcbRK/giphy.gif';
+    else avatar_url = result.data[getRandomNumber(result.data.length)].images.downsized.url;
     const pathname = window.location.pathname.split('/');
-    const game_id = pathname[pathname.length - 1];
+    const game_id = pathname[2];
     const color = $('#color').val();
 
     $.ajax({
-      url: `player/new`,
+      url: `/play/player/new`,
       method: 'POST',
       data: {avatar_url: avatar_url, game_id: game_id, color: color }
     }).done((playerInfo) => {

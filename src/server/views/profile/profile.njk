@@ -1,0 +1,72 @@
+{% extends "_base.njk" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+
+  {% if user[0].username %}
+    <h2>Hello {{ user[0].username }}</h2>
+  {% else  %}
+    <h2>{{ title }}</h2>
+  {% endif %}
+<div class="container col-lg-4">
+  <br>
+  <div class="user-info"id="usename"> Username:
+    <h2>{{ user[0].username }}</h2>
+  </div>
+  <br>
+
+  <div class="user-info"id="email"> Email:
+    <h2>{{ user[0].email }}</h2>
+  </div>
+  <br>
+
+  <div class="user-info"id="picture"> Profile pic:
+    <h2>{{ user[0].pic }}</h2>
+  </div>
+  <br>
+
+</div>
+
+<div class="container col-lg-4">
+  <br>
+  <div class="user-info"id="firsts"> First place wins:
+    <h2>{{ user[0].firsts }}</h2>
+  </div>
+  <br>
+
+  <div class="user-info"id="seconds"> Second place wins:
+    <h2>{{ user[0].seconds }}</h2>
+  </div>
+  <br>
+
+  <div class="user-info"id="thirds"> Third place wins:
+    <h2>{{ user[0].thirds }}</h2>
+  </div>
+  <br>
+
+  <div class="user-info"id="fourths"> Fourth place wins:
+    <h2>{{ user[0].fourths }}</h2>
+  </div>
+  <br>
+
+  <div class="user-info"id="games_played"> Total games played:
+    <h2>{{ user[0].games_played }}</h2>
+  </div>
+  <br>
+</div>
+
+<div class="buttons col-lg-4">
+  <a href="/profile/{{user[0].id}}/edit" class="btn btn-md btn-warning">edit</a>
+</div>
+
+
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" href="/css/profile.css" />
+{% endblock %}
+
+{% block scripts %}
+  <script type="text/javascript" src="/js/profile.js"></script>
+{% endblock %}

@@ -51,6 +51,10 @@
   overflow: auto;
 }
 
+.typing {
+  height: 25px;
+}
+
 .buttons {
   padding-top: 5%;
   margin-left: 4%;
@@ -140,5 +144,78 @@
 
 .longest-road {
   background-image: url('../images/longestroad.jpg');
+  background-size: cover;
+}
+
+.card {
+  float: left;
+  text-align: center;
+  border: 2px solid black;
+  width: 24%;
+  height: 250px;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+  margin-left: 0.5%;
+  margin-bottom: 0.5%;
+}
+
+.vp-card {
+  float: left;
+  text-align: center;
+  border: 2px solid black;
+  width: 19%;
+  height: 250px;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+  margin-left: 0.5%;
+  margin-bottom: 0.5%;
+}
+
+.player-hand-close {
+  clear: both;
+}
+
+.knight-dev {
+  background-image: url('../images/dev-cards/knight.png');
+  background-size: cover;
+}
+
+.road-building-dev {
+  background-image: url('../images/dev-cards/road-building.jpg');
+  background-size: cover;
+}
+
+.monopoly-dev {
+  background-image: url('../images/dev-cards/monopoly.png');
+  background-size: cover;
+}
+
+.year-of-plenty-dev {
+  background-image: url('../images/dev-cards/year-of-plenty.png');
+  background-size: cover;
+}
+
+.chapel-dev {
+  background-image: url('../images/dev-cards/chapel.jpg');
+  background-size: cover;
+}
+
+.citadel-dev {
+  background-image: url('../images/dev-cards/citadel.jpg');
+  background-size: cover;
+}
+
+.library-dev {
+  background-image: url('../images/dev-cards/library.jpg');
+  background-size: cover;
+}
+
+.university-dev {
+  background-image: url('../images/dev-cards/university.jpg');
+  background-size: cover;
+}
+
+.market-dev {
+  background-image: url('../images/dev-cards/market.jpg');
   background-size: cover;
 }

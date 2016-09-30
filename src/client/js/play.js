@@ -15,7 +15,7 @@
     $(this).css('display', 'none');
     $('.canvas-contain').css('display', 'block');
     var pathname = window.location.pathname.split('/');
-    var boardID = pathname[pathname.length - 1];
+    var boardID = pathname[2];
     $.ajax({
       url: `/play/${boardID}/join`,
       data: {id: boardID}
@@ -58,7 +58,7 @@
       var newSettlement = new SettlementSquare(settleCoords[0][0] - 10, settleCoords[0][1] - 10, 20, 20, '#333');
       newSettlement.draw();
     } else if (roadIndex !== null) {
-      drawRoad(board.allEdgeEndPoints[roadIndex][0], board.allEdgeEndPoints[roadIndex][1], board.allEdgeEndPoints[roadIndex][2], board.allEdgeEndPoints[roadIndex][3], 'red');
+      drawRoad(board.allEdgeEndPoints[roadIndex][0][0], board.allEdgeEndPoints[roadIndex][0][1], board.allEdgeEndPoints[roadIndex][1][0], board.allEdgeEndPoints[roadIndex][1][1], 'red');
     } else if (robberPlace !== undefined) {
       var robber = new Image();
       robber.onload = function() {

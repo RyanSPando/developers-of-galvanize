@@ -134,10 +134,10 @@ function __getEdges(vertices, allEdgeEndPoints) {
   for (let i = 0; i < vertices.length; i++) {
     if (i !== vertices.length - 1) {
       edgeArr.push([((vertices[i][0] + vertices[i + 1][0]) / 2), ((vertices[i][1] + vertices[i + 1][1]) / 2)]);
-      allEdgeEndPoints.push([vertices[i][0], vertices[i][1], vertices[i + 1][0], vertices[i + 1][1]]);
+      allEdgeEndPoints.push([[vertices[i][0], vertices[i][1]], [vertices[i + 1][0], vertices[i + 1][1]]]);
     } else {
       edgeArr.push([((vertices[i][0] + vertices[0][0]) / 2), ((vertices[i][1] + vertices[0][1]) / 2)]);
-      allEdgeEndPoints.push([vertices[i][0], vertices[i][1], vertices[0][0], vertices[0][1]]);
+      allEdgeEndPoints.push([[vertices[i][0], vertices[i][1]], [vertices[0][0], vertices[0][1]]]);
     }
   }
   return edgeArr;

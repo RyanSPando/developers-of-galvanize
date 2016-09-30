@@ -1,9 +1,7 @@
 const bcrypt = require('bcryptjs');
 
 function handleLogin(req, user) {
-  // check if in db
   req.session.user = user;
-  // req.session.uuid = id
 }
 
 function handleResponse(res, code, statusMsg) {
@@ -15,10 +13,11 @@ function comparePass(userPassword, databasePassword) {
 }
 
 function loginRequired(req, res, next) {
-  const renderObject = {};
-  renderObject.message = 'please log in';
+
   if (!req.session.user) {
-    res.render('error', renderObject);
+    // req.flash('errorMessage', 'Please log in.');
+    // res.redirect('back');
+    res.render('index', { message: req.flash('errorMessage', 'Please log in to do that.') });
   } else {
     return next();
   }

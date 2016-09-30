@@ -7,7 +7,6 @@ body {
 .play-butt {
   height: 200px;
   width:  200px;
-  /*text-align: center;*/
   font-family: monospace;
   background-color: rgba(255, 255, 0, 0.7);
   border-radius: 10%;

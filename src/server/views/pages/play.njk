@@ -4,7 +4,6 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="canvas-contain col-xs-8 col-md-8 col-lg-8 col-xs-offset-2">
 <canvas id="hexmap" class="canvas" width="800" height="650"></canvas>
 <canvas id="hexmap2" class="canvas2" width="800" height="650"></canvas>
@@ -16,7 +15,7 @@
    <div class="chat-box">
      <div class="messages" id="messages"></div>
      <div id="typing" class="typing"></div>
-    <form action="javascript:void(0)" id="chatForm">
+    <form class="send-message" action="javascript:void(0)" id="chatForm">
       <input id="m" autocomplete="off"/><button>Send</button>
     </form>
    </div>

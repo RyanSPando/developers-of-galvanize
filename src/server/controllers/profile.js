@@ -1,7 +1,6 @@
 const knex = require('../db/knex');
 const signin = require('../controllers/signin');
 
-
 function deleteProfile(searchID) {
   return knex('users').del().where('id', searchID);
 }
@@ -20,7 +19,7 @@ function editPage(req, res, next) {
       res.render('./profile/profile-edit', renderObject);
     } else {
       // console.log('user not found');
-      renderObject.title = 'user not found'
+      renderObject.title = 'user not found';
       res.render('./profile/profile-edit', renderObject);
     }
   });
@@ -57,7 +56,7 @@ function deleteProfile(id, req) {
   .then(() => {
     req.session.user = null;
     console.log('profile deleted');
-  })
+  });
 }
 
 module.exports = {

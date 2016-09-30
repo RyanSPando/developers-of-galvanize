@@ -20,11 +20,8 @@
     const profile = require('../routes/profile');
     // // *** forgot-password *** //
     const forgot_password = require('../routes/forgot-password');
-
-
     // // *** login *** //
     const login = require('../routes/login');
-
     const expressValidator = require('express-validator');
     const flash = require('connect-flash');
 
@@ -48,7 +45,6 @@
 
     // Connect Flash
     app.use(flash());
-
     // *** register index *** //
     app.use('/', index);
     // *** register highscores *** //

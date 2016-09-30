@@ -24,7 +24,6 @@
 
   });
 
-
   $(document).on('click', '#delete-profile', function(e) {
     e.preventDefault();
     const answer = confirm('Are you sure? This can\'t be undone');

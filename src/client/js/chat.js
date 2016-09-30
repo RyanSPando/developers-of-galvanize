@@ -32,7 +32,7 @@ $(document).ready(function() {
     disableButtons();
     socket.emit('next-turn', socketId);
   });
-
+  //emit chat message to server
   $('#chatForm').submit(function(e) {
     e.preventDefault();
     var msg = $('#m').val();
@@ -81,11 +81,11 @@ $(document).ready(function() {
       }
     });
   });
-
+  //enable buttons on your turn
   socket.on('your-turn', () => {
     enableButtons();
   });
-
+  //adds username of persons turn it is to chat
   socket.on('next-turn', (name) => {
     $('#messages').append($('<li class="room-change">').text(`It is now ${name}'s turn.'`));
     scrollChat(); // jshint ignore:line
@@ -96,8 +96,23 @@ $(document).ready(function() {
     $('#messages').append($('<li>').text(`${name} just rolled a ${diceArray[0]} and ${diceArray[1]} for a total of ${diceArray[2]}`));
     scrollChat(); // jshint ignore:line
   });
-});
 
+  //listens for your place phase and asks server for board and game information
+  socket.on('your-place-phase', () => {
+
+    const pathname = window.location.pathname.split('/');
+    const gameID = pathname[pathname.length - 1];
+
+    $.ajax({
+      url: `player/new`,
+      method: 'get',
+      data: {gameID: gameID}
+    }).done((playerInfo) => {
+      console.log(playerInfo);
+    });
+  });
+});
+//enable all buttons
 function enableButtons() {
   $('#roll-dice').prop('disabled', false);
   $('#next-turn').prop('disabled', false);
@@ -106,7 +121,7 @@ function enableButtons() {
   $('#play-dev-card-form').prop('disabled', false);
   $('#buy-developement-card-form').prop('disabled', false);
 }
-
+//disable all buttons
 function disableButtons() {
   $('#roll-dice').prop('disabled', true);
   $('#next-turn').prop('disabled', true);

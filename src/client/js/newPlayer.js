@@ -29,7 +29,7 @@ function grabFromGiphy(string) {
       method: 'POST',
       data: {avatar_url: avatar_url, game_id: game_id, color: color }
     }).done((playerInfo) => {
-
+      return playerInfo;
     });
 
     if (!result.data.length) {

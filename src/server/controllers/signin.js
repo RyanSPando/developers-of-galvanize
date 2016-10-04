@@ -13,13 +13,18 @@ function comparePass(userPassword, databasePassword) {
 }
 
 function loginRequired(req, res, next) {
-
   if (!req.session.user) {
-    // req.flash('errorMessage', 'Please log in.');
-    // res.redirect('back');
-    res.render('index', { message: req.flash('errorMessage', 'Please log in to do that.') });
+    res.render('index', { message: req.flash('errorMessage', 'Please log in to do that.'), notLogged: true });
   } else {
     return next();
+  }
+}
+
+function logCheck(arr, req) {
+  if (req.session.user) {
+    arr.logged = true;
+  } else {
+    arr.notLogged = true;
   }
 }
 
@@ -46,5 +51,6 @@ module.exports = {
   handleLogin,
   comparePass,
   loginRequired,
-  logIn
+  logIn,
+  logCheck
 };

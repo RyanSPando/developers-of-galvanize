@@ -20,6 +20,8 @@
     const profile = require('../routes/profile');
     // // *** forgot-password *** //
     const forgot_password = require('../routes/forgot-password');
+    // *** logout *** //
+    const logout = require('../routes/logout');
 
     // // *** login *** //
     const login = require('../routes/login');
@@ -60,6 +62,8 @@
     app.use('/forgot-password', forgot_password);
     // *** register login *** //
     app.use('/login', login);
+    // *** register logout *** //
+    app.use('/logout', logout);
     // *** register index *** //
     app.use('/profile', profile);
 

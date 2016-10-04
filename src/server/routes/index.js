@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
-const indexController = require('../controllers/index');
+const signin = require('../controllers/signin');
 
 router.get('/', function (req, res, next) {
   const renderObject = {};
-  // renderObject.title = 'Home!';
+  signin.logCheck(renderObject, req);
   res.render('index', renderObject);
 });
 

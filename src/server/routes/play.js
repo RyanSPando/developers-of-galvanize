@@ -7,7 +7,7 @@ const indexController = require('../controllers/index');
 
 router.get('/', authHelpers.loginRequired, (req, res, next) => {
   const renderObject = {};
-  renderObject.title = 'Play!';
+  authHelpers.logCheck(renderObject, req);
   renderObject.sessionID = req.sessionID;
   renderObject.name = req.session.user.username;
   res.render('./pages/findGame', renderObject);
@@ -31,6 +31,7 @@ router.get('/findGame', authHelpers.loginRequired, (req, res, next) => {
 
 router.get('/:gameID', authHelpers.loginRequired, (req, res, next) => {
   const renderObject = {};
+  authHelpers.logCheck(renderObject, req);
   renderObject.title = 'Play!';
   renderObject.sessionID = req.sessionID;
   renderObject.name = req.session.user.username;
@@ -40,6 +41,7 @@ router.get('/:gameID', authHelpers.loginRequired, (req, res, next) => {
 
 router.get('/:gameID/notFirst', authHelpers.loginRequired, (req, res, next) => {
   const renderObject = {};
+  authHelpers.logCheck(renderObject, req);
   renderObject.title = 'Play!';
   renderObject.sessionID = req.sessionID;
   renderObject.name = req.session.user.username;

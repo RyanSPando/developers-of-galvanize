@@ -1,24 +1,18 @@
 const knex = require('../db/knex');
 const signin = require('../controllers/signin');
 
-function deleteProfile(searchID) {
-  return knex('users').del().where('id', searchID);
-}
-
 function editPage(req, res, next) {
-  // console.log(knex);
   let id = req.params.id;
   const renderObject = {};
+  signin.logCheck(renderObject, req);
   knex('users')
   .where('id', id)
   .then((user) => {
     if (user) {
       renderObject.user = user;
       renderObject.title = 'Edit Profile!';
-      // console.log('user =>', user);
       res.render('./profile/profile-edit', renderObject);
     } else {
-      // console.log('user not found');
       renderObject.title = 'user not found';
       res.render('./profile/profile-edit', renderObject);
     }
@@ -48,14 +42,14 @@ function updateProfile(req, res, next) {
   });
 }
 
-function deleteProfile(id, req) {
+function deleteProfile(req, res) {
+  let id = req.params.id;
   return knex('users')
-  .select('*')
   .where('id', id)
   .del()
   .then(() => {
     req.session.user = null;
-    console.log('profile deleted');
+    res.redirect('/');
   });
 }
 

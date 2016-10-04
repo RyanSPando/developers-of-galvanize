@@ -29,16 +29,15 @@
     //
     if (answer) {
       var id = window.location.pathname.split('/')[2];
-      console.log('id', id);
       $.ajax({
         type: 'DELETE',
         url: `/profile/${id}/delete`
       })
       .done((data) => {
-        location.reload();
+        document.location.href = '/';
       })
       .fail((err) => {
-        console.log(err);
+        console.log('err =>', err);
       });
     }
   });

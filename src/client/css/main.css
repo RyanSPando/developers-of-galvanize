@@ -1,15 +1,38 @@
-/*html, body {
-  margin:0;
-  padding:0;
-  height:100%;
-  width: 100%;
-  /*overflow: hidden;*/
-}
-
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url(../images/catanpic.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-a {
-  color: #00B7FF;
-}*/
+.play-butt {
+  height: 200px;
+  width:  200px;
+  font-family: monospace;
+  background-color: rgba(255, 255, 0, 0.7);
+  border-radius: 10%;
+  font-weight: bold;
+  color: red;
+  font-size: 25px;
+  margin-left: 45%;
+  text-decoration: underline;
+  margin-top: 10%;
+  line-height: 160px;
+  border-style: ridge;
+  border-width: thick;
+  border-color: rgb(255, 255, 0);
+}
+
+.play-butt:hover {
+  background-color: rgba(200, 200, 255, 0.5);
+  color: blue;
+}
+
+.flash {
+  background-color: rgba(255, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  max-width: 400px;
+  margin-left: 37%;
+  border-radius: 25px;
+  padding: 5px;
+}

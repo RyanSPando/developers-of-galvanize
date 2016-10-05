@@ -1,9 +1,7 @@
 const bcrypt = require('bcryptjs');
 
 function handleLogin(req, user) {
-  // check if in db
   req.session.user = user;
-  // req.session.uuid = id
 }
 
 function handleResponse(res, code, statusMsg) {
@@ -15,12 +13,18 @@ function comparePass(userPassword, databasePassword) {
 }
 
 function loginRequired(req, res, next) {
-  const renderObject = {};
-  renderObject.message = 'please log in';
   if (!req.session.user) {
-    res.render('error', renderObject);
+    res.render('index', { message: req.flash('errorMessage', 'Please log in to do that.'), notLogged: true });
   } else {
     return next();
+  }
+}
+
+function logCheck(arr, req) {
+  if (req.session.user) {
+    arr.logged = true;
+  } else {
+    arr.notLogged = true;
   }
 }
 
@@ -47,5 +51,6 @@ module.exports = {
   handleLogin,
   comparePass,
   loginRequired,
-  logIn
+  logIn,
+  logCheck
 };

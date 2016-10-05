@@ -6,6 +6,7 @@ const knex = require('../db/knex');
 
 router.get('/', authHelpers.loginRequired, function (req, res, next) {
   const renderObject = {};
+  authHelpers.logCheck(renderObject, req);
   knex('users')
   .where('email', req.session.user.email)
   .then((user) => {
@@ -27,15 +28,14 @@ router.get('/:id/edit', authHelpers.loginRequired, User.editPage);
 router.put('/:id/edit', authHelpers.loginRequired, User.updateProfile);
 
 router.delete('/:id/delete', function (req, res, next) {
-    const id = req.params.id;
-    console.log('id', id);
-    User.deleteProfile(id, req)
-    .then(() => {
-      res.send('success!');
-    })
-    .catch((err) => {
-      return next(err);
-    });
+  const id = req.params.id;
+  User.deleteProfile(req)
+  .then(() => {
+    res.send('success!');
+  })
+  .catch((err) => {
+    return next(err);
   });
+});
 
 module.exports = router;

@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   // show modal for new user color and avatar
   $('#myModal').modal('show');
 
@@ -29,8 +28,15 @@ function grabFromGiphy(string) {
       method: 'POST',
       data: {avatar_url: avatar_url, game_id: game_id, color: color }
     }).done((playerInfo) => {
-      // callgameBoard();
-      return playerInfo;
+      $('.player-stuff').append('<input type="hidden" class="player-info" data-player-color="' + playerInfo.color + '" data-player-avatar="' + playerInfo.avatar_url + '">');
+      $('.player-name').css('background-image', 'url("' + playerInfo.avatar_url + '")');
+      $('.player-name').css('background-size', 'cover');
+      $('.victory-points').css('background-color', playerInfo.color);
+      $('.wheat').append(`<h1>${playerInfo.wheat_cards}</h1>`);
+      $('.lumber').append(`<h1>${playerInfo.wood_cards}</h1>`);
+      $('.ore').append(`<h1>${playerInfo.ore_cards}</h1`);
+      $('.sheep').append(`<h1>${playerInfo.sheep_cards}</h1>`);
+      $('.brick').append(`<h1>${playerInfo.brick_cards}</h1>`);
     });
 
     if (!result.data.length) {
@@ -43,15 +49,3 @@ function grabFromGiphy(string) {
 function getRandomNumber(max) {
   return Math.floor(Math.random() * max);
 }
-
-// function callgameBoard() {
-//   const pathname = window.location.pathname.split('/');
-//   const game_id = pathname[2];
-//   $.ajax({
-//     url: `/play/${game_id}/player`,
-//     method: 'GET',
-//     data: {game_id: game_id}
-//   }).done((playerInfo) => {
-//     console.log(playerInfo);
-//   });
-// }

@@ -4,7 +4,6 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="canvas-contain col-xs-8 col-md-8 col-lg-8 col-xs-offset-2">
 <canvas id="hexmap" class="canvas" width="800" height="650"></canvas>
 <canvas id="hexmap2" class="canvas2" width="800" height="650"></canvas>
@@ -16,7 +15,7 @@
    <div class="chat-box">
      <div class="messages" id="messages"></div>
      <div id="typing" class="typing"></div>
-    <form action="javascript:void(0)" id="chatForm">
+    <form class="send-message" action="javascript:void(0)" id="chatForm">
       <input id="m" autocomplete="off"/><button>Send</button>
     </form>
    </div>
@@ -48,8 +47,8 @@
      <data value="" data-id="{{sessionID}}" data-name="{{name}}" data-first="{{first}}" id="myData"></data>
   </div>
   <div class="player-stuff col-xs-4">
-  <div class="player-name">name</div>
-  <div class="victory-points">victory points</div>
+    <div class="player-name">{{name}}</div>
+    <div class="victory-points">Victory Points</div>
 
     <div class="resources wheat">Wheat</div>
     <div class="resources lumber">Lumber</div>
@@ -57,8 +56,8 @@
     <div class="resources sheep">Sheep</div>
     <div class="resources brick">Brick</div>
 
-  <div class="bonus-div largest-army">Largest Army Count</div>
-  <div class="bonus-div longest-road">Longest Road Count</div>
+    <div class="bonus-div largest-army">Largest Army Count</div>
+    <div class="bonus-div longest-road">Longest Road Count</div>
 
   </div>
 </div>
@@ -107,7 +106,7 @@
               <option disabled value="color" default>Pick a Color<option>
               <option value="red" style="background:red">Red</option>
               <option value="orange" style="background:orange">Orange</option>
-              <option value="white" style="background:white">White</option>
+              <option value="green" style="background:green">Green</option>
               <option value="blue" style="background:blue">Blue</option>
             </select>
             <br>
@@ -126,7 +125,6 @@
 
 {% block scripts %}
 <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.js" charset="utf-8"></script>
-{# <script src="/socket.io/socket.io.js"></script> #}
 <script type="text/javascript" src="/js/ports.js"></script>
 <script type="text/javascript" src="/js/utility.js"></script>
 <script type="text/javascript" src="/js/play.js"></script>

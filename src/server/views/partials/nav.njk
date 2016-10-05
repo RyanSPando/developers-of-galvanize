@@ -2,13 +2,8 @@
   <div class="container-fluid navbar-header">
     <ul class="nav navbar-nav">
       <li><a class="btn btn-lg btn-success" href="/">home</a></li>
-      {# <li><a class="btn btn-lg btn-success" href="/highscores">highscores</a></li> #}
-      {# <li><a class="btn btn-lg btn-success" href="/setup">setup</a></li> #}
-      <li><a class="btn btn-lg btn-success" href="/play">play</a></li>
-      <li><a class="btn btn-lg btn-success" href="/profile">profile</a></li>
-<!--******* if not logged in remove this after functional  ********-->
+      {% if notLogged %}
       <li><a class="btn btn-lg btn-success" href="/register">Sign-up</a></li>
-<!--******* if not logged in remove this after functional  ********-->
       <li class="dropdown">
         <a href="#" class="dropdown-toggle btn btn-lg btn-success" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
         <ul id="login-dp" class="dropdown-menu">
@@ -50,6 +45,11 @@
           </li>
         </ul>
       </li>
+      {% elif logged %}
+        <li><a class="btn btn-lg btn-success" href="/play">play</a></li>
+        <li><a class="btn btn-lg btn-success" href="/profile">profile</a></li>
+        <li><a href="#" class="btn btn-lg btn-success" id="sign-out"> Logout </a></li>
+      {% endif %}
     </ul>
   </div>
 </nav>

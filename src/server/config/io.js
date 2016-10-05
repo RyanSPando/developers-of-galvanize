@@ -1,5 +1,6 @@
 const users = [];
 var masterIDx = masterIDx || 0;
+var round = 0;
 
 function init(io) {
   io.on('connection', function(socket) {
@@ -15,8 +16,7 @@ function init(io) {
       io.emit('join chat', msg);
       if (users.length > 1) {
         const socketId = users[0].socketId;
-        io.emit('start-game');
-        io.sockets.connected[socketId].emit('your-place-phase');
+        io.sockets.connected[socketId].emit('your-phase');
       }
     });
 
@@ -24,13 +24,13 @@ function init(io) {
       io.emit('typing', msg);
     });
 
-    socket.on('disconnect', function(msg) {
-      var userIdx = findUserIndexBySocket(socket);
-      var disconnectedUser = users.splice(userIdx,1)[0];
-      if (disconnectedUser) {
-        io.emit('leave chat', disconnectedUser.name);
-      }
-    });
+    // socket.on('disconnect', function(msg) {
+    //   var userIdx = findUserIndexBySocket(socket);
+    //   var disconnectedUser = users.splice(userIdx,1)[0];
+    //   if (disconnectedUser) {
+    //     io.emit('leave chat', disconnectedUser.name);
+    //   }
+    // });
 
     socket.on('dice-roll', function(sessionID) {
       if (checkUser(sessionID, masterIDx)) {
@@ -53,24 +53,58 @@ function init(io) {
       }
     });
 
-    socket.on('your-place-phase', function(sessionID) {
-      console.log('hello it\'s your place phase');
+    socket.on('next-place-phase', function(sessionID) {
+      if (checkUser(sessionID, masterIDx)) {
+        console.log('current round', round);
+        let nextMasterIndex;
+        // go through normal turn order on round 1
+        if (round === 0) {
+           nextMasterIndex = (findUserIndexBySession(sessionID) + 1);
+          if(nextMasterIndex === (users.length - 1)) {
+            round += 1;
+          }
+          masterIDx = nextMasterIndex;
+          let name = users[nextMasterIndex].name;
+          let socketId = users[nextMasterIndex].socketId;
+          io.emit('next-place-phase', name);
+          io.sockets.connected[socketId].emit('your-phase');
+        }
+        //go through reverse order on turn 2
+        else if (round === 1) {
+          nextMasterIndex = (findUserIndexBySession(sessionID) - 1);
+          console.log('inside round 1', nextMasterIndex);
+          //go to normal turns if second phase complete
+         if (nextMasterIndex === -1) {
+           masterIDx = 0;
+           round += 1;
+           let name = users[masterIDx].name;
+           let socketId = users[masterIDx].socketId;
+           io.emit('next-turn', name);
+           io.sockets.connected[socketId].emit('your-turn');
+         }
+         else {
+           nextMasterIndex = masterIDx;
+           let name = users[nextMasterIndex].name;
+           let socketId = users[nextMasterIndex].socketId;
+           io.emit('next-place-phase', name);
+           io.sockets.connected[socketId].emit('your-phase');
+         }
+        }
+      }
     });
   });
 }
 //finds index of user in array by their socket
 function findUserIndexBySocket(socket) {
-  return users.reduce(function(prev, cur, idx) {
-    if (cur.socketId === socket.id) prev = idx;
-    return prev;
-  }, -1);
+  return users.map(function(value, idx) {
+    return value.socketId;
+  }).indexOf(socket);
 }
 
 function findUserIndexBySession(sessionID) {
-  return users.reduce((prev, cur, idx) => {
-    if (cur.sessionID === sessionID) prev = idx;
-    return prev;
-  }, -1);
+  return users.map((value, idx) => {
+    return value.sessionID;
+  }).indexOf(sessionID);
 }
 //return an array with two six sided dice rolls in position 0 and 1 and their total in position 2.
 function diceRoll() {
@@ -84,7 +118,7 @@ function resolveDiceRoll(diceResult, io, socket, users) {
 
   if (diceRoll) {
     users.forEach((user) => {
-      io.sockets.connected[user.socketId].emit('chat message',`${user.name} only received this message`);
+      // io.sockets.connected[user.socketId].emit('chat message',`${user.name} only received this message`);
     });
   }
 }

@@ -1,6 +1,7 @@
 const users = [];
 var masterIDx = masterIDx || 0;
 var round = 0;
+let nextMasterIndex;
 
 function init(io) {
   io.on('connection', function(socket) {
@@ -46,8 +47,8 @@ function init(io) {
       if (checkUser(sessionID, masterIDx)) {
         const nextMasterIndex = (findUserIndexBySession(sessionID) + 1) % (users.length);
         masterIDx = nextMasterIndex;
-        const name = users[nextMasterIndex].name;
-        const socketId = users[nextMasterIndex].socketId;
+        const name = users[masterIDx].name;
+        const socketId = users[masterIDx].socketId;
         io.emit('next-turn', name);
         io.sockets.connected[socketId].emit('your-turn');
       }
@@ -55,40 +56,38 @@ function init(io) {
 
     socket.on('next-place-phase', function(sessionID) {
       if (checkUser(sessionID, masterIDx)) {
-        console.log('current round', round);
-        let nextMasterIndex;
+        console.log('round', round);
         // go through normal turn order on round 1
         if (round === 0) {
-           nextMasterIndex = (findUserIndexBySession(sessionID) + 1);
-          if(nextMasterIndex === (users.length - 1)) {
+          nextMasterIndex = (findUserIndexBySession(sessionID) + 1);
+          if (nextMasterIndex === (users.length - 1)) {
             round += 1;
           }
           masterIDx = nextMasterIndex;
-          let name = users[nextMasterIndex].name;
-          let socketId = users[nextMasterIndex].socketId;
+          let name = users[masterIDx].name;
+          let socketId = users[masterIDx].socketId;
           io.emit('next-place-phase', name);
           io.sockets.connected[socketId].emit('your-phase');
         }
         //go through reverse order on turn 2
         else if (round === 1) {
+          if (nextMasterIndex === 0) {
+            round += 1;
+          }
+          masterIDx = nextMasterIndex;
+          let name = users[masterIDx].name;
+          let socketId = users[masterIDx].socketId;
+          io.emit('next-place-phase', name);
+          io.sockets.connected[socketId].emit('your-phase');
           nextMasterIndex = (findUserIndexBySession(sessionID) - 1);
-          console.log('inside round 1', nextMasterIndex);
-          //go to normal turns if second phase complete
-         if (nextMasterIndex === -1) {
-           masterIDx = 0;
-           round += 1;
-           let name = users[masterIDx].name;
-           let socketId = users[masterIDx].socketId;
-           io.emit('next-turn', name);
-           io.sockets.connected[socketId].emit('your-turn');
-         }
-         else {
-           nextMasterIndex = masterIDx;
-           let name = users[nextMasterIndex].name;
-           let socketId = users[nextMasterIndex].socketId;
-           io.emit('next-place-phase', name);
-           io.sockets.connected[socketId].emit('your-phase');
-         }
+        }
+        //go to normal turns if second phase complete
+        else if (round === 2) {
+          masterIDx = 0;
+          let name = users[masterIDx].name;
+          let socketId = users[masterIDx].socketId;
+          io.emit('next-turn', name);
+          io.sockets.connected[socketId].emit('your-turn');
         }
       }
     });

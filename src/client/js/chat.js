@@ -1,13 +1,15 @@
 $(document).ready(function() {
   //setup start
   disableCanvas();
+
   var socket = io(); // jshint ignore:line
   const bool = $('#myData').data('first');
 
-  //first player can roll
-  if (bool) {
-    $('#roll-dice').prop('disabled', false);
-  }
+  //first player can place cities
+  // if (bool) {
+  //   enableCanvas();
+  //   $('#next-place').prop('disable', 'false');
+  // }
 
   // send new user's name and sessionID
   $(document).ready(function() {
@@ -35,6 +37,15 @@ $(document).ready(function() {
     disableButtons();
     disableCanvas();
     socket.emit('next-turn', socketId);
+  });
+
+  $('#next-place-form').on('submit', (e) => {
+    e.preventDefault();
+    const socketId = $('#myData').data('id');
+    $('#next-place').prop('disabled', 'true');
+    disableCanvas();
+    console.log('next phase button fires');
+    socket.emit('next-place-phase', socketId);
   });
 
   //emit chat message to server
@@ -91,9 +102,9 @@ $(document).ready(function() {
     $('#roll-dice').prop('disabled', false);
   });
 
-  //adds username of persons turn it is to chat
+  //adds username of persons turn it is to play
   socket.on('next-turn', (name) => {
-    $('#messages').append($('<li class="room-change">').text(`It is now ${name}'s turn.'`));
+    $('#messages').append($('<li class="room-change">').text(`It is now ${name}'s turn.`));
     scrollChat(); // jshint ignore:line
   });
 
@@ -103,19 +114,26 @@ $(document).ready(function() {
     scrollChat(); // jshint ignore:line
   });
 
-  //listens for your place phase and asks server for board and game information
-  socket.on('your-place-phase', () => {
-
+  //listens for your place phase and asks server for player information
+  socket.on('your-phase', () => {
+    console.log('place-phase');
     const pathname = window.location.pathname.split('/');
-    const gameID = pathname[pathname.length - 1];
-
+    const game_id = pathname[2];
     $.ajax({
-      url: `player/new`,
-      method: 'get',
-      data: {gameID: gameID}
+      url: `/play/${game_id}/player`,
+      method: 'GET',
+      data: {game_id: game_id}
     }).done((playerInfo) => {
-      console.log(playerInfo);
+      console.log('your place phase fire');
+      enableCanvas();
+      $('#next-place').prop('disabled', false);
     });
+  });
+
+  //adds username of persons turn it is to place
+  socket.on('next-place-phase', (name) => {
+    $('#messages').append($('<li class="room-change">').text(`It is now ${name}'s turn to place.`));
+    scrollChat(); // jshint ignore:line
   });
 });
 //enable all buttons

@@ -15,7 +15,6 @@ function getBoard(id) {
 }
 
 function getPlayerBoard(gameID, user_id) {
-  console.log(gameID, user_id);
   return knex('user_game').where({user_id: user_id, game_id: gameID}).then(playerState => {return playerState;});
 }
 
